@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="wellbeingLightPurple">#BB2387</color>
+    <color name="wellbeingDarkPurple">#5E1ABC</color>
+    <color name="wellbeingWhite">#FFFFFF</color>
+</resources>
