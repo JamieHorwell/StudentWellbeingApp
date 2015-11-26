@@ -2,259 +2,215 @@
 <!--
 Initial Author: Jason Ian Murray, Date: 8/11/2015
 Notes:
-An .xml file to describe the main menu. This outlines the partition of
-the screen (vertically) into two halves (by using two LinearLayouts); each half contains a column of
-image buttons. These buttons, onClick, would activate another activity or function dictated by
-MainMenuActivity.java.
+    -   An .xml file to describe the main menu. This outlines the partition of
+    the screen (vertically) into two halves (by using two LinearLayouts); each
+    half contains a column of image buttons. These buttons, onClick, would activate
+    another activity or function dictated by MainMenuActivity.java.
 
 Extended by: Jason Ian Murray, Date: 10/11/2015
 Notes:
-This file was updated to give a TextView beneath each button which describes the button
-above. Further more, spacing and colours were updated to adopt a style similar to the
-Student Wellbeing Website.
+    -   This file was updated to give a TextView beneath each button which describes
+    the button above.
+    -   Spacing and colours were updated to adopt a style similar to the Student
+    Wellbeing Website.
+
+Extended by: Jason Ian Murray, Date: 25/11/2015
+Notes:
+    -   Cut the buttons down to 10 to better represent the number of features
+    available.
+    -   Added onClick methods for all of the buttons; they all point to the same
+    method but their actions will be split programatically in MainMenuActivity.
 -->
 
 <!-- weightSum indicates the weight of the horizontal axis -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+android:layout_width="match_parent"
+android:layout_height="match_parent">
 
-    <!-- Allows for the following child to be scrolled -->
-    <ScrollView
-       android:layout_height="wrap_content"
-        android:layout_width="match_parent">
+<!-- Allows for the following child to be scrolled -->
+<ScrollView
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/wellbeingDarkPurple">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Menu"
+            android:textSize="25dp"
+            android:padding="25dp"
+            android:textColor="@color/wellbeingWhite"/>
+
+        <LinearLayout android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/wellbeingDarkPurple">
+            android:weightSum="4"
+            android:background="@color/wellbeingWhite">
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Student Wellbeing App"
-                android:textSize="25dp"
-                android:padding="25dp"
-                android:textColor="@color/wellbeingWhite"/>
-
-            <LinearLayout android:orientation="horizontal"
-                android:layout_width="match_parent"
+            <!-- Left Hand Side -->
+            <!-- layout_weight 2 indicates that the layout is to take half of the horizontal axis (4)-->
+            <LinearLayout
                 android:layout_height="match_parent"
-                android:weightSum="4"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingRight="15dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="30dp"
                 android:background="@color/wellbeingWhite">
 
-                <!-- Left Hand Side -->
-                <!-- layout_weight 2 indicates that the layout is to take half of the horizontal axis (4)-->
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:orientation="vertical"
-                    android:paddingTop="30dp"
-                    android:paddingRight="15dp"
-                    android:paddingEnd="15dp"
+                <ImageButton
+                    android:layout_width="fill_parent"
+                    android:layout_height="125dp"
+                    android:id="@+id/menuButton1"
+                    android:onClick="onButtonClick" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="Button 1"
                     android:paddingBottom="30dp"
-                    android:paddingLeft="30dp"
-                    android:background="@color/wellbeingWhite">
+                    android:gravity="center"
+                    android:textColor="@color/wellbeingLightPurple"
+                    android:background="@color/wellbeingWhite"/>
 
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton1"/>
+                <ImageButton
+                    android:layout_width="fill_parent"
+                    android:layout_height="125dp"
+                    android:id="@+id/menuButton2"
+                    android:onClick="onButtonClick"/>
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Example Content"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
-
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton2"/>
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Button 2"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
-
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton3"/>
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Button 3"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
-
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton4"/>
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Button 4"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
-
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton5"/>
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Button 5"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
-
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton6"/>
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Button 6"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
-
-                </LinearLayout>
-
-                <!-- Right Hand Side -->
-                <!-- layout_weight 2 indicates that the layout is to take half of the horizontal axis (4)-->
-                <LinearLayout
-                    android:layout_height="match_parent"
-                    android:layout_width="0dp"
-                    android:layout_weight="2"
-                    android:orientation="vertical"
-                    android:paddingTop="30dp"
-                    android:paddingRight="30dp"
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="Button 2"
                     android:paddingBottom="30dp"
-                    android:paddingLeft="15dp"
-                    android:paddingStart="15dp"
-                    android:background="@color/wellbeingWhite">
+                    android:gravity="center"
+                    android:textColor="@color/wellbeingLightPurple"
+                    android:background="@color/wellbeingWhite"/>
 
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton7"/>
+                <ImageButton
+                    android:layout_width="fill_parent"
+                    android:layout_height="125dp"
+                    android:id="@+id/menuButton3"
+                    android:onClick="onButtonClick"/>
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Button 7"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="Button 3"
+                    android:paddingBottom="30dp"
+                    android:gravity="center"
+                    android:textColor="@color/wellbeingLightPurple"
+                    android:background="@color/wellbeingWhite"/>
 
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton8"/>
+                <ImageButton
+                    android:layout_width="fill_parent"
+                    android:layout_height="125dp"
+                    android:id="@+id/menuButton4"
+                    android:onClick="onButtonClick"/>
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Button 8"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="Button 4"
+                    android:paddingBottom="30dp"
+                    android:gravity="center"
+                    android:textColor="@color/wellbeingLightPurple"
+                    android:background="@color/wellbeingWhite"/>
 
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton9"/>
+            </LinearLayout>
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Button 9"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
+            <!-- Right Hand Side -->
+            <!-- layout_weight 2 indicates that the layout is to take half of the horizontal axis (4)-->
+            <LinearLayout
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:paddingTop="30dp"
+                android:paddingRight="30dp"
+                android:paddingBottom="30dp"
+                android:paddingLeft="15dp"
+                android:paddingStart="15dp"
+                android:background="@color/wellbeingWhite">
 
-                    <ImageButton android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton10"/>
+                <ImageButton
+                    android:layout_width="fill_parent"
+                    android:layout_height="125dp"
+                    android:id="@+id/menuButton5"
+                    android:onClick="onButtonClick"/>
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Button 10"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="Button 5"
+                    android:paddingBottom="30dp"
+                    android:gravity="center"
+                    android:textColor="@color/wellbeingLightPurple"
+                    android:background="@color/wellbeingWhite"/>
 
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton11"/>
+                <ImageButton
+                    android:layout_width="fill_parent"
+                    android:layout_height="125dp"
+                    android:id="@+id/menuButton6"
+                    android:onClick="onButtonClick"/>
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Button 11"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="Button 6"
+                    android:paddingBottom="30dp"
+                    android:gravity="center"
+                    android:textColor="@color/wellbeingLightPurple"
+                    android:background="@color/wellbeingWhite"/>
 
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="100dp"
-                        android:id="@+id/menuButton12"/>
+                <ImageButton
+                    android:layout_width="fill_parent"
+                    android:layout_height="125dp"
+                    android:id="@+id/menuButton7"
+                    android:onClick="onButtonClick"/>
 
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Button 12"
-                        android:paddingBottom="30dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
-                </LinearLayout>
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="Button 7"
+                    android:paddingBottom="30dp"
+                    android:gravity="center"
+                    android:textColor="@color/wellbeingLightPurple"
+                    android:background="@color/wellbeingWhite"/>
+
+                <ImageButton android:layout_width="fill_parent"
+                    android:layout_height="125dp"
+                    android:id="@+id/menuButton8"
+                    android:onClick="onButtonClick"/>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:text="Button 8"
+                    android:paddingBottom="30dp"
+                    android:gravity="center"
+                    android:textColor="@color/wellbeingLightPurple"
+                    android:background="@color/wellbeingWhite"/>
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
+</ScrollView>
 </RelativeLayout>
