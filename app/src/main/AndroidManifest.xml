@@ -3,10 +3,14 @@
 Initial Author: Android Studio, Date: -
 Extended by: Jason Ian Murray, Date: 25/11/15
 Notes:
-Extended to include the .ButtonOneActivity. ParentAcvtivityName
-points back to the main menu from which the ButtonOneActivity is called.
-With this being specified additional features are available including
-an actionBar back button.
+    -   Extended to include the .ButtonOneActivity.
+    -   Added ParentAcvtivityName points back to the main
+    menu from which the ButtonOneActivity is called. With
+    this being specified additional features are available including
+    an actionBar back button.
+    -   Extended to remove the standard theme and replace it with a
+    brighter one that hides the ActionBar. The ActionBar is to be
+    replaced with a Toolbar.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="team10.studentwellbeingapp" >
@@ -15,7 +19,7 @@ an actionBar back button.
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         <activity
             android:name=".MainMenuActivity">
             <intent-filter>
