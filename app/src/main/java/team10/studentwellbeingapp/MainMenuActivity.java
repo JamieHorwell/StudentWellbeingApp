@@ -54,7 +54,6 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.menuButton2:
-
                 break;
             case R.id.menuButton3:
 
