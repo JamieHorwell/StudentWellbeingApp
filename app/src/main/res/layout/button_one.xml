@@ -25,16 +25,26 @@ Notes:
             android:orientation="vertical"
             android:background="@color/wellbeingDarkPurple"
             android:weightSum="1">
-
-            <TextView
-                android:layout_width="fill_parent"
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Button One"
-                android:textSize="25dp"
-                android:padding="25dp"
-                android:textColor="@color/wellbeingWhite"/>
+                android:background="@color/wellbeingDarkPurple"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:id="@+id/buttonOneToolbar"
+                android:layout_gravity="center">
 
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Button One"
+                    android:textSize="25dp"
+                    android:padding="25dp"
+                    android:textColor="@color/wellbeingWhite"/>
+
+            </android.support.v7.widget.Toolbar>
             <LinearLayout android:layout_height="match_parent"
                 android:layout_width="match_parent"
                 android:orientation="vertical"

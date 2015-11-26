@@ -18,19 +18,21 @@ Notes:
     seemed to be a more elegant, less buggy solution than the original.
     -   Prepared the switch statement to offer conditions based on
     button id.
-    - Added some experimental code to try and define the actionBar's
-    layout/text values.
+
+Extended By: Jason Ian Murray, Date: 26/11/2015
+Notes:
+    -   Removed previous incarnation of toolbar code.
+    -   Added the toolbar; changed the previous implementation
+    and replaced it with a more stable XML variant.
 */
 
 package team10.studentwellbeingapp;
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
 import android.content.Intent;
-import android.widget.TextView;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -38,20 +40,10 @@ public class MainMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu_activity);
-    }
-    /*
-    Need to build a custom toolbar for the following to work.
-    Otherwise we get null pointer.
-    public boolean onCreateOptionsMenu(Menu menu){
-        ActionBar actionBar = this.getActionBar();
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        actionBar.setCustomView(R.layout.action_bar);
 
-        TextView actionBarTitle = (TextView) findViewById(R.id.action_bar_text_view);
-        actionBarTitle.setText("Student Wellbeing");
-        return true;
+        Toolbar toolbar = (Toolbar) findViewById(R.id.menuToolbar);
+        setSupportActionBar(toolbar);
     }
-    */
 
     public void onButtonClick(View v){
         ImageButton button = (ImageButton) v;
