@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Initial Author: Jason Ian Murray, Date: 26/11/2015
+Notes:
+    -   An .xml file that sets the background to wellbeingDarkPurple
+    on startup. This acts as a splash screen and offers polish.
+
+Extended by: , Date:
+Notes:
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@color/wellbeingDarkPurple" />
+
+</layer-list>
