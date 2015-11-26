@@ -83,7 +83,7 @@ Student Wellbeing Website.
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="Button 2"
+                        android:text="Log Book"
                         android:paddingBottom="30dp"
                         android:gravity="center"
                         android:textColor="@color/wellbeingLightPurple"
@@ -168,13 +168,14 @@ Student Wellbeing Website.
                     <ImageButton
                         android:layout_width="fill_parent"
                         android:layout_height="100dp"
-                        android:id="@+id/menuButton7"/>
+                        android:id="@+id/bookAppointmentButton"
+                        android:onClick="openBookingScreen"/>
 
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="Button 7"
+                        android:text="book appointment"
                         android:paddingBottom="30dp"
                         android:gravity="center"
                         android:textColor="@color/wellbeingLightPurple"
