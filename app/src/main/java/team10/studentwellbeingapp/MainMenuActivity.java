@@ -12,6 +12,7 @@ main_menu_activity.xml
 */
 
 package team10.studentwellbeingapp;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -28,8 +29,11 @@ public class MainMenuActivity extends AppCompatActivity {
     protected void menuButtonOnClick(View view){
 
     }
-
-    protected void setButtons(){
-
+    /** Called when the user clicks the Book appintment button */
+    public void openBookingScreen(View view){
+       Intent intent = new Intent(this, BookingAppointmentActivity.class);
+        startActivity(intent);
     }
+
+
 }
