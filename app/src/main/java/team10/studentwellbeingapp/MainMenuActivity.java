@@ -1,5 +1,4 @@
 /*
-Title:
 Initial Author: Jason Ian Murray, Date: 8/11/2015
 Notes:
     -   This is the activity that launches the main menu and at time
@@ -54,6 +53,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.menuButton2:
+
                 break;
             case R.id.menuButton3:
 

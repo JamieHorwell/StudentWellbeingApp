@@ -11,7 +11,12 @@ Notes:
     -   Extended to remove the standard theme and replace it with a
     brighter one that hides the ActionBar. The ActionBar is to be
     replaced with a Toolbar.
--->
+
+Extended by: Jason Ian Murray, Date: 26/11/15
+Notes:
+    -   Update the manifest to start with the splash screen instead
+    of the MainMenuActivity.
+    -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="team10.studentwellbeingapp" >
 
@@ -20,18 +25,23 @@ Notes:
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        <activity
-            android:name=".MainMenuActivity">
+
+        <activity android:name=".SplashScreen"
+            android:theme="@style/SplashScreen">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity android:name=".MainMenuActivity" />
+
         <activity
             android:name=".ButtonOneActivity"
-            android:parentActivityName=".MainMenuActivity">
+            android:parentActivityName=".MainMenuActivity" >
         </activity>
+
     </application>
 
 </manifest>

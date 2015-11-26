@@ -20,6 +20,10 @@ Notes:
     available.
     -   Added onClick methods for all of the buttons; they all point to the same
     method but their actions will be split programatically in MainMenuActivity.
+
+Extended by: Jason Ian Murray, Date: 26/11/2015
+Notes:
+    -   Added the toolbar.
 -->
 
 <!-- weightSum indicates the weight of the horizontal axis -->

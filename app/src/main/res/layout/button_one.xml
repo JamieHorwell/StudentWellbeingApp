@@ -7,8 +7,9 @@ Notes:
     -   This .xml file will act as a template until some actual content is
     provided by Haaris.
 
-Extended by: , Date:
+Extended by: Jason Ian Murray, Date: 26/11/2015
 Notes:
+    -   Added the toolbar.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -25,6 +26,7 @@ Notes:
             android:orientation="vertical"
             android:background="@color/wellbeingDarkPurple"
             android:weightSum="1">
+
             <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
