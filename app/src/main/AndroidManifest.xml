@@ -14,9 +14,10 @@ Notes:
 
 Extended by: Jason Ian Murray, Date: 26/11/15
 Notes:
-    -   Update the manifest to start with the splash screen instead
+    -   Updated the manifest to start with the splash screen instead
     of the MainMenuActivity.
-    -->
+    -   Updated the manifest with all the placeholder/template activities.
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="team10.studentwellbeingapp" >
 
@@ -26,11 +27,12 @@ Notes:
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
 
-        <activity android:name=".SplashScreen"
-            android:theme="@style/SplashScreen">
-
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/SplashScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -42,6 +44,40 @@ Notes:
             android:parentActivityName=".MainMenuActivity" >
         </activity>
 
+        <activity
+            android:name=".ButtonTwoActivity"
+            android:parentActivityName=".MainMenuActivity" >
+        </activity>
+
+        <activity
+            android:name=".ButtonThreeActivity"
+            android:parentActivityName=".MainMenuActivity" >
+        </activity>
+
+        <activity
+            android:name=".ButtonFourActivity"
+            android:parentActivityName=".MainMenuActivity" >
+        </activity>
+
+        <activity
+            android:name=".ButtonFiveActivity"
+            android:parentActivityName=".MainMenuActivity" >
+        </activity>
+
+        <activity
+            android:name=".ButtonSixActivity"
+            android:parentActivityName=".MainMenuActivity" >
+        </activity>
+
+        <activity
+            android:name=".ButtonSevenActivity"
+            android:parentActivityName=".MainMenuActivity" >
+        </activity>
+
+        <activity
+            android:name=".ButtonEightActivity"
+            android:parentActivityName=".MainMenuActivity" >
+        </activity>
     </application>
 
 </manifest>

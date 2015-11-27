@@ -49,29 +49,28 @@ public class MainMenuActivity extends AppCompatActivity {
 
         switch(button.getId()){
             case R.id.menuButton1:
-                Intent intent = new Intent(this, ButtonOneActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(this, ButtonOneActivity.class));
                 break;
             case R.id.menuButton2:
-
+                startActivity(new Intent(this, ButtonTwoActivity.class));
                 break;
             case R.id.menuButton3:
-
+                startActivity(new Intent(this, ButtonThreeActivity.class));
                 break;
             case R.id.menuButton4:
-
+                startActivity(new Intent(this, ButtonFourActivity.class));
                 break;
             case R.id.menuButton5:
-
+                startActivity(new Intent(this, ButtonFiveActivity.class));
                 break;
             case R.id.menuButton6:
-
+                startActivity(new Intent(this, ButtonSixActivity.class));
                 break;
             case R.id.menuButton7:
-
+                startActivity(new Intent(this, ButtonSevenActivity.class));
                 break;
             case R.id.menuButton8:
-
+                startActivity(new Intent(this, ButtonEightActivity.class));
                 break;
         }
 

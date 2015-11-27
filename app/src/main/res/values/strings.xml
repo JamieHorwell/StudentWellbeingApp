@@ -1,4 +1,11 @@
 <resources>
-    <string name="app_name">Student Wellbeing App</string>
-
+    <string name="app_name">Student Wellbeing</string>
+    <string name="button_one">Example Content One</string>
+    <string name="button_two">Example Content Two</string>
+    <string name="button_three">Button Three</string>
+    <string name="button_four">Button Four</string>
+    <string name="button_five">Button Five</string>
+    <string name="button_six">Button Six</string>
+    <string name="button_seven">Button Seven</string>
+    <string name="button_eight">Button Eight</string>
 </resources>

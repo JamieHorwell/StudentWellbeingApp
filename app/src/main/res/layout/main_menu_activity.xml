@@ -24,6 +24,9 @@ Notes:
 Extended by: Jason Ian Murray, Date: 26/11/2015
 Notes:
     -   Added the toolbar.
+    -   Button heights will have to be replaced with wrap_content to maintain aspect
+    ratio across all screen sizes when we have icons.
+    -   Adjusted the padding values to give more room for text.
 -->
 
 <!-- weightSum indicates the weight of the horizontal axis -->
@@ -75,11 +78,11 @@ android:layout_height="match_parent">
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:orientation="vertical"
-                android:paddingTop="30dp"
-                android:paddingRight="15dp"
-                android:paddingEnd="15dp"
-                android:paddingBottom="30dp"
-                android:paddingLeft="30dp"
+                android:paddingTop="20dp"
+                android:paddingRight="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="20dp"
+                android:paddingLeft="10dp"
                 android:background="@color/wellbeingWhite">
 
                 <ImageButton
@@ -92,7 +95,7 @@ android:layout_height="match_parent">
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
-                    android:text="Button 1"
+                    android:text="@string/button_one"
                     android:paddingBottom="30dp"
                     android:gravity="center"
                     android:textColor="@color/wellbeingLightPurple"
@@ -108,7 +111,7 @@ android:layout_height="match_parent">
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
-                    android:text="Button 2"
+                    android:text="@string/button_two"
                     android:paddingBottom="30dp"
                     android:gravity="center"
                     android:textColor="@color/wellbeingLightPurple"
@@ -124,7 +127,7 @@ android:layout_height="match_parent">
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
-                    android:text="Button 3"
+                    android:text="@string/button_three"
                     android:paddingBottom="30dp"
                     android:gravity="center"
                     android:textColor="@color/wellbeingLightPurple"
@@ -140,7 +143,7 @@ android:layout_height="match_parent">
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
-                    android:text="Button 4"
+                    android:text="@string/button_four"
                     android:paddingBottom="30dp"
                     android:gravity="center"
                     android:textColor="@color/wellbeingLightPurple"
@@ -155,11 +158,11 @@ android:layout_height="match_parent">
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:orientation="vertical"
-                android:paddingTop="30dp"
-                android:paddingRight="30dp"
-                android:paddingBottom="30dp"
-                android:paddingLeft="15dp"
-                android:paddingStart="15dp"
+                android:paddingTop="20dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp"
+                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
                 android:background="@color/wellbeingWhite">
 
                 <ImageButton
@@ -172,7 +175,7 @@ android:layout_height="match_parent">
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
-                    android:text="Button 5"
+                    android:text="@string/button_five"
                     android:paddingBottom="30dp"
                     android:gravity="center"
                     android:textColor="@color/wellbeingLightPurple"
@@ -188,7 +191,7 @@ android:layout_height="match_parent">
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
-                    android:text="Button 6"
+                    android:text="@string/button_six"
                     android:paddingBottom="30dp"
                     android:gravity="center"
                     android:textColor="@color/wellbeingLightPurple"
@@ -204,7 +207,7 @@ android:layout_height="match_parent">
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
-                    android:text="Button 7"
+                    android:text="@string/button_seven"
                     android:paddingBottom="30dp"
                     android:gravity="center"
                     android:textColor="@color/wellbeingLightPurple"
@@ -219,7 +222,7 @@ android:layout_height="match_parent">
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
-                    android:text="Button 8"
+                    android:text="@string/button_eight"
                     android:paddingBottom="30dp"
                     android:gravity="center"
                     android:textColor="@color/wellbeingLightPurple"
