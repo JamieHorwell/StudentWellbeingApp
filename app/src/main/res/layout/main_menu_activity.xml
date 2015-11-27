@@ -43,7 +43,7 @@ Student Wellbeing Website.
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Menu"
+                    android:text="Student Wellbeing"
                     android:textSize="25dp"
                     android:padding="25dp"
                     android:textColor="@color/wellbeingWhite"/>
