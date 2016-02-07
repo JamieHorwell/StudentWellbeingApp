@@ -1,6 +1,8 @@
 package team10.studentwellbeingapp;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -97,7 +99,7 @@ public class BookingAppointmentActivity extends ActionBarActivity {
             listView1.setAdapter(newAdapter);
         }
         else {
-
+            Alertdialog("No more days to show");
         }
 
     }
@@ -108,13 +110,24 @@ public class BookingAppointmentActivity extends ActionBarActivity {
             headerValue.setText(weeksAppointments[counter].getformattedDate());
             AppointmentAdapter newAdapter = new AppointmentAdapter(this, R.layout.appointment_item_row, weeksAppointments[counter].getAppointments());
             listView1.setAdapter(newAdapter);
-        }
-        else {
-
+        } else {
+            Alertdialog("No more days to show");
         }
     }
 
-    public void Alertdialog() {
+    public void Alertdialog(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message);
+        builder.setCancelable(true);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+               dialog.cancel();
+            }
+        });
+        AlertDialog warnNoMoreDays = builder.create();
+        warnNoMoreDays.show();
+
 
     }
 
