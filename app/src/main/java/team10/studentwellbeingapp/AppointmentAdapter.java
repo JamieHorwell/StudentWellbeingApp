@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 /**
@@ -17,6 +19,7 @@ public class AppointmentAdapter extends ArrayAdapter<String> {
     int layoutResourceId;
     AppointmentDate data[] = null;
     String[] appointments;
+
 
     public AppointmentAdapter(Context context, int layoutResourceId, String[] data) {
         super(context, layoutResourceId, data);
@@ -36,7 +39,7 @@ public class AppointmentAdapter extends ArrayAdapter<String> {
 
             holder = new AppointmentHolder();
             holder.appointmentText = (TextView)row.findViewById(R.id.appointmentText);
-            holder.checkbox = (CheckBox)row.findViewById(R.id.checkBox);
+
 
         }
         else {
@@ -55,6 +58,6 @@ public class AppointmentAdapter extends ArrayAdapter<String> {
 
     static class AppointmentHolder {
             TextView appointmentText;
-            CheckBox checkbox;
+
     }
 }

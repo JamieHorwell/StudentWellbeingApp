@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -52,10 +53,19 @@ public class BookingAppointmentActivity extends ActionBarActivity {
 
          headerValue = (TextView) header.findViewById(R.id.DateTextView);
         headerValue.setText(weeksAppointments[0].getformattedDate());
+        //this is first item in listview
         listView1.addHeaderView(header);
 
         listView1.setAdapter(adapter);
 
+        //will return time of appointment trying to book
+        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String appointmentToBook = weeksAppointments[counter].getAppointments()[position-1];
+                Alertdialog("Book this slot? " + appointmentToBook);
+            }
+        });
 
     }
 
