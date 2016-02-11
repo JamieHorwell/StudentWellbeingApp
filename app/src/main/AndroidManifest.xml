@@ -50,7 +50,7 @@
         </activity>
 
         <activity
-            android:name=".ButtonSixActivity"
+            android:name=".SymptomnCheckerActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
 
