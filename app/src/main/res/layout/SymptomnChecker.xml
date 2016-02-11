@@ -55,6 +55,15 @@ Notes:
 
                 </LinearLayout>
             </android.support.v7.widget.Toolbar>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Symptom 1"
+                android:textSize="25dp"
+                android:padding="25dp"
+                />
         </LinearLayout>
+
     </ScrollView>
 </LinearLayout>
