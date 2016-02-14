@@ -13,7 +13,7 @@ Notes:
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SymptomnCheckerActivity"
+    tools:context=".SymptomCheckerActivity"
     android:orientation="vertical">
 
     <ScrollView
@@ -55,7 +55,7 @@ Notes:
 
                 </LinearLayout>
             </android.support.v7.widget.Toolbar>
-            <TextView
+            <CheckBox
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -63,6 +63,45 @@ Notes:
                 android:textSize="25dp"
                 android:padding="25dp"
                 />
+            <CheckBox
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Symptom 2"
+                android:textSize="25dp"
+                android:padding="25dp"
+                />
+            <CheckBox
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Symptom 3"
+                android:textSize="25dp"
+                android:padding="25dp"
+                />
+            <CheckBox
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Symptom 4"
+                android:textSize="25dp"
+                android:padding="25dp"
+                />
+            <CheckBox
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Symptom 5"
+                android:textSize="25dp"
+                android:padding="25dp"
+                />
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:text="Submit"
+                android:id="@+id/symptomCheckerSubmit"
+                android:onClick="onButtonClick"/>
         </LinearLayout>
 
     </ScrollView>

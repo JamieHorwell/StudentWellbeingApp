@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Initial Author: Jason Ian Murray, Date: 26/11/2015
+Notes:
+    -   A simple placeholder class; the intention of this class
+    is to allow others to see the functionality of the GUI as a whole.
+    -   This can be extended or replaced by others. You need only copy
+    and paste your code within the corresponding classes or refactor the
+    name of this class to match yours then replace it with your own work.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SymptomCheckerActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/wellbeingDarkPurple"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:id="@+id/buttonSixToolbar"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Useful Links"
+                    android:textSize="25dp"
+                    android:padding="25dp"
+                    android:textColor="@color/wellbeingWhite"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!--
+                    Content goes here!
+                    -->
+
+                </LinearLayout>
+            </android.support.v7.widget.Toolbar>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="35dp"
+                android:text="Page 1"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/wellbeingLightPurple"
+                android:onClick="onButtonClick"
+                android:background="@color/wellbeingWhite"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="35dp"
+                android:text="Page 2"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/wellbeingLightPurple"
+                android:onClick="onButtonClick"
+                android:enabled="false"
+                android:background="@color/wellbeingWhite"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="35dp"
+                android:text="Page 3"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/wellbeingLightPurple"
+                android:onClick="onButtonClick"
+                android:background="@color/wellbeingWhite"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="35dp"
+                android:text="Page 4"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/wellbeingLightPurple"
+                android:onClick="onButtonClick"
+                android:background="@color/wellbeingWhite"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
