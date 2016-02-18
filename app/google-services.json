@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_id": "studentwellbeingapp",
+    "project_number": "942601632407",
+    "name": "StudentWellbeingApp"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942601632407:android:52dbf61888cf8d59",
+        "client_id": "android:studentwellbeing.connection",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "studentwellbeing.connection"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 2,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942601632407:android:d5bd733db8a8c28f",
+        "client_id": "android:team10.studentwellbeingapp",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "team10.studentwellbeingapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 2,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 1
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}
