@@ -3,14 +3,15 @@
     <string name="title_activity_booking_appointment">BookingAppointmentActivity</string>
     <string name="action_settings">Settings</string>
 
-    <string name="button_one">Example Content One</string>
+    <string name="button_one">Dealing Mental Stress</string>
     <string name="button_two">Log Book</string>
     <string name="button_three">Button Three</string>
     <string name="button_four">Button Four</string>
     <string name="button_five">Book Appointment</string>
-    <string name="button_six">Button Six</string>
+    <string name="button_six">Appointment Manager</string>
     <string name="button_seven">Button Seven</string>
     <string name="button_eight">Button Eight</string>
+    <string name="registration_screen">User Registration</string>
 
 
 

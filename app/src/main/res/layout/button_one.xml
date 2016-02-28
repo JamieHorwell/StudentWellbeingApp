@@ -59,19 +59,9 @@ Notes:
                     android:lineSpacingMultiplier="1.5"
                     android:textColor="#000000"
                     android:paddingBottom="25dp"
+                    android:textSize="16dp"
 
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac porta lorem, ac convallis metus. Aliquam erat volutpat. Vestibulum fringilla nibh at mattis sagittis. Suspendisse potenti. Quisque dapibus, ligula eu consequat dignissim, dolor leo convallis nisl, vitae tincidunt justo leo eu elit. Duis vitae pellentesque nibh. Mauris dolor magna, suscipit at vehicula vel, sodales a arcu. Donec porttitor nibh et arcu interdum, at tincidunt turpis dictum."
-
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingMultiplier="1.5"
-                    android:textColor="#000000"
-                    android:paddingBottom="25dp"
-
-                    android:text="Phasellus eu ante mauris. Quisque accumsan, metus vitae pretium elementum, sapien nunc iaculis ante, sed dignissim nisi est ac lectus. Nam et condimentum dolor. Nunc congue ex ac velit bibendum, maximus scelerisque ipsum dignissim. Integer feugiat, nibh sed facilisis tincidunt, quam arcu efficitur risus, a ornare quam quam at eros. Pellentesque nec rhoncus leo. Aenean a nisi aliquam, dictum purus in, convallis lacus. Aenean semper arcu sed mi laoreet, sit amet fringilla augue auctor. Nullam quis nisl semper, dapibus nisl cursus, euismod nunc. "
+                    android:text="Many students encounter mental health problems at university - they're as common, if not more so, than in the general population. "
 
                     />
 
@@ -81,9 +71,47 @@ Notes:
                     android:lineSpacingMultiplier="1.5"
                     android:textColor="#000000"
                     android:paddingBottom="25dp"
+                    android:textSize="16dp"
 
-                    android:text="Sed vitae velit faucibus, iaculis diam id, rhoncus enim. Vivamus malesuada elit quis elit lacinia consequat. Suspendisse at egestas nunc. Quisque et lacinia quam. Maecenas vel quam in orci fringilla facilisis non ac enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur quis ultricies purus, ut sagittis arcu. Pellentesque blandit pretium tempor. Nam euismod interdum arcu, vel blandit sem varius at. Integer accumsan magna commodo, pharetra enim vitae, consectetur nisl. Donec ut vestibulum sapien. Maecenas rutrum metus sed dolor facilisis auctor. Donec cursus magna quis urna sodales auctor. "
+                    android:text="That being said, not all struggling students are suffering from a mental health condition. The most important thing to do if you&apos;re struggling with your time at university is to seek help. Communication is key!"
 
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textColor="#000000"
+                    android:paddingBottom="25dp"
+                    android:textSize="16dp"
+
+                    android:text="If you&apos;re consistently down in the dumps and you&apos;re running low on steam you need to tell somebody: a problem shared is a problem halved. The relief alone can be worth the conversation. Friends and family are often the best first stop, failing that you could talk to your tutor -- particularly if you&apos;re grades are being impacted. "
+
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textColor="#000000"
+                    android:paddingBottom="25dp"
+                    android:autoLink="web"
+                    android:textSize="16dp"
+
+                    android:text="Some people may be more comfortable seeking professional help. The university provides an in house counselling service that allows for one-to-one conversations with trained professionals. This service can resolve many problems that a student may be encountering and is definately worth a look. For further information regarding Newcastle's Student Wellbeing Counselling Service, see: http://www.ncl.ac.uk/students/wellbeing/support/"
+
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textColor="#000000"
+                    android:paddingBottom="25dp"
+                    android:autoLink="web"
+                    android:textSize="16dp"
+
+                    android:text=""
                     />
             </LinearLayout>
 

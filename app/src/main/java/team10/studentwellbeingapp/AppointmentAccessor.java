@@ -42,6 +42,7 @@ public class AppointmentAccessor {
 	}
 	
 	//returns arraylist of free appt from mysql given a certian date
+	/**
 	public ArrayList<Appointment> getFreeAppointments(String date){
 		
 		URL url;
@@ -77,6 +78,7 @@ public class AppointmentAccessor {
 		
 		return appointments;
 	}
+	 */
 	
 	
 	//books an appointment into the mysql db

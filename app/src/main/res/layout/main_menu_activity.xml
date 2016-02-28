@@ -162,6 +162,7 @@ Student Wellbeing Website.
                         android:textSize="15dp"
                         android:text="@string/button_five"
                         android:paddingBottom="20dp"
+                        android:gravity="center"
                         android:textColor="@color/wellbeingLightPurple"
                         android:background="@color/wellbeingWhite"/>
 

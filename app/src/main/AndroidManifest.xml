@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="team10.studentwellbeingapp" >
 
     <application
@@ -8,38 +7,32 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MainMenuActivity" />
-
         <activity
             android:name=".ButtonOneActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
-
         <activity
             android:name=".ButtonTwoActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
-
         <activity
             android:name=".ButtonThreeActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
-
         <activity
             android:name=".ButtonFourActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
-
         <activity
             android:name=".BookingAppointmentActivity"
             android:label="@string/title_activity_booking_appointment"
@@ -48,20 +41,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenuActivity" />
         </activity>
-
         <activity
             android:name=".ButtonSixActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
-
         <activity
             android:name=".ButtonSevenActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
-
         <activity
             android:name=".ButtonEightActivity"
             android:parentActivityName=".MainMenuActivity" >
+        </activity>
+
+        <activity
+            android:name=".RegistrationActivity"
+            android:parentActivityName=".ButtonSixActivity">
         </activity>
     </application>
 
