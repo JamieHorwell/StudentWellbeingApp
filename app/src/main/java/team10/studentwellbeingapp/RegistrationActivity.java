@@ -69,6 +69,45 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         }
 
+        //Checking to make sure that email address is of a valid
+        //style. I haven't bothered to check for duplicate symbols. This
+        //is basic validation.
+        if(complete){
+            boolean containsAtSymbol = false;
+            boolean dotFollowsAt = false;
+
+            for(int x = 0; x < data[1].length(); x++){
+                //Checks to see if '@' has previously been
+                //encountered AND a fullstop has not yet occured
+                if(containsAtSymbol && !dotFollowsAt){
+
+                    //If the fullstop is the last character of the address,
+                    //the address is still valid:
+                    if(x != (data[1].length() - 1)){
+                        if (data[1].substring(x, x + 1).equals("."))
+                            //If current character is '.' then it must occur
+                            //after '@' and it is not the last character in the
+                            //email string:
+                            dotFollowsAt = true;
+                    }
+                    if(dotFollowsAt) break; //Validation Complete, break loop
+                }
+
+                if(!containsAtSymbol) {
+                    if (data[1].substring(x, x + 1).equals("@"))
+                        //If the '@' symbol has not occurred and
+                        //the current symbol is '@' then:
+                        containsAtSymbol = true;
+                }
+            }
+
+            //Setting complete relative to validation:
+            complete = containsAtSymbol && dotFollowsAt;
+            if(!complete)
+                errorMessage = errorMessage + " Your email address is invalid.";
+
+        }
+
         if(!complete){
             Toast toast = Toast.makeText(this, errorMessage, Toast.LENGTH_LONG);
             toast.show();
