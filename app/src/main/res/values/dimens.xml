@@ -6,9 +6,9 @@
     <dimen name="toolbar_text_size">25sp</dimen>
     <dimen name="toolbar_padding">5dp</dimen>
     <dimen name="toolbar_elevation">4dp</dimen>
-    <dimen name="subtitle_text_size">16dp</dimen>
+    <dimen name="subtitle_text_size">18sp</dimen>
     <dimen name="space_below_main_menu_buttons">20dp</dimen>
-    <dimen name="content_text_size">14sp</dimen>
+    <dimen name="content_text_size">16sp</dimen>
     <dimen name="full_generic_padding">20dp</dimen>
     <dimen name="half_generic_padding">10dp</dimen>
     <dimen name="quarter_generic_padding">5dp</dimen>

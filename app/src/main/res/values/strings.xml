@@ -12,6 +12,7 @@
     <string name="registration_screen">User Registration</string>
     <string name="mental_health_piece">Mental Health</string>
     <string name="standard_font">sans-serif</string>
+    <string name="condensed_font">sans-serif-condensed</string>
 
 
 </resources>

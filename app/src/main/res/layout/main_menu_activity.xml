@@ -85,6 +85,7 @@ Student Wellbeing Website.
                         android:text="@string/learning_resources"
                         android:paddingBottom="@dimen/half_generic_padding"
                         android:gravity="center"
+                        android:fontFamily="@string/condensed_font"
                         android:textColor="@color/wellbeing_light_purple"
                         android:background="@color/wellbeing_white"/>
 
@@ -101,6 +102,7 @@ Student Wellbeing Website.
                         android:text="@string/mood_diary"
                         android:paddingBottom="@dimen/half_generic_padding"
                         android:gravity="center"
+                        android:fontFamily="@string/condensed_font"
                         android:textColor="@color/wellbeing_light_purple"
                         android:background="@color/wellbeing_white"/>
 
@@ -117,6 +119,7 @@ Student Wellbeing Website.
                         android:text="@string/mind_the_gap_twitter"
                         android:paddingBottom="@dimen/half_generic_padding"
                         android:gravity="center"
+                        android:fontFamily="@string/condensed_font"
                         android:textColor="@color/wellbeing_light_purple"
                         android:background="@color/wellbeing_white"/>
 
@@ -150,6 +153,7 @@ Student Wellbeing Website.
                         android:text="@string/book_an_appointment"
                         android:paddingBottom="@dimen/half_generic_padding"
                         android:gravity="center"
+                        android:fontFamily="@string/condensed_font"
                         android:textColor="@color/wellbeing_light_purple"
                         android:background="@color/wellbeing_white"/>
 
@@ -166,6 +170,7 @@ Student Wellbeing Website.
                         android:text="@string/symptoms_checker"
                         android:paddingBottom="@dimen/half_generic_padding"
                         android:gravity="center"
+                        android:fontFamily="@string/condensed_font"
                         android:textColor="@color/wellbeing_light_purple"
                         android:background="@color/wellbeing_white"/>
 
@@ -182,6 +187,7 @@ Student Wellbeing Website.
                         android:text="@string/find_support"
                         android:paddingBottom="@dimen/half_generic_padding"
                         android:gravity="center"
+                        android:fontFamily="@string/condensed_font"
                         android:textColor="@color/wellbeing_light_purple"
                         android:background="@color/wellbeing_white"/>
                 </LinearLayout>
