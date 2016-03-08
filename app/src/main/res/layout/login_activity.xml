@@ -36,8 +36,8 @@ Notes:
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/book_an_appointment"
-                android:textSize="25dp"
-                android:padding="25dp"
+                android:textSize="@dimen/toolbar_text_size"
+                android:padding="@dimen/toolbar_padding"
                 android:textColor="@color/wellbeingWhite"/>
         </android.support.v7.widget.Toolbar>
 

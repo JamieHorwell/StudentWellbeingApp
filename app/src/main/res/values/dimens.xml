@@ -3,4 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="menu_button_height">125dp</dimen>
+    <dimen name="toolbar_text_size">25sp</dimen>
+    <dimen name="toolbar_padding">5dp</dimen>
 </resources>
