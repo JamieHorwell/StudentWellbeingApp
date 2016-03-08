@@ -6,22 +6,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Jamie on 24/11/2015.
  */
-public class AppointmentAdapter extends ArrayAdapter<String> {
+public class AppointmentAdapter extends ArrayAdapter<Appointment> {
     Context context;
     int layoutResourceId;
-    AppointmentDate data[] = null;
-    String[] appointments;
+    AppointmentDay<Appointment>  = null;
+    Appointment[] appointments;
 
 
-    public AppointmentAdapter(Context context, int layoutResourceId, String[] data) {
+    public AppointmentAdapter(Context context, int layoutResourceId, ArrayList<Appointment> data) {
+
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
@@ -46,7 +46,7 @@ public class AppointmentAdapter extends ArrayAdapter<String> {
             holder = (AppointmentHolder)row.getTag();
         }
 
-        String appointment = appointments[position];
+        String appointment = appointments[position].getDatetime();
         holder.appointmentText.setText(appointment);
 
         return row;
