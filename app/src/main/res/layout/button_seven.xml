@@ -39,7 +39,7 @@ Notes:
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/button_seven"
+                    android:text="@string/symptoms_checker"
                     android:textSize="25dp"
                     android:padding="25dp"
                     android:textColor="@color/wellbeingWhite"/>

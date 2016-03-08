@@ -43,7 +43,7 @@ Student Wellbeing Website.
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Student Wellbeing"
+                    android:text="@string/app_name"
                     android:textSize="25dp"
                     android:padding="25dp"
                     android:textColor="@color/wellbeingWhite"/>
@@ -73,14 +73,14 @@ Student Wellbeing Website.
                     <ImageButton
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/menu_button_height"
-                        android:id="@+id/menuButton1"
+                        android:id="@+id/learningResourcesButton"
                         android:onClick="onButtonClick"/>
 
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="@string/button_one"
+                        android:text="@string/learning_resources"
                         android:paddingBottom="20dp"
                         android:gravity="center"
                         android:textColor="@color/wellbeingLightPurple"
@@ -89,14 +89,14 @@ Student Wellbeing Website.
                     <ImageButton
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/menu_button_height"
-                        android:id="@+id/menuButton2"
+                        android:id="@+id/moodDiaryButton"
                         android:onClick="onButtonClick"/>
 
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="@string/button_two"
+                        android:text="@string/mood_diary"
                         android:paddingBottom="20dp"
                         android:gravity="center"
                         android:textColor="@color/wellbeingLightPurple"
@@ -105,30 +105,14 @@ Student Wellbeing Website.
                     <ImageButton
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/menu_button_height"
-                        android:id="@+id/menuButton3"
+                        android:id="@+id/mindTheGapTwitterButton"
                         android:onClick="onButtonClick"/>
 
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="@string/button_three"
-                        android:paddingBottom="20dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
-
-                    <ImageButton
-                        android:layout_width="fill_parent"
-                        android:layout_height="@dimen/menu_button_height"
-                        android:id="@+id/menuButton4"
-                        android:onClick="onButtonClick"/>
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="@string/button_four"
+                        android:text="@string/mind_the_gap_twitter"
                         android:paddingBottom="20dp"
                         android:gravity="center"
                         android:textColor="@color/wellbeingLightPurple"
@@ -160,7 +144,7 @@ Student Wellbeing Website.
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="@string/button_five"
+                        android:text="@string/book_an_appointment"
                         android:paddingBottom="20dp"
                         android:gravity="center"
                         android:textColor="@color/wellbeingLightPurple"
@@ -169,14 +153,14 @@ Student Wellbeing Website.
                     <ImageButton
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/menu_button_height"
-                        android:id="@+id/menuButton6"
+                        android:id="@+id/symptomsCheckerBottom"
                         android:onClick="onButtonClick"/>
 
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="@string/button_six"
+                        android:text="@string/symptoms_checker"
                         android:paddingBottom="20dp"
                         android:gravity="center"
                         android:textColor="@color/wellbeingLightPurple"
@@ -185,29 +169,14 @@ Student Wellbeing Website.
                     <ImageButton
                         android:layout_width="fill_parent"
                         android:layout_height="@dimen/menu_button_height"
-                        android:id="@+id/menuButton7"
+                        android:id="@+id/findSupportButton"
                         android:onClick="onButtonClick"/>
 
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
-                        android:text="@string/button_seven"
-                        android:paddingBottom="20dp"
-                        android:gravity="center"
-                        android:textColor="@color/wellbeingLightPurple"
-                        android:background="@color/wellbeingWhite"/>
-
-                    <ImageButton android:layout_width="fill_parent"
-                        android:layout_height="@dimen/menu_button_height"
-                        android:id="@+id/menuButton8"
-                        android:onClick="onButtonClick"/>
-
-                    <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="@string/button_eight"
+                        android:text="@string/find_support"
                         android:paddingBottom="20dp"
                         android:gravity="center"
                         android:textColor="@color/wellbeingLightPurple"

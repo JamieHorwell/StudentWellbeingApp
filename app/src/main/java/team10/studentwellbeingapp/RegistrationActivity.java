@@ -37,7 +37,7 @@ public class RegistrationActivity extends AppCompatActivity {
         }
 
         if(complete){
-            startActivity(new Intent(this, ButtonSixActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
         }
     }
 

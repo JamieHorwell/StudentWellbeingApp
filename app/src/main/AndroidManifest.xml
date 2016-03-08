@@ -30,10 +30,6 @@
             android:parentActivityName=".MainMenuActivity" >
         </activity>
         <activity
-            android:name=".ButtonFourActivity"
-            android:parentActivityName=".MainMenuActivity" >
-        </activity>
-        <activity
             android:name=".BookingAppointmentActivity"
             android:label="@string/title_activity_booking_appointment"
             android:parentActivityName=".MainMenuActivity" >
@@ -42,21 +38,17 @@
                 android:value=".MainMenuActivity" />
         </activity>
         <activity
-            android:name=".ButtonSixActivity"
+            android:name=".LoginActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
         <activity
             android:name=".ButtonSevenActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
-        <activity
-            android:name=".ButtonEightActivity"
-            android:parentActivityName=".MainMenuActivity" >
-        </activity>
 
         <activity
             android:name=".RegistrationActivity"
-            android:parentActivityName=".ButtonSixActivity">
+            android:parentActivityName=".LoginActivity">
         </activity>
     </application>
 
