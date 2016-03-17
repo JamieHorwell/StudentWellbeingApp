@@ -24,12 +24,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-public class ButtonSixActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.button_six);
+        setContentView(R.layout.login_activity);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonSixToolbar);
         setSupportActionBar(toolbar);

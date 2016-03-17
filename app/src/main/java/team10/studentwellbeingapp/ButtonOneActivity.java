@@ -12,18 +12,16 @@ Notes:
 
 package team10.studentwellbeingapp;
 
-import android.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.widget.TextView;
 
 public class ButtonOneActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.button_one);
+        setContentView(R.layout.healthy_mind);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonOneToolbar);
         setSupportActionBar(toolbar);
