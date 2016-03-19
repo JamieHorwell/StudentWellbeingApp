@@ -12,31 +12,32 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AppointmentAccessor {
 
-    private String freeURL;
-    private String bookURL;
-    private String cancelURL;
-    private String signupURL;
-    private String loginURL;
+    private String freeURL = "http://192.168.0.14:80/studentWellbeing/freeappt.php";
+    private String bookURL = "http://192.168.0.14:80/studentWellbeing/bookappt.php";
+    private String cancelURL =  "http://192.168.0.14:80/studentWellbeing/cancelappt.php";
+    private String signupURL =  "http://192.168.0.14:80/studentWellbeing/signup.php";
+    private String loginURL = "http://192.168.0.14:80/studentWellbeing/logon.php";
 
     public AppointmentAccessor(){
         //read in URL's from configuration file
-        try {
-            BufferedReader in = new BufferedReader(new FileReader("urlconfig.txt"));
-            this.freeURL = in.readLine();
-            this.bookURL = in.readLine();
-            this.cancelURL = in.readLine();
-            this.signupURL = in.readLine();
-            this.loginURL = in.readLine();
-            in.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            BufferedReader in = new BufferedReader(new FileReader("urlconfig.txt"));
+//            this.freeURL = "http://192.168.0.14:80/studentWellbeing/freeappt.php";
+//            this.bookURL = "http://192.168.0.14:80/studentWellbeing/bookappt.php";
+//            this.cancelURL = "http://192.168.0.14:80/studentWellbeing/cancelappt.php";
+//            this.signupURL = "http://192.168.0.14:80/studentWellbeing/signup.php";
+//            this.loginURL = "http://192.168.0.14:80/studentWellbeing/logon.php";
+//            in.close();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     //establishes connection with php script, writes output via POST
@@ -75,17 +76,19 @@ public class AppointmentAccessor {
             }
 
 
-            JSONObject apps = new JSONObject(sb.toString());
+            try {
+                JSONObject apps = new JSONObject(sb.toString());
 
-            JSONArray arr = apps.getJSONArray("appointments");
+                JSONArray arr = apps.getJSONArray("appointments");
 
-            for(int i = 0; i<arr.length(); i++){
-                Appointment appointment = new Appointment(arr.getJSONObject(i).getString("datetime"), arr.getJSONObject(i).getString("councillor"));
-                appointments.add(appointment);
+                for (int i = 0; i < arr.length(); i++) {
+                    Appointment appointment = new Appointment(arr.getJSONObject(i).getString("datetime"), arr.getJSONObject(i).getString("councillor"));
+                    appointments.add(appointment);
+                }
+                //read php response of appointments, add to arraylist
+                in.close();
             }
-            //read php response of appointments, add to arraylist
-            in.close();
-
+            catch (JSONException e) {};
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {

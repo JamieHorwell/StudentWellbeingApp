@@ -3,6 +3,7 @@ package team10.studentwellbeingapp;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,13 +13,15 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
 
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Calendar;
 
 public class BookingAppointmentActivity extends ActionBarActivity {
 
-
+    AppointmentAccessor appointmentAccessor;
     AppointmentDay[] weeksAppointments;
     int counter = 0;
     private Calendar currentday;
@@ -30,6 +33,10 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_appointment);
         Intent intent = getIntent();
+
+        System.out.println("sdasd");
+
+
 
         testAppointments();
 
@@ -83,11 +90,16 @@ public class BookingAppointmentActivity extends ActionBarActivity {
 
     //setup test appointments
     public void testAppointments() {
-        Appointment day1appt1= new Appointment(Calendar.getInstance().toString(), "Jan");
-        Appointment day1appt2= new Appointment(Calendar.getInstance().toString(), "Jan");
-        Appointment day2appt1= new Appointment(Calendar.getInstance().toString(), "Jan");
-        Appointment day2appt2= new Appointment(Calendar.getInstance().toString(), "Jan");
-        weeksAppointments = new AppointmentDay[] {day1,day2,day3};
+        appointmentAccessor = new AppointmentAccessor();
+        Appointment day1appt1= new Appointment("9.00", "Jan");
+        Appointment day1appt2= new Appointment("10.00", "Jan");
+        Appointment day2appt1= new Appointment("11.00", "Jan");
+        Appointment day2appt2= new Appointment("12.00", "Jan");
+        AppointmentDay day1 = appointmentAccessor.getFreeAppointments("2015-01-01");
+        AppointmentDay day2 = new AppointmentDay("day2");
+        day2.add(day2appt1);
+        day2.add(day2appt2);
+        weeksAppointments = new AppointmentDay[] {day1,day2};
 
     }
 
@@ -139,4 +151,12 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     public void setCurrentday(Date currentday) {
         this.currentday = Calendar.getInstance();
     }
+
+    //needs code added
+    class attemptConnection extends AsyncTask<String, String, JSONObject> {
+        protected JSONObject doInBackground(String... args) {
+          return null;
+        }
+    }
+
 }

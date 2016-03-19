@@ -16,16 +16,16 @@ import java.util.ArrayList;
 public class AppointmentAdapter extends ArrayAdapter<Appointment> {
     Context context;
     int layoutResourceId;
-    AppointmentDay<Appointment>  = null;
+    AppointmentDay day  = null;
     Appointment[] appointments;
 
 
-    public AppointmentAdapter(Context context, int layoutResourceId, ArrayList<Appointment> data) {
+    public AppointmentAdapter(Context context, int layoutResourceId, AppointmentDay data) {
 
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
-        this.appointments = data;
+        this.day = data;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
             holder = (AppointmentHolder)row.getTag();
         }
 
-        String appointment = appointments[position].getDatetime();
+        String appointment = day.get(position).getDatetime();
         holder.appointmentText.setText(appointment);
 
         return row;
