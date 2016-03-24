@@ -1,11 +1,14 @@
 package team10.studentwellbeingapp;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
@@ -34,35 +37,8 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         setContentView(R.layout.activity_booking_appointment);
         Intent intent = getIntent();
 
-        System.out.println("sdasd");
 
-
-
-        testAppointments();
-
-
-
-         adapter = new AppointmentAdapter(this,R.layout.appointment_item_row, weeksAppointments[0]);
-
-        listView1 = (ListView)findViewById(R.id.appointmentListView);
-
-        View header = (View)getLayoutInflater().inflate(R.layout.appointment_list_header_row, null);
-
-         headerValue = (TextView) header.findViewById(R.id.DateTextView);
-        headerValue.setText(weeksAppointments[0].getDate());
-        //this is first item in listview
-        listView1.addHeaderView(header);
-
-        listView1.setAdapter(adapter);
-
-        //will return time of appointment trying to book
-        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String appointmentToBook = weeksAppointments[counter].get(position-1).getDatetime();
-                Alertdialog("Book this slot? " + appointmentToBook);
-            }
-        });
+        new attemptConnection(this).execute();
 
     }
 
@@ -88,20 +64,6 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //setup test appointments
-    public void testAppointments() {
-        appointmentAccessor = new AppointmentAccessor();
-        Appointment day1appt1= new Appointment("9.00", "Jan");
-        Appointment day1appt2= new Appointment("10.00", "Jan");
-        Appointment day2appt1= new Appointment("11.00", "Jan");
-        Appointment day2appt2= new Appointment("12.00", "Jan");
-        AppointmentDay day1 = appointmentAccessor.getFreeAppointments("2015-01-01");
-        AppointmentDay day2 = new AppointmentDay("day2");
-        day2.add(day2appt1);
-        day2.add(day2appt2);
-        weeksAppointments = new AppointmentDay[] {day1,day2};
-
-    }
 
 
     public void nextDay(View v) {
@@ -153,9 +115,51 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     }
 
     //needs code added
-    class attemptConnection extends AsyncTask<String, String, JSONObject> {
-        protected JSONObject doInBackground(String... args) {
-          return null;
+    class attemptConnection extends AsyncTask<String, String, AppointmentDay> {
+
+        private Context mContext;
+        public attemptConnection (Context context){
+            mContext = context;
+        }
+
+
+        protected AppointmentDay doInBackground(String... args) {
+          appointmentAccessor = new AppointmentAccessor();
+
+         AppointmentDay testDay =   appointmentAccessor.getFreeAppointments("2015-01-01");
+            for(int i = 0; i < testDay.size(); i++) {
+                Log.w("dataReturned", testDay.get(i).getDatetime());
+            }
+
+
+
+            return testDay;
+        }
+        @Override
+        protected void onPostExecute(AppointmentDay result) {
+                weeksAppointments = new AppointmentDay[] {result};
+
+            adapter = new AppointmentAdapter(mContext,R.layout.appointment_item_row, weeksAppointments[0]);
+
+            listView1 = (ListView)findViewById(R.id.appointmentListView);
+
+            View header = (View)getLayoutInflater().inflate(R.layout.appointment_list_header_row, null);
+
+            headerValue = (TextView) header.findViewById(R.id.DateTextView);
+            headerValue.setText(weeksAppointments[0].getDate());
+            //this is first item in listview
+            listView1.addHeaderView(header);
+
+            listView1.setAdapter(adapter);
+
+            //will return time of appointment trying to book
+            listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    String appointmentToBook = weeksAppointments[counter].get(position-1).getDatetime();
+                    Alertdialog("Book this slot? " + appointmentToBook);
+                }
+            });
         }
     }
 

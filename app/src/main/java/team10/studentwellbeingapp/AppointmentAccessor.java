@@ -1,5 +1,7 @@
 package team10.studentwellbeingapp;
 
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -17,11 +19,11 @@ import org.json.JSONObject;
 
 public class AppointmentAccessor {
 
-    private String freeURL = "http://192.168.0.14:80/studentWellbeing/freeappt.php";
-    private String bookURL = "http://192.168.0.14:80/studentWellbeing/bookappt.php";
-    private String cancelURL =  "http://192.168.0.14:80/studentWellbeing/cancelappt.php";
-    private String signupURL =  "http://192.168.0.14:80/studentWellbeing/signup.php";
-    private String loginURL = "http://192.168.0.14:80/studentWellbeing/logon.php";
+    private String freeURL = "http://192.168.1.143:80/studentWellbeing/freeappt.php";
+    private String bookURL = "http://192.168.1.143:80/studentWellbeing/bookappt.php";
+    private String cancelURL =  "http://192.168.1.143:80/studentWellbeing/cancelappt.php";
+    private String signupURL =  "http://192.168.1.143:80/studentWellbeing/signup.php";
+    private String loginURL = "http://192.168.1.143:80/studentWellbeing/logon.php";
 
     public AppointmentAccessor(){
         //read in URL's from configuration file
@@ -38,6 +40,7 @@ public class AppointmentAccessor {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+
     }
 
     //establishes connection with php script, writes output via POST
@@ -73,6 +76,7 @@ public class AppointmentAccessor {
             while((line = in.readLine()) != null){
                 sb.append(line);
                 //appointments.add(new Appointment(line.substring(0, 10), null, line.substring(11)));
+
             }
 
 
@@ -81,13 +85,16 @@ public class AppointmentAccessor {
 
                 JSONArray arr = apps.getJSONArray("appointments");
 
+
                 for (int i = 0; i < arr.length(); i++) {
                     Appointment appointment = new Appointment(arr.getJSONObject(i).getString("datetime"), arr.getJSONObject(i).getString("councillor"));
+                    Log.w("appointment", appointment.getDatetime());
                     appointments.add(appointment);
                 }
                 //read php response of appointments, add to arraylist
                 in.close();
             }
+            //ERROR HERE
             catch (JSONException e) {};
         } catch (MalformedURLException e) {
             e.printStackTrace();

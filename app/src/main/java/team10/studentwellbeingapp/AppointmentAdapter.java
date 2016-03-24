@@ -17,7 +17,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
     Context context;
     int layoutResourceId;
     AppointmentDay day  = null;
-    Appointment[] appointments;
+
 
 
     public AppointmentAdapter(Context context, int layoutResourceId, AppointmentDay data) {
@@ -31,7 +31,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
-        AppointmentHolder holder = null;
+        AppointmentHolder holder;
 
         if(row == null) {
             LayoutInflater inflator = ((Activity)context).getLayoutInflater();
@@ -39,7 +39,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
 
             holder = new AppointmentHolder();
             holder.appointmentText = (TextView)row.findViewById(R.id.appointmentText);
-
+            row.setTag(holder);
 
         }
         else {
