@@ -134,6 +134,7 @@ public class AppointmentAccessor {
 
             while((line = in.readLine()) != null){
                 sb.append(line);
+                Log.w("bookingResult,", line);
             }
             System.out.println(sb);
             in.close();

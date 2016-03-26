@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,8 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
-
-import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,15 +27,20 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     private Calendar currentday;
     private ListView listView1;
     AppointmentAdapter adapter;
+    String student = "150068502";
+    String DateToDisplayFrom = "2015-01-01";
+
     TextView headerValue;
+    View header;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_appointment);
         Intent intent = getIntent();
 
-
-        new attemptConnection(this).execute();
+        currentday = Calendar.getInstance();
+        currentday.set(2015,01,01);
+        new retrieveData(this,"2015-01-01").execute();
 
     }
 
@@ -64,14 +66,17 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    public String convertToFormat(Calendar date) throws java.text.ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dateWithoutTime = sdf.format(date.getTime());
+        return dateWithoutTime;
+    }
 
     public void nextDay(View v) {
         if(counter < 2) {
             counter++;
-            headerValue.setText(weeksAppointments[counter].getDate());
-            AppointmentAdapter newAdapter = new AppointmentAdapter(this, R.layout.appointment_item_row, weeksAppointments[counter]);
-            listView1.setAdapter(newAdapter);
+            listView1.removeHeaderView(header);
+            new retrieveData(this,"2015-01-02").execute();
         }
         else {
             Alertdialog("No more days to show");
@@ -82,9 +87,8 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     public void previousDay(View v) {
         if(counter > 0) {
             counter--;
-            headerValue.setText(weeksAppointments[counter].getDate());
-            AppointmentAdapter newAdapter = new AppointmentAdapter(this, R.layout.appointment_item_row, weeksAppointments[counter]);
-            listView1.setAdapter(newAdapter);
+            listView1.removeHeaderView(header);
+            new retrieveData(this,"2015-01-01").execute();
         } else {
             Alertdialog("No more days to show");
         }
@@ -115,20 +119,22 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     }
 
     //needs code added
-    class attemptConnection extends AsyncTask<String, String, AppointmentDay> {
+    class retrieveData extends AsyncTask<String, String, AppointmentDay> {
 
         private Context mContext;
-        public attemptConnection (Context context){
+        private String dateToRetrieve;
+        public retrieveData(Context context, String dateToRetrieve){
             mContext = context;
+            this.dateToRetrieve = dateToRetrieve;
         }
 
 
         protected AppointmentDay doInBackground(String... args) {
           appointmentAccessor = new AppointmentAccessor();
 
-         AppointmentDay testDay =   appointmentAccessor.getFreeAppointments("2015-01-01");
+         AppointmentDay testDay =   appointmentAccessor.getFreeAppointments(dateToRetrieve);
             for(int i = 0; i < testDay.size(); i++) {
-                Log.w("dataReturned", testDay.get(i).getDatetime());
+
             }
 
 
@@ -143,7 +149,7 @@ public class BookingAppointmentActivity extends ActionBarActivity {
 
             listView1 = (ListView)findViewById(R.id.appointmentListView);
 
-            View header = (View)getLayoutInflater().inflate(R.layout.appointment_list_header_row, null);
+             header = (View)getLayoutInflater().inflate(R.layout.appointment_list_header_row, null);
 
             headerValue = (TextView) header.findViewById(R.id.DateTextView);
             headerValue.setText(weeksAppointments[0].getDate());
@@ -158,8 +164,35 @@ public class BookingAppointmentActivity extends ActionBarActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     String appointmentToBook = weeksAppointments[counter].get(position-1).getDatetime();
                     Alertdialog("Book this slot? " + appointmentToBook);
+                    new bookAppointment(weeksAppointments[counter].get(position-1).getDatetime(), student).execute();
                 }
             });
+        }
+    }
+
+    class bookAppointment extends AsyncTask<String, String, Boolean> {
+
+        String dateTime[];
+        String studentNumber;
+        public bookAppointment(String dateTime, String studentNumber) {
+                this.dateTime = dateTime.split("\\s+");;
+                this.studentNumber = studentNumber;
+
+        }
+        protected Boolean doInBackground(String... args) {
+            String date;
+            String time;
+            appointmentAccessor = new AppointmentAccessor();
+            appointmentAccessor.bookAppointment(studentNumber,dateTime[0],dateTime[1],"");
+
+
+            return false;
+        }
+
+        protected void onPostExecute(Boolean result) {
+            Alertdialog("Appointment Booked! ");
+
+
         }
     }
 
