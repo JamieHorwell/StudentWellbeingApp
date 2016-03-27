@@ -28,7 +28,7 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     private ListView listView1;
     AppointmentAdapter adapter;
     String student = "150068502";
-    String DateToDisplayFrom = "2015-01-01";
+    String DateToDisplayFrom = "2015-00-01";
 
     TextView headerValue;
     View header;
@@ -39,9 +39,13 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         Intent intent = getIntent();
 
         currentday = Calendar.getInstance();
-        currentday.set(2015,01,01);
-        new retrieveData(this,"2015-01-01").execute();
+        currentday.set(2015, 00, 01);
+        try {
+            new retrieveData(this, convertToFormat(currentday)).execute();
+        }
+        catch (java.text.ParseException e) {
 
+        }
     }
 
     @Override
@@ -67,8 +71,10 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     }
 
     public String convertToFormat(Calendar date) throws java.text.ParseException {
+        Log.w("unformatted date", date.toString());
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String dateWithoutTime = sdf.format(date.getTime());
+        Log.w("formatted date:", dateWithoutTime);
         return dateWithoutTime;
     }
 
@@ -76,7 +82,11 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         if(counter < 2) {
             counter++;
             listView1.removeHeaderView(header);
-            new retrieveData(this,"2015-01-02").execute();
+            currentday.add(Calendar.DATE, 1);
+            try {
+                new retrieveData(this, convertToFormat(currentday)).execute();
+            }
+            catch (java.text.ParseException e) {}
         }
         else {
             Alertdialog("No more days to show");
@@ -88,7 +98,11 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         if(counter > 0) {
             counter--;
             listView1.removeHeaderView(header);
-            new retrieveData(this,"2015-01-01").execute();
+            currentday.add(Calendar.DATE, -1);
+            try {
+                new retrieveData(this, convertToFormat(currentday)).execute();
+            }
+            catch (java.text.ParseException e) {}
         } else {
             Alertdialog("No more days to show");
         }

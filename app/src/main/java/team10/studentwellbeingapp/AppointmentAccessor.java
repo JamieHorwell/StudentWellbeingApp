@@ -19,6 +19,8 @@ import org.json.JSONObject;
 
 public class AppointmentAccessor {
 
+
+    //these URLS are specific to the machine you run XAMPP server from, change ip address "192.168..." to your machines ip address
     private String freeURL = "http://192.168.1.143:80/studentWellbeing/freeappt.php";
     private String bookURL = "http://192.168.1.143:80/studentWellbeing/bookappt.php";
     private String cancelURL =  "http://192.168.1.143:80/studentWellbeing/cancelappt.php";
