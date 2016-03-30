@@ -63,7 +63,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(this, BookingAppointmentActivity.class));
                 break;
             case R.id.menuButton6:
-                startActivity(new Intent(this, ButtonSixActivity.class));
+                startActivity(new Intent(this, MapsTestingActivity.class));
                 break;
             case R.id.menuButton7:
                 startActivity(new Intent(this, ButtonSevenActivity.class));
