@@ -8,4 +8,6 @@
     <color name="wellbeing_dark_purple">#5E1ABC</color>
     <color name="wellbeing_white">#FFFFFF</color>
     <color name="content_text_colour">#000000</color>
+    <color name="mood_diary_teal">#6ED3CF</color>
+    <color name="mood_diary_grey">#E2E9F1</color>
 </resources>

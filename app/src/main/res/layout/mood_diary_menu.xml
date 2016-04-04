@@ -57,8 +57,7 @@ Notes:
                     android:textColor="@color/content_text_colour"
                     android:paddingBottom="@dimen/full_generic_padding"
 
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ac porta lorem, ac convallis metus. Aliquam erat volutpat. Vestibulum fringilla nibh at mattis sagittis. Suspendisse potenti. Quisque dapibus, ligula eu consequat dignissim, dolor leo convallis nisl, vitae tincidunt justo leo eu elit. Duis vitae pellentesque nibh. Mauris dolor magna, suscipit at vehicula vel, sodales a arcu. Donec porttitor nibh et arcu interdum, at tincidunt turpis dictum."
-
+                    android:text="Welcome to the Mood Diary!"
                     />
 
                 <TextView
@@ -68,20 +67,44 @@ Notes:
                     android:textColor="@color/content_text_colour"
                     android:paddingBottom="@dimen/full_generic_padding"
 
-                    android:text="Phasellus eu ante mauris. Quisque accumsan, metus vitae pretium elementum, sapien nunc iaculis ante, sed dignissim nisi est ac lectus. Nam et condimentum dolor. Nunc congue ex ac velit bibendum, maximus scelerisque ipsum dignissim. Integer feugiat, nibh sed facilisis tincidunt, quam arcu efficitur risus, a ornare quam quam at eros. Pellentesque nec rhoncus leo. Aenean a nisi aliquam, dictum purus in, convallis lacus. Aenean semper arcu sed mi laoreet, sit amet fringilla augue auctor. Nullam quis nisl semper, dapibus nisl cursus, euismod nunc. "
+                    android:text="This is a tool to help you efficiently track your mood over a period of time. You can edit today's mood entry or view your progress by clicking on one of the following buttons:"
 
                     />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingMultiplier="1.5"
-                    android:textColor="@color/content_text_colour"
-                    android:paddingBottom="@dimen/full_generic_padding"
+                <LinearLayout android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="@dimen/full_generic_padding"
+                    android:background="@color/wellbeing_white">
 
-                    android:text="Sed vitae velit faucibus, iaculis diam id, rhoncus enim. Vivamus malesuada elit quis elit lacinia consequat. Suspendisse at egestas nunc. Quisque et lacinia quam. Maecenas vel quam in orci fringilla facilisis non ac enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur quis ultricies purus, ut sagittis arcu. Pellentesque blandit pretium tempor. Nam euismod interdum arcu, vel blandit sem varius at. Integer accumsan magna commodo, pharetra enim vitae, consectetur nisl. Donec ut vestibulum sapien. Maecenas rutrum metus sed dolor facilisis auctor. Donec cursus magna quis urna sodales auctor. "
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/wellbeing_white"
+                        android:textColor="@color/wellbeing_light_purple"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:onClick="onButtonClick"
+                        android:textSize="@dimen/subtitle_text_size"
+                        android:id="@+id/editMoodButton"
 
-                    />
+                        android:text="Edit Mood Entry"/>
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@color/wellbeing_white"
+                        android:textColor="@color/wellbeing_light_purple"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:onClick="onButtonClick"
+                        android:textSize="@dimen/subtitle_text_size"
+                        android:id="@+id/viewProgressButton"
+                        android:text="View Progress"/>
+
+                </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
