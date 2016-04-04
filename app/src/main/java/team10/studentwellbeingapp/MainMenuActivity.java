@@ -58,7 +58,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 break;
             case R.id.bookAppointmentButton:
 
-                startActivity(new Intent(this, BookingAppointmentActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
                 //startActivity(new Intent(this, LoginActivity.class));
             case R.id.symptomsCheckerBottom:

@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         EditText username = (EditText)findViewById(R.id.editTextStudentID);
         EditText password = (EditText) findViewById(R.id.editTextPassword);
         if(button.getId() == R.id.loginButton){
-            startActivity(new Intent(this, ButtonOneActivity.class));
+            startActivity(new Intent(this, BookingAppointmentActivity.class));
 
         } else if(button.getId() == R.id.registerButton){
             startActivity(new Intent(this, RegistrationActivity.class));
