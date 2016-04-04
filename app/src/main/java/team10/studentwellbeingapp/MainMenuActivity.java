@@ -47,29 +47,25 @@ public class MainMenuActivity extends AppCompatActivity {
     public void onButtonClick(View v) {
         ImageButton button = (ImageButton) v;
         switch (button.getId()) {
-            case R.id.menuButton1:
+            case R.id.learningResourcesButton:
                 startActivity(new Intent(this, ButtonOneActivity.class));
                 break;
-            case R.id.menuButton2:
+            case R.id.moodDiaryButton:
                 startActivity(new Intent(this, ButtonTwoActivity.class));
                 break;
-            case R.id.menuButton3:
-                startActivity(new Intent(this, ButtonThreeActivity.class));
-                break;
-            case R.id.menuButton4:
-                startActivity(new Intent(this, ButtonFourActivity.class));
+            case R.id.mindTheGapTwitterButton:
+                //startActivity(new Intent(this, ButtonThreeActivity.class));
                 break;
             case R.id.bookAppointmentButton:
+
                 startActivity(new Intent(this, BookingAppointmentActivity.class));
                 break;
-            case R.id.menuButton6:
-                startActivity(new Intent(this, MapsTestingActivity.class));
-                break;
-            case R.id.menuButton7:
+                //startActivity(new Intent(this, LoginActivity.class));
+            case R.id.symptomsCheckerBottom:
                 startActivity(new Intent(this, ButtonSevenActivity.class));
                 break;
-            case R.id.menuButton8:
-                startActivity(new Intent(this, ButtonEightActivity.class));
+            case R.id.findSupportButton:
+                startActivity(new Intent(this, MapsTestingActivity.class));
                 break;
         }
     }
