@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="team10.studentwellbeingapp" >
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="team10.studentwellbeingapp">
+
+
+
+
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+
+
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="@string/google_maps_key"/>
+
+
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashScreen" >
@@ -16,7 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".MainMenuActivity" />
+
+
         <activity
             android:name=".ButtonOneActivity"
             android:parentActivityName=".MainMenuActivity" >
@@ -32,24 +54,64 @@
         <activity
             android:name=".BookingAppointmentActivity"
             android:label="@string/title_activity_booking_appointment"
-            android:parentActivityName=".MainMenuActivity" >
+            android:parentActivityName=".MainMenuActivity"
+
+            >
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenuActivity" />
         </activity>
+
+
+
+        android:name=".LoginActivity"
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".MainMenuActivity" >
+        </activity>
+
+        <activity
+
+            android:name=".MapTestActivity"
+
+
+            android:parentActivityName=".MainMenuActivity" >
+
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainMenuActivity" />
         </activity>
         <activity
             android:name=".ButtonSevenActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
 
+
+
+        <activity
+            android:name=".MapsTestingActivity"
+            android:label="@string/title_activity_maps_testing"
+            android:parentActivityName=".MapTestActivity" >
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainMenuActivity" />
+
+        </activity>
+
         <activity
             android:name=".RegistrationActivity"
             android:parentActivityName=".LoginActivity">
         </activity>
+
     </application>
 
 </manifest>
+
+
+
+
+
+

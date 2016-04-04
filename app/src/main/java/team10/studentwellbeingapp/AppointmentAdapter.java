@@ -6,29 +6,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Jamie on 24/11/2015.
  */
-public class AppointmentAdapter extends ArrayAdapter<String> {
+public class AppointmentAdapter extends ArrayAdapter<Appointment> {
     Context context;
     int layoutResourceId;
-    AppointmentDate data[] = null;
-    String[] appointments;
+    AppointmentDay day  = null;
 
-    public AppointmentAdapter(Context context, int layoutResourceId, String[] data) {
+
+
+    public AppointmentAdapter(Context context, int layoutResourceId, AppointmentDay data) {
+
         super(context, layoutResourceId, data);
         this.layoutResourceId = layoutResourceId;
         this.context = context;
-        this.appointments = data;
+        this.day = data;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
-        AppointmentHolder holder = null;
+        AppointmentHolder holder;
 
         if(row == null) {
             LayoutInflater inflator = ((Activity)context).getLayoutInflater();
@@ -36,14 +39,14 @@ public class AppointmentAdapter extends ArrayAdapter<String> {
 
             holder = new AppointmentHolder();
             holder.appointmentText = (TextView)row.findViewById(R.id.appointmentText);
-            holder.checkbox = (CheckBox)row.findViewById(R.id.checkBox);
+            row.setTag(holder);
 
         }
         else {
             holder = (AppointmentHolder)row.getTag();
         }
 
-        String appointment = appointments[position];
+        String appointment = day.get(position).getDatetime();
         holder.appointmentText.setText(appointment);
 
         return row;
@@ -55,6 +58,6 @@ public class AppointmentAdapter extends ArrayAdapter<String> {
 
     static class AppointmentHolder {
             TextView appointmentText;
-            CheckBox checkbox;
+
     }
 }

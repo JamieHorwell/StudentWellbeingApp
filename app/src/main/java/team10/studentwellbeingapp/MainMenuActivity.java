@@ -57,13 +57,15 @@ public class MainMenuActivity extends AppCompatActivity {
                 //startActivity(new Intent(this, ButtonThreeActivity.class));
                 break;
             case R.id.bookAppointmentButton:
-                startActivity(new Intent(this, LoginActivity.class));
+
+                startActivity(new Intent(this, BookingAppointmentActivity.class));
                 break;
+                //startActivity(new Intent(this, LoginActivity.class));
             case R.id.symptomsCheckerBottom:
                 startActivity(new Intent(this, ButtonSevenActivity.class));
                 break;
             case R.id.findSupportButton:
-                startActivity(new Intent(this, ButtonSevenActivity.class));
+                startActivity(new Intent(this, MapsTestingActivity.class));
                 break;
         }
     }
