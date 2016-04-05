@@ -28,15 +28,22 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     private ListView listView1;
     AppointmentAdapter adapter;
     String student = "150068502";
+
     String DateToDisplayFrom = "2015-00-01";
 
     TextView headerValue;
     View header;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_appointment);
         Intent intent = getIntent();
+
+
+
+
+
 
         currentday = Calendar.getInstance();
         currentday.set(2015, 00, 01);
@@ -132,6 +139,18 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         this.currentday = Calendar.getInstance();
     }
 
+    public void getStudentDetails() {
+            Bundle extras = getIntent().getExtras();
+            if(extras !=null ) {
+                String tempUsername = extras.get("Username").toString();
+                String tempPassword = extras.get("Password").toString();
+                Log.d("Username", tempUsername);
+                Log.d("Password", tempPassword);
+
+            }
+    }
+
+
     //needs code added
     class retrieveData extends AsyncTask<String, String, AppointmentDay> {
 
@@ -209,5 +228,6 @@ public class BookingAppointmentActivity extends ActionBarActivity {
 
         }
     }
+
 
 }

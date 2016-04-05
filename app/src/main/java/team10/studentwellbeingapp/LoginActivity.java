@@ -26,6 +26,13 @@ import android.widget.EditText;
 
 public class LoginActivity extends AppCompatActivity {
 
+
+    String username;
+    String password;
+    EditText usernameEdit;
+    EditText passwordEdit;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,17 +40,27 @@ public class LoginActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonSixToolbar);
         setSupportActionBar(toolbar);
+        usernameEdit = (EditText)findViewById(R.id.editTextStudentID);
+        passwordEdit = (EditText)findViewById(R.id.editTextStudentID);
     }
     public void onButtonClick(View v) {
         Button button = (Button) v;
-        EditText username = (EditText)findViewById(R.id.editTextStudentID);
-        EditText password = (EditText) findViewById(R.id.editTextPassword);
         if(button.getId() == R.id.loginButton){
-            startActivity(new Intent(this, BookingAppointmentActivity.class));
+            Intent i = new Intent(this,BookingAppointmentActivity.class);
+            i.putExtra("Username",username);
+            i.putExtra("Password",password);
+            startActivity(i);
 
         } else if(button.getId() == R.id.registerButton){
             startActivity(new Intent(this, RegistrationActivity.class));
 
         }
     }
+    public String[] getLoginDetails() {
+        String[] loginDetails = new String[2];
+        loginDetails[0] = usernameEdit.getText().toString();
+        loginDetails[1] = passwordEdit.getText().toString();
+        return loginDetails;
+    }
+
 }
