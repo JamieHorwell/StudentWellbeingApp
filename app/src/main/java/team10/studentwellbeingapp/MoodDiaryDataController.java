@@ -45,7 +45,7 @@ public class MoodDiaryDataController {
 
     }
 
-    private void storeEntries(){S
+    private void storeEntries(){
         encodeListToString();
 
     }
