@@ -233,6 +233,7 @@ public class AppointmentAccessor {
     //check if user account is valid
     public loginResult logIn(String student, String password){
         URL url;
+        Log.w("loginresult", password);
         try{
             url = new URL(loginURL);
             URLConnection conn = url.openConnection();
@@ -249,6 +250,7 @@ public class AppointmentAccessor {
             String line = "";
 
             while((line = in.readLine()) != null){
+                Log.w("loginresult", line);
                 sb.append(line);
             }
 
