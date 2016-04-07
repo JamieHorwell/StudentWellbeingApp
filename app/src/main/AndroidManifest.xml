@@ -44,7 +44,7 @@
             android:parentActivityName=".MainMenuActivity" >
         </activity>
         <activity
-            android:name=".ButtonTwoActivity"
+            android:name=".MoodDiaryMenuActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
         <activity
@@ -90,6 +90,7 @@
 
 
 
+
         <activity
             android:name=".MapsTestingActivity"
             android:label="@string/title_activity_maps_testing"
@@ -101,9 +102,12 @@
 
         </activity>
 
+
         <activity
             android:name=".RegistrationActivity"
-            android:parentActivityName=".LoginActivity">
+            android:parentActivityName=".LoginActivity" >
+        </activity>
+        <activity android:name=".MoodDiaryEntryActivity" >
         </activity>
 
     </application>
