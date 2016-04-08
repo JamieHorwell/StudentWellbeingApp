@@ -233,7 +233,7 @@ public class AppointmentAccessor {
     //check if user account is valid
     public loginResult logIn(String student, String password){
         URL url;
-        Log.w("loginresult", password);
+        Log.w("loginresultInput",student + " " + password);
         try{
             url = new URL(loginURL);
             URLConnection conn = url.openConnection();
@@ -250,16 +250,16 @@ public class AppointmentAccessor {
             String line = "";
 
             while((line = in.readLine()) != null){
-                Log.w("loginresult", line);
+
                 sb.append(line);
             }
-
+            Log.w("loginresult", sb.toString());
             System.out.println(sb);
 
-            if(sb.equals("too many failed attempts")){
+            if(sb.toString().contains("too many failed attempts")){
                 return new loginResult(false, "too many failed attempts");
             }
-            if(sb.equals("invalid username/password")){
+            if(sb.toString().contains("invalid username/password")){
                 return new loginResult(false, "invalid username/password");
             }
             return new loginResult(true, "success");

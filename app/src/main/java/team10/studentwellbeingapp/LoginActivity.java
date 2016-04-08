@@ -23,6 +23,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -105,16 +106,20 @@ public class LoginActivity extends AppCompatActivity {
 
         protected void onPostExecute(Boolean result) {
 
-
+            Log.w("loginresultText", loginResult.logintext);
             if(loginResult.loggedin) {
                 Intent i = new Intent(mcontext,BookingAppointmentActivity.class);
                 i.putExtra("Username",username);
                 i.putExtra("Password",password);
                 startActivity(i);
             }
-            else {
-                Alertdialog("Login failed");
+            else if(loginResult.logintext.equals("invalid username/password")) {
+                Alertdialog("Invalid Username/Password combination, please try again.");
 
+            }
+            //login has failed due to too many attempts
+            else {
+                Alertdialog("Too many login attempts!!!!");
             }
 
         }
