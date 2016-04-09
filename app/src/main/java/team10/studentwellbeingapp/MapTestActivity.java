@@ -19,7 +19,7 @@ public class MapTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.button_six);
+        setContentView(R.layout.get_support);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonSixToolbar);
         setSupportActionBar(toolbar);

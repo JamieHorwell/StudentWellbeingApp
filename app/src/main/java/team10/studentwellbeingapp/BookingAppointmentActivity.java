@@ -40,8 +40,8 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         setContentView(R.layout.activity_booking_appointment);
         Intent intent = getIntent();
 
-
-
+        Bundle bundle = intent.getExtras();
+        student = bundle.get("Username").toString();
 
 
 
@@ -165,7 +165,7 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         protected AppointmentDay doInBackground(String... args) {
           appointmentAccessor = new AppointmentAccessor();
 
-         AppointmentDay testDay =   appointmentAccessor.getFreeAppointments(dateToRetrieve);
+         AppointmentDay testDay =   appointmentAccessor.getFreeAppointments(dateToRetrieve,student);
             for(int i = 0; i < testDay.size(); i++) {
 
             }
@@ -190,17 +190,19 @@ public class BookingAppointmentActivity extends ActionBarActivity {
             listView1.addHeaderView(header);
 
             listView1.setAdapter(adapter);
-
+            listView1.setItemsCanFocus(true);
             //will return time of appointment trying to book
-            listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    String appointmentToBook = weeksAppointments[counter].get(position-1).getDatetime();
-                    Alertdialog("Book this slot? " + appointmentToBook);
-                    new bookAppointment(weeksAppointments[counter].get(position-1).getDatetime(), student).execute();
-                }
-            });
+//            listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                    String appointmentToBook = weeksAppointments[counter].get(position - 1).getDatetime();
+//                    Alertdialog("Book this slot? " + appointmentToBook);
+//                    new bookAppointment(weeksAppointments[counter].get(position - 1).getDatetime(), student).execute();
+//                }
+//            });
+            adapter.notifyDataSetChanged();
         }
+
     }
 
     class bookAppointment extends AsyncTask<String, String, Boolean> {
@@ -216,7 +218,7 @@ public class BookingAppointmentActivity extends ActionBarActivity {
             String date;
             String time;
             appointmentAccessor = new AppointmentAccessor();
-            appointmentAccessor.bookAppointment(studentNumber,dateTime[0],dateTime[1],"");
+            appointmentAccessor.bookAppointment(studentNumber,dateTime[0],dateTime[1],"password");
 
 
             return false;

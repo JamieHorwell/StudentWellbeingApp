@@ -56,10 +56,10 @@ public class AppointmentAccessor {
     }
 
     //returns arraylist of free appt from mysql given a certian date
-    public AppointmentDay getFreeAppointments(String date){
+    public AppointmentDay getFreeAppointments(String date,String student){
 
         URL url;
-        AppointmentDay appointments = new AppointmentDay(date);
+        AppointmentDay appointments = new AppointmentDay(date,student);
 
         try {
 

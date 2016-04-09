@@ -6,13 +6,20 @@ public class AppointmentDay extends ArrayList<Appointment> {
 
     private String date;
 
-    public AppointmentDay(String date){
+
+    private String student;
+
+    public AppointmentDay(String date, String student){
         this.date = date;
+        this.student = student;
     }
 
     public void addAppointment(Appointment appointment){
         this.add(appointment);
     }
+
+    public String getStudent() { return student; }
+
 
 
     public String getDate(){

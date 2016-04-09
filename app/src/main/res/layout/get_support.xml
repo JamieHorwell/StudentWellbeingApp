@@ -49,9 +49,7 @@ Notes:
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <!--
-                    Content goes here!
-                    -->
+
 
                 </LinearLayout>
             </android.support.v7.widget.Toolbar>
