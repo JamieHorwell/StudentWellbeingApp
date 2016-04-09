@@ -60,8 +60,6 @@ Notes:
                     android:onClick="onEntryButtonClick"
                     android:id="@+id/moodEntryTickButton"
                     android:src="@drawable/tick_button"/>
-
-
             </android.support.v7.widget.Toolbar>
 
             <LinearLayout android:layout_height="match_parent"
