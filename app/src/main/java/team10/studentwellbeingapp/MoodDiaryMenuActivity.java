@@ -35,7 +35,7 @@ public class MoodDiaryMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MoodDiaryEntryActivity.class));
                 break;
             case R.id.viewProgressButton:
-                //startActivity(new Intent(this, .class));
+                startActivity(new Intent(this, MoodDiaryProgressView.class));
                 break;        }
     }
 }
