@@ -73,7 +73,7 @@
 
         <activity
 
-            android:name=".MapTestActivity"
+            android:name=".FindSupportActivity"
 
 
             android:parentActivityName=".MainMenuActivity" >
@@ -93,7 +93,7 @@
         <activity
             android:name=".MapsTestingActivity"
             android:label="@string/title_activity_maps_testing"
-            android:parentActivityName=".MapTestActivity" >
+            android:parentActivityName=".FindSupportActivity" >
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

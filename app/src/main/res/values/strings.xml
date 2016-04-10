@@ -9,10 +9,11 @@
     <string name="button_three">Button Three</string>
     <string name="button_four">Button Four</string>
     <string name="button_five">Book Appointment</string>
-    <string name="button_six">Button Six</string>
+    <string name="get_support">Get Support</string>
     <string name="button_seven">Button Seven</string>
     <string name="button_eight">Button Eight</string>
     <string name="title_activity_maps_testing">Map</string>
+    <string name="get_support_intro">Button Eight</string>
 
 
     <string name="learning_resources">Learning Resources</string>

@@ -19,12 +19,18 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.CameraUpdateFactory;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import android.util.Log;
+
+
 import java.io.IOException;
 
 public class MapsTestingActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-
+    private Marker[] markers;
 
 
     @Override

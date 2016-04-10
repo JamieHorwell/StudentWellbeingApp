@@ -65,7 +65,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ButtonSevenActivity.class));
                 break;
             case R.id.findSupportButton:
-                startActivity(new Intent(this, MapsTestingActivity.class));
+                startActivity(new Intent(this, FindSupportActivity.class));
                 break;
         }
     }
