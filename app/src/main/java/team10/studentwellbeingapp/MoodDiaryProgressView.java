@@ -7,12 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,14 +51,17 @@ public class MoodDiaryProgressView extends AppCompatActivity {
         int dataSize = allEntries.size();
         MoodEntry current;
         final String [] dates = new String[dataSize];
+        final String [] moodValues = new String[dataSize];
 
         for(int x = 0; x < dataSize; x++){
             current = allEntries.get(x);
-            dates[x] = current.getDate();
+            dates[x] = current.getDate().replace("Save: ", "");
+            moodValues[x] = current.getMoodValue();
         }
 
-        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, dates);
+        ListAdapter adapter = new MoodViewAdapter<String>(this, dates, moodValues);
         list.setAdapter(adapter);
+
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
