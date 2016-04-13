@@ -11,7 +11,7 @@
     <string name="button_five">Book Appointment</string>
     <string name="get_support">Get Support</string>
     <string name="button_seven">Button Seven</string>
-    <string name="button_eight">Button Eight</string>
+    <string name="appointment_manager_title">Manage your Appointments</string>
     <string name="title_activity_maps_testing">Map</string>
     <string name="get_support_intro">Button Eight</string>
 
@@ -20,7 +20,7 @@
     <string name="mood_diary">Mood Diary</string>
     <string name="mind_the_gap_twitter">Mind the Gap Twitter</string>
     <string name="book_an_appointment">Book an Appointment</string>
-    <string name="symptoms_checker">Symptoms Checker</string>
+    <string name="appointment_menu_title">Manage your Appointments</string>
     <string name="find_support">Find Support</string>
     <string name="registration_screen">User Registration</string>
     <string name="mental_health_piece">Mental Health</string>

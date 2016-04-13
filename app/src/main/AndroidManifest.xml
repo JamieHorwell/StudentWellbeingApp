@@ -84,7 +84,7 @@
                 android:value=".MainMenuActivity" />
         </activity>
         <activity
-            android:name=".ButtonSevenActivity"
+            android:name=".AppointmentMenuActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
 

@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
 
             Log.w("loginresultText", loginResult.logintext);
             if(loginResult.loggedin) {
-                Intent i = new Intent(mcontext,BookingAppointmentActivity.class);
+                Intent i = new Intent(mcontext,AppointmentMenuActivity.class);
                 i.putExtra("Username",username);
                 i.putExtra("Password",password);
                 startActivity(i);

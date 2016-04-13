@@ -13,7 +13,7 @@ Notes:
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="team10.studentwellbeingapp.ButtonEightActivity"
+    tools:context="team10.studentwellbeingapp.AppointmentManagerActivity"
     android:orientation="vertical">
 
     <ScrollView
@@ -39,7 +39,7 @@ Notes:
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/button_eight"
+                    android:text="@string/appointment_manager_title"
                     android:textSize="25dp"
                     android:padding="25dp"
                     android:textColor="@color/wellbeing_white"/>
@@ -49,12 +49,16 @@ Notes:
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <!--
-                    Content goes here!
-                    -->
+
+
+
 
                 </LinearLayout>
             </android.support.v7.widget.Toolbar>
         </LinearLayout>
+
+
+
+
     </ScrollView>
 </LinearLayout>

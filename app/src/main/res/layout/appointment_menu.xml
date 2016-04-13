@@ -13,13 +13,11 @@ Notes:
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="team10.studentwellbeingapp.ButtonSevenActivity"
+    tools:context="team10.studentwellbeingapp.AppointmentMenuActivity"
     android:orientation="vertical"
     android:background="@color/wellbeing_white">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,7 +38,7 @@ Notes:
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/symptoms_checker"
+                    android:text="@string/appointment_menu_title"
                     android:textSize="@dimen/toolbar_text_size"
                     android:padding="@dimen/toolbar_padding"
                     android:textColor="@color/wellbeing_white"/>
@@ -50,12 +48,54 @@ Notes:
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+
+
+
                     <!--
                     Content goes here!
                     -->
 
                 </LinearLayout>
             </android.support.v7.widget.Toolbar>
+        <LinearLayout android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@color/wellbeing_white"
+            android:layout_weight="1">
+            
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal">
+                <ImageButton
+                    android:layout_width="@dimen/menu_button_height"
+                    android:layout_height="@dimen/menu_button_height"
+                    android:id="@+id/BookAppointmentButton"
+                    android:onClick="openAppointmentBooker"
+                    android:layout_gravity="center_vertical"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal">
+            <ImageButton
+                android:layout_width="@dimen/menu_button_height"
+                android:layout_height="@dimen/menu_button_height"
+                android:id="@+id/CancelButton"
+                android:onClick="openAppointmentManager"
+                android:layout_gravity="center_vertical"
+                />
+
+
+            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+
 </LinearLayout>
+    </LinearLayout>
