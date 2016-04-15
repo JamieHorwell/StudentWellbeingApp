@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MoodDiaryMenuActivity extends AppCompatActivity {
 
@@ -23,9 +24,6 @@ public class MoodDiaryMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mood_diary_menu);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.buttonTwoToolbar);
-        setSupportActionBar(toolbar);
     }
 
     public void onButtonClick(View v) {
@@ -36,6 +34,12 @@ public class MoodDiaryMenuActivity extends AppCompatActivity {
                 break;
             case R.id.viewProgressButton:
                 startActivity(new Intent(this, MoodDiaryProgressView.class));
-                break;        }
+                break;
+        }
+    }
+    public void moodDiaryMenuBackButtonClick(View v){
+        if(((ImageButton) v).getId() == R.id.moodDiaryMenuBackButton){
+            startActivity(new Intent(this, MainMenuActivity.class));
+        }
     }
 }

@@ -20,6 +20,7 @@ public class MoodDiaryEntryActivity extends AppCompatActivity implements SeekBar
     SharedPreferences prefs;
     int sliderValue;
     String date;
+    TextView sliderValueDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,8 @@ public class MoodDiaryEntryActivity extends AppCompatActivity implements SeekBar
         slider = (SeekBar)findViewById(R.id.seekBar);
         slider.setOnSeekBarChangeListener(this);
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        sliderValueDisplay = (TextView) findViewById(R.id.seekbarValueText);
+        sliderValueDisplay.setText("Mood Rating: 0/100");
         setupTimeDate();
     }
 
@@ -71,6 +74,8 @@ public class MoodDiaryEntryActivity extends AppCompatActivity implements SeekBar
     @Override
     public void onProgressChanged(SeekBar slider, int progress, boolean fromUser) { // TODO Auto-generated method stub
         sliderValue = progress;
+        sliderValueDisplay.setText("Mood Rating: " + sliderValue + "/100");
+
     }
 
     @Override

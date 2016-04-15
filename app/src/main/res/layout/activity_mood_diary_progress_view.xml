@@ -7,6 +7,7 @@ Notes:
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/progressViewParent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/mood_diary_grey">
 
@@ -25,7 +26,6 @@ Notes:
                 android:background="@color/wellbeing_dark_purple"
                 android:elevation="@dimen/toolbar_elevation"
                 android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                android:id="@+id/buttonTwoToolbar"
                 android:layout_gravity="center"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
@@ -52,10 +52,7 @@ Notes:
                 <ImageButton
                     android:layout_width="55dp"
                     android:layout_height="55dp"
-                    android:layout_gravity="right"
-                    android:onClick="onEntryButtonClick"
-                    android:id="@+id/moodEntryTickButton"
-                    android:src="@drawable/tick_button"/>
+                    android:layout_gravity="right"/>
 -->
 
             </android.support.v7.widget.Toolbar>
@@ -82,29 +79,76 @@ Notes:
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/deleteButton"
         android:layout_below="@id/progressViewTopChild"
         android:orientation="vertical"
-        android:padding="@dimen/full_generic_padding">
+        android:paddingTop="@dimen/half_generic_padding"
+        android:paddingLeft="@dimen/full_generic_padding"
+        android:paddingRight="@dimen/full_generic_padding">
 
         <ListView
             android:layout_width="fill_parent"
-            android:layout_height="275dp"
+            android:layout_height="200dp"
             android:id="@+id/listView"
             android:background="@color/wellbeing_white"
-            />
+            android:layout_marginBottom="@dimen/half_generic_padding"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/wellbeing_white"
+                android:background="@color/wellbeing_dark_purple"
+                android:textSize="@dimen/content_text_size"
+                android:padding="@dimen/half_generic_padding"
+                android:id="@+id/progressMoodValueBox"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/wellbeing_white"
+                android:background="@color/wellbeing_dark_purple"
+                android:textSize="@dimen/content_text_size"
+                android:padding="@dimen/half_generic_padding"
+                android:id="@+id/progressDateBox"
+                android:visibility="gone"/>
+         </RelativeLayout>
 
         <EditText
-            android:paddingTop="@dimen/full_generic_padding"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:id="@+id/moodPreviewBox"
             android:gravity="start"
             android:padding="@dimen/half_generic_padding"
-            android:background="@color/wellbeing_white"
-            android:textColor="@color/wellbeing_light_purple"
+            android:background="@color/mood_diary_teal"
+            android:textColor="@color/wellbeing_white"
+            android:textColorHint="@color/wellbeing_white"
+            android:textSize="@dimen/content_text_size"
+            android:editable="false"
 
             android:hint="Click on a date to view your mood information."/>
     </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/deleteButton"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/full_generic_padding"
+        android:layout_marginRight="@dimen/full_generic_padding"
+        android:layout_marginTop="@dimen/half_generic_padding"
+        android:layout_marginBottom="@dimen/half_generic_padding"
+        android:layout_alignParentLeft="true"
+        android:background="@color/wellbeing_dark_purple"
+        android:textColor="@color/wellbeing_white"
+        android:onClick="deleteButtonClick"
+        android:textSize="@dimen/content_text_size"
+        android:padding="@dimen/quarter_generic_padding"
 
+        android:text="Delete All"/>
 </RelativeLayout>
