@@ -36,12 +36,14 @@ Notes:
                 android:layout_gravity="center">
 
                 <TextView
+
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/appointment_manager_title"
                     android:textSize="25dp"
                     android:padding="25dp"
+
                     android:textColor="@color/wellbeing_white"/>
 
                 <LinearLayout
@@ -55,6 +57,30 @@ Notes:
 
                 </LinearLayout>
             </android.support.v7.widget.Toolbar>
+        <LinearLayout android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/full_generic_padding"
+            android:background="@color/wellbeing_white">
+
+            <TextView
+                android:id="@+id/currentBookedAppointment"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/appointment_manager_title"
+                android:textSize="25dp"
+                android:padding="25dp"
+
+                />
+            <ImageButton
+                android:layout_width="@dimen/menu_button_height"
+                android:layout_height="@dimen/menu_button_height"
+                android:id="@+id/learningResourcesButton"
+                android:onClick="cancelAppointmentClicked"/>
+
+
+            </LinearLayout>
         </LinearLayout>
 
 

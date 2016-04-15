@@ -25,4 +25,9 @@ public class Appointment {
     public String getCouncillor(){
         return councillor;
     }
+
+    @Override
+    public String toString() {
+        return "Appointment Time: " + datetime.toString() + " with " +  councillor.toString();
+    }
 }
