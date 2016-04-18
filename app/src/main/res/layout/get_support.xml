@@ -85,7 +85,7 @@ Notes:
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
-                            android:text="012345678"/>
+                            android:text="0191 208 3333"/>
 
                     </LinearLayout>
 
@@ -100,13 +100,13 @@ Notes:
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/wellbeing_dark_purple"
-                            android:text="Newcastle Student Wellbeing:"/>
+                            android:text="Nightline:"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
-                            android:text="012345678"/>
+                            android:text="0191 208 2905"/>
 
                     </LinearLayout>
                     <LinearLayout
@@ -120,13 +120,13 @@ Notes:
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/wellbeing_dark_purple"
-                            android:text="Newcastle Student Wellbeing:"/>
+                            android:text="Samaritans:"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
-                            android:text="012345678"/>
+                            android:text="0191 232 7272"/>
 
                     </LinearLayout>
 
