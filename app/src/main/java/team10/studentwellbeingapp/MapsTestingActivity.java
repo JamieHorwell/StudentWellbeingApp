@@ -1,7 +1,10 @@
 package team10.studentwellbeingapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -14,9 +17,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -25,6 +31,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.common.ConnectionResult;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -37,7 +44,8 @@ import android.util.Log;
 
 import java.io.IOException;
 
-public class MapsTestingActivity extends FragmentActivity {
+public class MapsTestingActivity extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private Marker[] markers;
@@ -46,31 +54,44 @@ public class MapsTestingActivity extends FragmentActivity {
     private MarkerOptions[] places;
     private Double usersLat;
     private Double usersLng;
-
-
+    GoogleApiClient mGoogleApiClient = null;
+    Location mLastLocation;
+    private int mapMarkerIcon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps_testing);
+        mapMarkerIcon = R.drawable.icon1;
         markers = new Marker[MaxMarkers];
 
+        if (mGoogleApiClient == null) {
+            mGoogleApiClient = new GoogleApiClient.Builder(this)
+                    .addConnectionCallbacks(this)
+                    .addOnConnectionFailedListener(this)
+                    .addApi(LocationServices.API)
+                    .build();
+        }
 
-       
-        //placesSearchStr = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&type=restaurant&name=cruise&key=AIzaSyCUHT_xAneCI6EG7nGqsqQt_AbDPNV7Lzk";
+
 
         setUpMapIfNeeded();
-        testMarker(testGeocodeMatches());
-        placesSearchStr = "https://maps.googleapis.com/maps/api/place/nearbysearch/" +
-                "json?key=AIzaSyCUHT_xAneCI6EG7nGqsqQt_AbDPNV7Lzk&location="+usersLat.toString()+","+usersLng.toString()+
-                "&radius=3000" +
-                "&keyword=counselling";
         if (mMap != null) {
             mMap.setMyLocationEnabled(true);
         }
-        new getPlaces().execute(placesSearchStr);
+
 
     }
 
+    protected void onStart() {
+        mGoogleApiClient.connect();
+
+        super.onStart();
+    }
+
+    protected void onStop() {
+        mGoogleApiClient.disconnect();
+        super.onStop();
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -104,7 +125,11 @@ public class MapsTestingActivity extends FragmentActivity {
             }
         }
     }
-            private void testMarker(double[] coords) {
+
+
+
+
+    private void testMarker(double[] coords) {
                 LatLng testMarker = new LatLng(coords[0], coords[1]);
                 Marker testmarker = mMap.addMarker(new MarkerOptions()
                                 .position(testMarker).title("test Marker").snippet("this is a test")
@@ -118,34 +143,13 @@ public class MapsTestingActivity extends FragmentActivity {
                 mMap.moveCamera(center);
                 mMap.animateCamera(zoom);
 
-            }
+    }
 
 
 
 
 
-        private double[] testGeocodeMatches() {
 
-            List<Address> geocodeMatches = null;
-
-            try {
-                geocodeMatches =
-                        new Geocoder(this).getFromLocationName(
-                                "Newcastle University", 5);
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-
-            if (!geocodeMatches.isEmpty()) {
-                usersLat = geocodeMatches.get(0).getLatitude();
-                usersLng = geocodeMatches.get(0).getLongitude();
-                return new double[] {geocodeMatches.get(0).getLatitude(), geocodeMatches.get(0).getLongitude()};
-            }
-            else {
-                return null;
-            }
-        }
     /**
      * This is where we can add markers or lines, add listeners or move the camera. In this case, we
      * just add a marker near Africa.
@@ -228,7 +232,7 @@ public class MapsTestingActivity extends FragmentActivity {
                         }
                         else {
                             places[i]=new MarkerOptions()
-                            .position(placeLL).title(placeName).snippet(vicinity);
+                            .position(placeLL).title(placeName).snippet(vicinity).icon((BitmapDescriptorFactory.fromResource(mapMarkerIcon)));
                         }
                     }
 
@@ -250,6 +254,52 @@ public class MapsTestingActivity extends FragmentActivity {
     }
 
 
+    @Override
+    public void onConnected(Bundle bundle) {
+            mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+            if(mLastLocation != null) {
+                usersLat = mLastLocation.getLatitude();
+                usersLng = mLastLocation.getLongitude();
+                placesSearchStr = "https://maps.googleapis.com/maps/api/place/nearbysearch/" +
+                        "json?key=AIzaSyCUHT_xAneCI6EG7nGqsqQt_AbDPNV7Lzk&location="+usersLat.toString()+","+usersLng.toString()+
+                        "&radius=3000" +
+                        "&keyword=counselling";
+                new getPlaces().execute(placesSearchStr);
+                //move camera to users location
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(usersLat,usersLng),13));
 
+            }
+        else {
+                Alertdialog("Error in finding location, please ensure you have location services enabled on your device");
+
+            }
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    public void Alertdialog(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message);
+        builder.setCancelable(true);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                finish();
+            }
+        });
+        AlertDialog warnNoMoreDays = builder.create();
+        warnNoMoreDays.show();
+
+
+    }
 
 }

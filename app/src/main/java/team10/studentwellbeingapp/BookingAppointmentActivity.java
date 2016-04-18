@@ -21,7 +21,7 @@ import java.util.Calendar;
 
 public class BookingAppointmentActivity extends ActionBarActivity {
 
-    AppointmentAccessor appointmentAccessor;
+    AppointmentAccessorNew appointmentAccessor;
     AppointmentDay[] weeksAppointments;
     int counter = 0;
     private Calendar currentday;
@@ -163,7 +163,7 @@ public class BookingAppointmentActivity extends ActionBarActivity {
 
 
         protected AppointmentDay doInBackground(String... args) {
-          appointmentAccessor = new AppointmentAccessor();
+          appointmentAccessor = new AppointmentAccessorNew();
 
          AppointmentDay testDay =   appointmentAccessor.getFreeAppointments(dateToRetrieve,student);
             for(int i = 0; i < testDay.size(); i++) {
@@ -205,31 +205,31 @@ public class BookingAppointmentActivity extends ActionBarActivity {
 
     }
 
-    class bookAppointment extends AsyncTask<String, String, Boolean> {
-
-        String dateTime[];
-        String studentNumber;
-        public bookAppointment(String dateTime, String studentNumber) {
-                this.dateTime = dateTime.split("\\s+");;
-                this.studentNumber = studentNumber;
-
-        }
-        protected Boolean doInBackground(String... args) {
-            String date;
-            String time;
-            appointmentAccessor = new AppointmentAccessor();
-            appointmentAccessor.bookAppointment(studentNumber,dateTime[0],dateTime[1],"password");
-
-
-            return false;
-        }
-
-        protected void onPostExecute(Boolean result) {
-            Alertdialog("Appointment Booked! ");
-
-
-        }
-    }
+//    class bookAppointment extends AsyncTask<String, String, Boolean> {
+//
+//        String dateTime[];
+//        String studentNumber;
+//        public bookAppointment(String dateTime, String studentNumber) {
+//                this.dateTime = dateTime.split("\\s+");;
+//                this.studentNumber = studentNumber;
+//
+//        }
+//        protected Boolean doInBackground(String... args) {
+//            String date;
+//            String time;
+//            appointmentAccessor = new AppointmentAccessorNew();
+//            appointmentAccessor.bookAppointment(studentNumber,dateTime[0],dateTime[1],"password");
+//
+//
+//            return false;
+//        }
+//
+//        protected void onPostExecute(Boolean result) {
+//            Alertdialog("Appointment Booked! ");
+//
+//
+//        }
+//    }
 
 
 }

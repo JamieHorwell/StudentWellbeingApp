@@ -26,6 +26,10 @@
     <string name="mental_health_piece">Mental Health</string>
     <string name="standard_font">sans-serif</string>
     <string name="condensed_font">sans-serif-condensed</string>
+    <string name="title_activity_symptom_checker_link">SymptomCheckerLink</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_symptom_checker">SymptomCheckerActivity</string>
 
 
 

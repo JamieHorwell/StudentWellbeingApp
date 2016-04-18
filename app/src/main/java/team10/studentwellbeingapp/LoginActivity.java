@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     String password;
     EditText usernameEdit;
     EditText passwordEdit;
-    AppointmentAccessor appointmentAccessor;
+    AppointmentAccessorNew appointmentAccessor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
 
         }
         protected Boolean doInBackground(String... args) {
-            appointmentAccessor = new AppointmentAccessor();
+            appointmentAccessor = new AppointmentAccessorNew();
             loginResult = appointmentAccessor.logIn(username, password);
             return true;
         }

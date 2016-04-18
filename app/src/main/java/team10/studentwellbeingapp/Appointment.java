@@ -8,10 +8,12 @@ public class Appointment {
     private String student;
     private String datetime;
     private String councillor;
+    private String aid;
 
-    public Appointment(String datetime, String councillor){
+    public Appointment(String datetime, String councillor, String aid){
         this.datetime = datetime;
         this.councillor = councillor;
+        this.aid = aid;
     }
 
     public String getDatetime(){
@@ -25,6 +27,8 @@ public class Appointment {
     public String getCouncillor(){
         return councillor;
     }
+
+    public String getaid() { return aid; }
 
     @Override
     public String toString() {

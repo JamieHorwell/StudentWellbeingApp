@@ -19,6 +19,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class AppointmentManagerActivity extends AppCompatActivity {
 
 
@@ -69,26 +72,28 @@ public class AppointmentManagerActivity extends AppCompatActivity {
 
     }
 
+    public void setUpListView() {
+
+
+    }
+
 
 
     class cancelAppointment extends AsyncTask<String, String, Boolean> {
-        AppointmentAccessor appointmentAccessor;
-        String dateTime[];
+        AppointmentAccessorNew appointmentAccessor;
+        String aid;
         String studentNumber;
         String password;
 
-        public cancelAppointment(String dateTime, String studentNumber, String password) {
-            this.dateTime = dateTime.split("\\s");
+        public cancelAppointment(String aid, String studentNumber, String password) {
+            this.aid = aid;
             this.studentNumber = studentNumber;
             this.password = password;
 
         }
         protected Boolean doInBackground(String... args) {
-            appointmentAccessor = new AppointmentAccessor();
-                appointmentAccessor.cancelAppointment(studentNumber, dateTime[0],dateTime[1],password);
-            //appointmentAccessor.cancelAppointment(studentNumber, dateTime[0], dateTime[1], "password");
-
-
+            appointmentAccessor = new AppointmentAccessorNew();
+            appointmentAccessor.cancelAppointment(studentNumber, aid , password);
 
 
             return true;
@@ -115,12 +120,12 @@ public class AppointmentManagerActivity extends AppCompatActivity {
         }
     }
 
-    class getStudentsAppointment extends AsyncTask<String, String, Appointment> {
-        AppointmentAccessor appointmentAccessor;
+    class getStudentsAppointment extends AsyncTask<String, String, ArrayList<Appointment>> {
+        AppointmentAccessorNew appointmentAccessor;
 
         String studentNumber;
         String password;
-        Appointment appointment;
+        ArrayList<Appointment> appointments;
 
         public getStudentsAppointment(String studentNumber, String password) {
 
@@ -128,15 +133,15 @@ public class AppointmentManagerActivity extends AppCompatActivity {
             this.password = password;
 
         }
-        protected Appointment doInBackground(String... args) {
-            appointmentAccessor = new AppointmentAccessor();
-            //needs implementation
-            //appointment = appointmentAccessor.getUsersAppointment(studentNumber, "password");
+        protected ArrayList<Appointment> doInBackground(String... args) {
+            appointmentAccessor = new AppointmentAccessorNew();
+
+            appointments = appointmentAccessor.getUserAppointments(studentNumber, "password");
 
 
 
 
-            return appointment;
+            return appointments;
         }
 
         protected void onPostExecute(Appointment result) {

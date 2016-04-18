@@ -34,7 +34,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
         AppointmentHolder holder;
-
+        final int finalpos = position;
         if(row == null) {
             LayoutInflater inflator = ((Activity)context).getLayoutInflater();
             row = inflator.inflate(layoutResourceId,parent,false);
@@ -56,7 +56,7 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
         row.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new bookAppointment(appointment, day.getStudent()).execute();
+                new bookAppointment(day.get(finalpos).getaid(), day.getStudent()).execute();
 
             }
         });
@@ -75,19 +75,19 @@ public class AppointmentAdapter extends ArrayAdapter<Appointment> {
     }
 
     class bookAppointment extends AsyncTask<String, String, Boolean> {
-        AppointmentAccessor appointmentAccessor;
-        String dateTime[];
+        AppointmentAccessorNew appointmentAccessor;
+        String aid;
         String studentNumber;
-        public bookAppointment(String dateTime, String studentNumber) {
-            this.dateTime = dateTime.split("\\s+");;
+        public bookAppointment(String aid, String studentNumber) {
+            this.aid = aid;
             this.studentNumber = studentNumber;
 
         }
         protected Boolean doInBackground(String... args) {
             String date;
             String time;
-            appointmentAccessor = new AppointmentAccessor();
-            appointmentAccessor.bookAppointment(studentNumber,dateTime[0],dateTime[1],"password");
+            appointmentAccessor = new AppointmentAccessorNew();
+            appointmentAccessor.bookAppointment(studentNumber,aid,"password");
 
 
             return false;

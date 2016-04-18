@@ -14,6 +14,10 @@ public class AppointmentDay extends ArrayList<Appointment> {
         this.student = student;
     }
 
+    public AppointmentDay(String date) {
+        this.date = date;
+    }
+
     public void addAppointment(Appointment appointment){
         this.add(appointment);
     }

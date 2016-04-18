@@ -62,7 +62,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 break;
                 //startActivity(new Intent(this, LoginActivity.class));
             case R.id.symptomsCheckerBottom:
-                startActivity(new Intent(this, AppointmentMenuActivity.class));
+                startActivity(new Intent(this, SymptomCheckerActivity.class));
                 break;
             case R.id.findSupportButton:
                 startActivity(new Intent(this, FindSupportActivity.class));

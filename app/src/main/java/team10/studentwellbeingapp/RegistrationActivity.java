@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    AppointmentAccessor appointmentAccessor;
+
 
 
     @Override
@@ -176,7 +176,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     class bookAppointment extends AsyncTask<String, String, Boolean> {
-
+        AppointmentAccessorNew appointmentAccessor;
         String student;
         String password;
         String emailAddress;
@@ -188,16 +188,24 @@ public class RegistrationActivity extends AppCompatActivity {
         }
         protected Boolean doInBackground(String... args) {
 
-            appointmentAccessor = new AppointmentAccessor();
-            appointmentAccessor.signUp(student,password,emailAddress);
+            appointmentAccessor = new AppointmentAccessorNew();
+            return  appointmentAccessor.signUp(student,password,emailAddress);
 
 
-            return false;
+
         }
 
         protected void onPostExecute(Boolean result) {
-            Alertdialog("Email Sent!");
-            finish();
+            if(result) {
+                Alertdialog("Email Sent!");
+                finish();
+            }
+            else {
+                Alertdialog("Invalid Email, please try again.")
+                ;
+            }
+            //add 3rd option if failed due to other error
+
 
         }
     }
