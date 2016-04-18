@@ -56,12 +56,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:lineSpacingMultiplier="1.5"
-                    android:textColor="#000000"
-                    android:paddingBottom="@dimen/full_generic_padding"
+                    android:textSize="@dimen/subtitle_text_size"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:paddingBottom="@dimen/half_generic_padding"
 
-                    android:text=""/>
-
+                    android:text="Welfare and Equality Officer"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -69,10 +68,101 @@
                     android:lineSpacingMultiplier="1.5"
                     android:textColor="#000000"
                     android:paddingBottom="@dimen/full_generic_padding"
+                    android:textSize="@dimen/content_text_size"
 
-                    android:text=""
-                    />
+                    android:text="Luke Allison is currently the NUSU Welfare and Equality officer. His role is to offer guidance to students on where to seek welfare support, including mental health, as well as running campaigns throughout the year. "/>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/content_text_size"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:paddingBottom="@dimen/half_generic_padding"
+
+                    android:text="Contact and links"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:autoLink="web"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="http://www.nusu.co.uk/yourvoice/officers/welfare/"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:autoLink="email"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="welfare.union@ncl.ac.uk"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:autoLink="web"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="https://www.facebook.com/NUSUWelfare/"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/full_generic_padding"
+                    android:autoLink="web"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="https://twitter.com/NUSUwelfare"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subtitle_text_size"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:paddingBottom="@dimen/half_generic_padding"
+
+                    android:text="Students with Disabilities Officer"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textColor="#000000"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="Rosie Foster and Olivia Bucknall are part-time officers of the Students’ Union whose main role is to represent students who have disabilities."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="Email: "/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:autoLink="email"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="SWD.union@ncl.ac.uk"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
