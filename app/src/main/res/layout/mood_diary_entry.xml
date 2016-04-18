@@ -89,7 +89,7 @@ Notes:
 
                     <ImageView
                         android:layout_alignParentLeft="true"
-                        android:scaleType="centerInside"
+                        android:scaleType="fitCenter"
                         android:layout_width="55dp"
                         android:layout_height="55dp"
                         android:id="@+id/leftFace"
@@ -101,7 +101,6 @@ Notes:
                         android:layout_alignParentTop="true"
                         android:gravity="center_horizontal"
                         android:text="@string/mood_diary"
-                        android:textSize="@dimen/content_text_size"
                         android:layout_marginBottom="@dimen/full_generic_padding"
                         android:textColor="@color/wellbeing_light_purple"
                         android:id="@+id/seekbarValueText"/>
@@ -118,7 +117,7 @@ Notes:
 
                     <ImageView
                         android:layout_alignParentRight="true"
-                        android:scaleType="centerInside"
+                        android:scaleType="fitCenter"
                         android:layout_width="55dp"
                         android:layout_height="55dp"
                         android:id="@+id/rightFace"

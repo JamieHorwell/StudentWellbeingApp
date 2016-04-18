@@ -31,7 +31,7 @@
         </activity>
         <activity android:name=".MainMenuActivity" />
         <activity
-            android:name=".ButtonOneActivity"
+            android:name=".ContentMenuActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
         <activity
@@ -81,6 +81,14 @@
         <activity android:name=".MoodDiaryEntryActivity" >
         </activity>
         <activity android:name=".MoodDiaryProgressView" >
+        </activity>
+        <activity android:name=".ContentStudentWellbeingActivity" >
+        </activity>
+        <activity android:name=".ContentMindTheGapActivity" >
+        </activity>
+        <activity android:name=".ContentStudentOfficersActivity" >
+        </activity>
+        <activity android:name=".ContentCommonIssuesActivity" >
         </activity>
     </application>
 
