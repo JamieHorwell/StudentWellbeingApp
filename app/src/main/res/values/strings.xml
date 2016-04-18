@@ -1,17 +1,29 @@
 <resources>
-    <string name="app_name">Student Wellbeing</string>
+    <string name="app_name">Mind Over Matter</string>
     <string name="title_activity_booking_appointment">BookingAppointmentActivity</string>
     <string name="action_settings">Settings</string>
 
-    <string name="button_one">Dealing Mental Stress</string>
+
     <string name="button_two">Log Book</string>
     <string name="button_three">Button Three</string>
     <string name="button_four">Button Four</string>
     <string name="button_five">Book Appointment</string>
-    <string name="button_six">Appointment Manager</string>
+    <string name="button_six">Button Six</string>
     <string name="button_seven">Button Seven</string>
     <string name="button_eight">Button Eight</string>
+    <string name="title_activity_maps_testing">Map</string>
+
+
+    <string name="learning_resources">Learning Resources</string>
+    <string name="mood_diary">Mood Diary</string>
+    <string name="mind_the_gap_twitter">Mind the Gap Twitter</string>
+    <string name="book_an_appointment">Book an Appointment</string>
+    <string name="symptoms_checker">Symptoms Checker</string>
+    <string name="find_support">Find Support</string>
     <string name="registration_screen">User Registration</string>
+    <string name="mental_health_piece">Mental Health</string>
+    <string name="standard_font">sans-serif</string>
+    <string name="condensed_font">sans-serif-condensed</string>
 
 
 

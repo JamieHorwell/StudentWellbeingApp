@@ -24,12 +24,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-public class ButtonSixActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.button_six);
+        setContentView(R.layout.login_activity);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonSixToolbar);
         setSupportActionBar(toolbar);
@@ -39,7 +39,7 @@ public class ButtonSixActivity extends AppCompatActivity {
         EditText username = (EditText)findViewById(R.id.editTextStudentID);
         EditText password = (EditText) findViewById(R.id.editTextPassword);
         if(button.getId() == R.id.loginButton){
-            startActivity(new Intent(this, ButtonOneActivity.class));
+            startActivity(new Intent(this, BookingAppointmentActivity.class));
 
         } else if(button.getId() == R.id.registerButton){
             startActivity(new Intent(this, RegistrationActivity.class));

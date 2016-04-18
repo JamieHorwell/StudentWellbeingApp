@@ -13,112 +13,48 @@ Notes:
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="team10.studentwellbeingapp.ButtonSixActivity"
+    tools:context="team10.studentwellbeingapp.MapTestActivity"
     android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <android.support.v7.widget.Toolbar
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/wellbeingDarkPurple"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-            android:id="@+id/buttonSixToolbar"
-            android:layout_gravity="center">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/button_six"
-                android:textSize="25dp"
-                android:padding="25dp"
-                android:textColor="@color/wellbeingWhite"/>
-        </android.support.v7.widget.Toolbar>
-
-        <LinearLayout android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:padding="25dp"
-            android:background="@color/wellbeingWhite">
-
-            <TextView
+            <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lineSpacingMultiplier="1.5"
-                android:textColor="#000000"
-                android:textSize="16sp"
+                android:background="@color/wellbeing_dark_purple"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:id="@+id/buttonSixToolbar"
+                android:layout_gravity="center">
 
-                android:text="If you wish to book an appointment with a councillor then you will be required to login below. Upon doing so you will be forwarded to the booking screen. Haven't registered? Click the 'register' button to sign up!"
-
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:paddingTop="25dp"
-                android:textColor="@color/wellbeingDarkPurple"
-                android:text="User Login:"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:id="@+id/editTextStudentID"
-                android:textSize="16sp"
-                android:backgroundTint="@color/wellbeingDarkPurple"
-                android:hint="Student Number"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:id="@+id/editTextPassword"
-                android:textSize="16sp"
-                android:backgroundTint="@color/wellbeingDarkPurple"
-                android:fontFamily="sans-serif"
-                android:hint="Password" />
-
-            <LinearLayout android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center_horizontal"
-                android:padding="25dp"
-                android:background="@color/wellbeingWhite">
-
-                <Button
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@color/wellbeingWhite"
-                    android:textColor="@color/wellbeingLightPurple"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:onClick="onButtonClick"
-                    android:textSize="18sp"
-                    android:id="@+id/loginButton"
+                    android:gravity="center"
+                    android:text="@string/button_six"
+                    android:textSize="25dp"
+                    android:padding="25dp"
+                    android:textColor="@color/wellbeing_white"/>
 
-                    android:text="Login"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:background="@color/wellbeingWhite"
-                    android:textColor="@color/wellbeingLightPurple"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:onClick="onButtonClick"
-                    android:textSize="18sp"
-                    android:id="@+id/registerButton"
-                    android:text="Register"/>
+                    <!--
+                    Content goes here!
+                    -->
 
                 </LinearLayout>
-            </LinearLayout>
+            </android.support.v7.widget.Toolbar>
         </LinearLayout>
+    </ScrollView>
 </LinearLayout>
