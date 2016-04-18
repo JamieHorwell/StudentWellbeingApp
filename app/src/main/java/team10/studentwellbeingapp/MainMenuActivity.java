@@ -48,7 +48,7 @@ public class MainMenuActivity extends AppCompatActivity {
         ImageButton button = (ImageButton) v;
         switch (button.getId()) {
             case R.id.learningResourcesButton:
-                startActivity(new Intent(this, ButtonOneActivity.class));
+                startActivity(new Intent(this, ContentMenuActivity.class));
                 break;
             case R.id.moodDiaryButton:
                 startActivity(new Intent(this, MoodDiaryMenuActivity.class));
