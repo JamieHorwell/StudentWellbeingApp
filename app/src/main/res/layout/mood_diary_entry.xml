@@ -101,7 +101,6 @@ Notes:
                         android:layout_alignParentTop="true"
                         android:gravity="center_horizontal"
                         android:text="@string/mood_diary"
-                        android:textSize="@dimen/content_text_size"
                         android:layout_marginBottom="@dimen/full_generic_padding"
                         android:textColor="@color/wellbeing_light_purple"
                         android:id="@+id/seekbarValueText"/>

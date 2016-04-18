@@ -76,7 +76,10 @@ Student Wellbeing Website.
                         android:layout_width="@dimen/menu_button_height"
                         android:layout_height="@dimen/menu_button_height"
                         android:id="@+id/learningResourcesButton"
-                        android:onClick="onButtonClick"/>
+                        android:onClick="onButtonClick"
+                        android:src="@drawable/chat_bubble_hand_drawn_outline_one"
+                        android:scaleType="fitCenter"
+                        android:background="@color/wellbeing_white"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -93,7 +96,10 @@ Student Wellbeing Website.
                         android:layout_width="@dimen/menu_button_height"
                         android:layout_height="@dimen/menu_button_height"
                         android:id="@+id/moodDiaryButton"
-                        android:onClick="onButtonClick"/>
+                        android:onClick="onButtonClick"
+                        android:src="@drawable/mood_diary"
+                        android:scaleType="fitCenter"
+                        android:background="@color/wellbeing_white"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -110,7 +116,10 @@ Student Wellbeing Website.
                         android:layout_width="@dimen/menu_button_height"
                         android:layout_height="@dimen/menu_button_height"
                         android:id="@+id/mindTheGapTwitterButton"
-                        android:onClick="onButtonClick"/>
+                        android:onClick="onButtonClick"
+                        android:src="@drawable/twiiter_hand_drawn_logo"
+                        android:scaleType="fitCenter"
+                        android:background="@color/wellbeing_white"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -144,7 +153,10 @@ Student Wellbeing Website.
                         android:layout_width="@dimen/menu_button_height"
                         android:layout_height="@dimen/menu_button_height"
                         android:id="@+id/bookAppointmentButton"
-                        android:onClick="onButtonClick"/>
+                        android:onClick="onButtonClick"
+                        android:src="@drawable/appointment_booker"
+                        android:scaleType="fitCenter"
+                        android:background="@color/wellbeing_white"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -161,7 +173,10 @@ Student Wellbeing Website.
                         android:layout_width="@dimen/menu_button_height"
                         android:layout_height="@dimen/menu_button_height"
                         android:id="@+id/symptomsCheckerBottom"
-                        android:onClick="onButtonClick"/>
+                        android:onClick="onButtonClick"
+                        android:src="@drawable/symptom_checker"
+                        android:scaleType="fitCenter"
+                        android:background="@color/wellbeing_white"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -178,7 +193,10 @@ Student Wellbeing Website.
                         android:layout_width="@dimen/menu_button_height"
                         android:layout_height="@dimen/menu_button_height"
                         android:id="@+id/findSupportButton"
-                        android:onClick="onButtonClick"/>
+                        android:onClick="onButtonClick"
+                        android:src="@drawable/other_resources_icon"
+                        android:scaleType="fitCenter"
+                        android:background="@color/wellbeing_white"/>
 
                     <TextView
                         android:layout_width="fill_parent"
