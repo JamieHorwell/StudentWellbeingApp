@@ -79,7 +79,8 @@ Student Wellbeing Website.
                         android:onClick="onButtonClick"
                         android:src="@drawable/chat_bubble_hand_drawn_outline_one"
                         android:scaleType="fitCenter"
-                        android:background="@color/wellbeing_white"/>
+                        android:background="@color/wellbeing_white"
+                        android:padding="@dimen/full_generic_padding"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -99,7 +100,8 @@ Student Wellbeing Website.
                         android:onClick="onButtonClick"
                         android:src="@drawable/mood_diary"
                         android:scaleType="fitCenter"
-                        android:background="@color/wellbeing_white"/>
+                        android:background="@color/wellbeing_white"
+                        android:padding="@dimen/full_generic_padding"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -119,7 +121,8 @@ Student Wellbeing Website.
                         android:onClick="onButtonClick"
                         android:src="@drawable/twiiter_hand_drawn_logo"
                         android:scaleType="fitCenter"
-                        android:background="@color/wellbeing_white"/>
+                        android:background="@color/wellbeing_white"
+                        android:padding="@dimen/full_generic_padding"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -156,7 +159,8 @@ Student Wellbeing Website.
                         android:onClick="onButtonClick"
                         android:src="@drawable/appointment_booker"
                         android:scaleType="fitCenter"
-                        android:background="@color/wellbeing_white"/>
+                        android:background="@color/wellbeing_white"
+                        android:padding="@dimen/full_generic_padding"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -176,7 +180,8 @@ Student Wellbeing Website.
                         android:onClick="onButtonClick"
                         android:src="@drawable/symptom_checker"
                         android:scaleType="fitCenter"
-                        android:background="@color/wellbeing_white"/>
+                        android:background="@color/wellbeing_white"
+                        android:padding="@dimen/full_generic_padding"/>
 
                     <TextView
                         android:layout_width="fill_parent"
@@ -196,7 +201,8 @@ Student Wellbeing Website.
                         android:onClick="onButtonClick"
                         android:src="@drawable/other_resources_icon"
                         android:scaleType="fitCenter"
-                        android:background="@color/wellbeing_white"/>
+                        android:background="@color/wellbeing_white"
+                        android:padding="@dimen/full_generic_padding"/>
 
                     <TextView
                         android:layout_width="fill_parent"

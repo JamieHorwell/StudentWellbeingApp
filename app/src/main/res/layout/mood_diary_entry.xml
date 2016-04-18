@@ -89,7 +89,7 @@ Notes:
 
                     <ImageView
                         android:layout_alignParentLeft="true"
-                        android:scaleType="centerInside"
+                        android:scaleType="fitCenter"
                         android:layout_width="55dp"
                         android:layout_height="55dp"
                         android:id="@+id/leftFace"
@@ -117,7 +117,7 @@ Notes:
 
                     <ImageView
                         android:layout_alignParentRight="true"
-                        android:scaleType="centerInside"
+                        android:scaleType="fitCenter"
                         android:layout_width="55dp"
                         android:layout_height="55dp"
                         android:id="@+id/rightFace"
