@@ -41,7 +41,7 @@ Notes:
                     android:gravity="center"
                     android:text="@string/get_support"
                     android:textSize="25dp"
-                    android:padding="25dp"
+                    android:padding="5dp"
                     android:textColor="@color/wellbeing_white"/>
 
             </android.support.v7.widget.Toolbar>

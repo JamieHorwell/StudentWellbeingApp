@@ -187,7 +187,7 @@ Student Wellbeing Website.
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/subtitle_text_size"
-                        android:text="@string/appointment_menu_title"
+                        android:text="@string/Symptom_Checker"
                         android:paddingBottom="@dimen/half_generic_padding"
                         android:gravity="center"
                         android:fontFamily="@string/condensed_font"

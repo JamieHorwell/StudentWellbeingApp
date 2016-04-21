@@ -15,10 +15,12 @@ Notes:
 
 package team10.studentwellbeingapp;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,8 +34,6 @@ import android.widget.EditText;
 public class LoginActivity extends AppCompatActivity {
 
 
-    String username;
-    String password;
     EditText usernameEdit;
     EditText passwordEdit;
     AppointmentAccessorNew appointmentAccessor;
@@ -109,7 +109,12 @@ public class LoginActivity extends AppCompatActivity {
             if(loginResult.getLoginStatus()) {
                 Intent i = new Intent(mcontext,AppointmentMenuActivity.class);
                 i.putExtra("Username",username);
-                i.putExtra("Password",password);
+                i.putExtra("Password", password);
+
+                SharedPreferences pref = getApplicationContext().getSharedPreferences("appPrefs",0);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.
+
                 startActivity(i);
             }
             else if(loginResult.getLoginText().equals("invalid username/password")) {

@@ -38,7 +38,7 @@ Notes:
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/appointment_menu_title"
+                    android:text="@string/Symptom_Checker"
                     android:textSize="@dimen/toolbar_text_size"
                     android:padding="@dimen/toolbar_padding"
                     android:textColor="@color/wellbeing_white"/>
