@@ -29,7 +29,6 @@ Notes:
                 android:background="@color/wellbeing_dark_purple"
                 android:elevation="@dimen/toolbar_elevation"
                 android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                android:id="@+id/buttonTwoToolbar"
                 android:layout_gravity="center"
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
@@ -90,16 +89,27 @@ Notes:
 
                     <ImageView
                         android:layout_alignParentLeft="true"
-                        android:scaleType="centerInside"
+                        android:scaleType="fitCenter"
                         android:layout_width="55dp"
                         android:layout_height="55dp"
                         android:id="@+id/leftFace"
                         android:src="@drawable/unhappy_face"/>
 
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:gravity="center_horizontal"
+                        android:text="@string/mood_diary"
+                        android:layout_marginBottom="@dimen/full_generic_padding"
+                        android:textColor="@color/wellbeing_light_purple"
+                        android:id="@+id/seekbarValueText"/>
+
                     <SeekBar
                         android:layout_toRightOf="@id/leftFace"
                         android:layout_toLeftOf="@+id/rightFace"
-                        android:layout_centerInParent="true"
+                        android:layout_centerVertical="true"
+                        android:paddingTop="@dimen/quarter_generic_padding"
                         android:max="100"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
@@ -107,7 +117,7 @@ Notes:
 
                     <ImageView
                         android:layout_alignParentRight="true"
-                        android:scaleType="centerInside"
+                        android:scaleType="fitCenter"
                         android:layout_width="55dp"
                         android:layout_height="55dp"
                         android:id="@+id/rightFace"
@@ -134,6 +144,7 @@ Notes:
                             android:layout_height="wrap_content"
                             android:textColor="@color/wellbeing_white"
                             android:background="@color/wellbeing_dark_purple"
+                            android:textSize="@dimen/content_text_size"
                             android:padding="@dimen/half_generic_padding"
 
                             android:text="Diary Entry"/>
@@ -144,6 +155,7 @@ Notes:
                             android:layout_height="wrap_content"
                             android:textColor="@color/wellbeing_white"
                             android:background="@color/wellbeing_dark_purple"
+                            android:textSize="@dimen/content_text_size"
                             android:padding="@dimen/half_generic_padding"
                             android:id="@+id/entryDateTime" />
                     </RelativeLayout>

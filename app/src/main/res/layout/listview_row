@@ -1,0 +1,29 @@
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/wellbeing_white"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="left"
+            android:layout_marginRight="@dimen/half_generic_padding"
+            android:id="@+id/listViewRowImage"
+            android:background="@color/wellbeing_white"
+            android:padding="@dimen/quarter_generic_padding"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/listViewRowText"
+            android:textColor="@color/wellbeing_light_purple"
+            android:textSize="@dimen/subtitle_text_size"
+            android:padding="@dimen/half_generic_padding"
+            android:gravity="center_vertical"
+            android:background="@color/wellbeing_white" />
+
+
+    </LinearLayout>
+
