@@ -32,7 +32,7 @@ public class ButtonThreeActivity extends AppCompatActivity {
         TwitterAuthConfig authConfig =  new TwitterAuthConfig("xnhza9YzLRHzkFASRWlceJx8I", "C75gDnXLWlM2P57h7RhUeU9wBM9x5SuDfNJ7qA40axpRIVfIYK");
         Fabric.with(this, new TwitterCore(authConfig), new TweetUi());
 
-        setContentView(R.layout.button_three);
+        setContentView(R.layout.twitter_feed);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonThreeToolbar);
         setSupportActionBar(toolbar);

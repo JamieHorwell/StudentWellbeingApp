@@ -90,6 +90,9 @@
         </activity>
         <activity android:name=".ContentCommonIssuesActivity" >
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="41ee73c787e4bb728889f7b042eb2c036397b519" />
     </application>
 
 </manifest>

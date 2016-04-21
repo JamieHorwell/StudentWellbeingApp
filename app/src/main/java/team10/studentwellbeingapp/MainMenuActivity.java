@@ -54,7 +54,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MoodDiaryMenuActivity.class));
                 break;
             case R.id.mindTheGapTwitterButton:
-                //startActivity(new Intent(this, ButtonThreeActivity.class));
+                startActivity(new Intent(this, ButtonThreeActivity.class));
                 break;
             case R.id.bookAppointmentButton:
 
