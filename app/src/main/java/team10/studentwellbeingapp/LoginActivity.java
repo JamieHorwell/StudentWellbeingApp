@@ -106,14 +106,14 @@ public class LoginActivity extends AppCompatActivity {
 
         protected void onPostExecute(Boolean result) {
 
-            Log.w("loginresultText", loginResult.logintext);
-            if(loginResult.loggedin) {
+
+            if(loginResult.getLoginStatus()) {
                 Intent i = new Intent(mcontext,AppointmentMenuActivity.class);
                 i.putExtra("Username",username);
                 i.putExtra("Password",password);
                 startActivity(i);
             }
-            else if(loginResult.logintext.equals("invalid username/password")) {
+            else if(loginResult.getLoginText().equals("invalid username/password")) {
                 Alertdialog("Invalid Username/Password combination, please try again.");
 
             }

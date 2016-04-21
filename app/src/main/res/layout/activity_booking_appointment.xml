@@ -32,43 +32,11 @@
     <ListView
         android:id="@+id/appointmentListView"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10dp">
 
     </ListView>
-
-
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:orientation="horizontal">-->
-        <!--<Button-->
-
-            <!--android:id="@+id/back_button"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:text="back "-->
-            <!--android:onClick="previousDay"-->
-            <!--/>-->
-        <!--<Button-->
-            <!--android:id="@+id/next_button"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text= "next"-->
-            <!--android:onClick="nextDay"-->
-            <!--/>-->
-    <!--</RelativeLayout>-->
-
-
-
-
-
-    <!--<RelativeLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:id="@+id/tableLayout"></RelativeLayout>-->
 
 
 

@@ -3,6 +3,8 @@ package team10.studentwellbeingapp;
 /**
  * Created by Jamie on 17/04/2016.
  */
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -24,8 +26,8 @@ public class AppointmentAccessorNew {
     private String freeURL = "http://192.168.0.46:80/studentWellbeingNew/freeappt.php";
     private String bookURL = "http://192.168.0.46:80/studentWellbeingNew/bookappt.php";
     private String cancelURL = "http://192.168.0.46:80/studentWellbeingNew/cancelappt.php";
-    private String signupURL = "http://192.168.0.46:80/studentWellbeingNew/signupappt.php";
-    private String loginURL = "http://192.168.0.46:80/studentWellbeingNew/loginappt.php";
+    private String signupURL = "http://192.168.0.46:80/studentWellbeingNew/signup.php";
+    private String loginURL = "http://192.168.0.46:80/studentWellbeingNew/logon.php";
     private String freeUserURL = "http://192.168.0.46:80/studentWellbeingNew/userappt.php";
 
     public AppointmentAccessorNew(){
@@ -126,6 +128,7 @@ public class AppointmentAccessorNew {
             String line;
 
             while((line = in.readLine()) != null){
+                Log.w("book result", line);
                 sb.append(line);
             }
             //System.out.println(sb);
@@ -235,6 +238,7 @@ public class AppointmentAccessorNew {
 
             while((line = in.readLine()) != null){
                 sb.append(line);
+                Log.w("loginResult", line);
             }
 
             System.out.println(sb);
@@ -265,7 +269,7 @@ public class AppointmentAccessorNew {
         try {
 
             url = new URL(freeUserURL);
-            String data = URLEncoder.encode("student", "UTF-8") + "=" + URLEncoder.encode(student, "UTF-8");
+            String data = URLEncoder.encode("student", "UTF-8") + "=" + URLEncoder.encode(student, "UTF-8") + "&";
             data += URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
 
             URLConnection conn = url.openConnection();
@@ -280,6 +284,7 @@ public class AppointmentAccessorNew {
             String line;
 
             while((line = in.readLine()) != null){
+                Log.w("user result", line);
                 sb.append(line);
                 //appointments.add(new Appointment(line.substring(0, 10), null, line.substring(11)));
             }
@@ -300,7 +305,8 @@ public class AppointmentAccessorNew {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        appointments.add(new Appointment("01/01/2016 14:00:00", "example councillor", "example aid" ));
+        appointments.add(new Appointment("01/01/2016 15:00:00", "example councillor", "example aid" ));
         return appointments;
     }
 

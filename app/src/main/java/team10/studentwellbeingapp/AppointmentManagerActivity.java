@@ -11,12 +11,15 @@ Notes:
 package team10.studentwellbeingapp;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.lang.reflect.Array;
@@ -26,7 +29,8 @@ public class AppointmentManagerActivity extends AppCompatActivity {
 
 
     Appointment currentBookedAppointment;
-
+    ListView usersAppointmentsListView;
+    UsersAppointmentAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,26 +39,13 @@ public class AppointmentManagerActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonEightToolbar);
         setSupportActionBar(toolbar);
 
-        currentBookedAppointment = null;
+        new getStudentsAppointment(this,"123","password").execute();
     }
 
 
 
-    private void setAppointmentText(Appointment appointment) {
-        TextView CurrentAppointment =  (TextView)findViewById(R.id.appointmentText);
-        if(appointment == null) {
-            CurrentAppointment.setText(appointment.toString());
-        }
-        else {
-            CurrentAppointment.setText("No appointment currently booked");
-        }
-    }
 
-    public void cancelAppointmentClicked(View v) {
 
-        new cancelAppointment("2015-01-01 09:00:00", "123", "password").execute();
-
-    }
 
     public void Alertdialog(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -79,56 +70,18 @@ public class AppointmentManagerActivity extends AppCompatActivity {
 
 
 
-    class cancelAppointment extends AsyncTask<String, String, Boolean> {
-        AppointmentAccessorNew appointmentAccessor;
-        String aid;
-        String studentNumber;
-        String password;
 
-        public cancelAppointment(String aid, String studentNumber, String password) {
-            this.aid = aid;
-            this.studentNumber = studentNumber;
-            this.password = password;
-
-        }
-        protected Boolean doInBackground(String... args) {
-            appointmentAccessor = new AppointmentAccessorNew();
-            appointmentAccessor.cancelAppointment(studentNumber, aid , password);
-
-
-            return true;
-        }
-
-
-
-
-
-        protected void onPostExecute(Boolean result) {
-
-            //appointment cancelled, changes made to database
-            if(result = true) {
-
-                Alertdialog("Appointment Successfully Cancelled!");
-
-
-            }
-            //unsuccesfull connection to server, unable to cancel booking
-            else {
-                Alertdialog("Unable to connect to servers, please try again.");
-            }
-
-        }
-    }
 
     class getStudentsAppointment extends AsyncTask<String, String, ArrayList<Appointment>> {
         AppointmentAccessorNew appointmentAccessor;
 
-        String studentNumber;
-        String password;
+        private Context mContext;
+        private String studentNumber;
+        private String password;
         ArrayList<Appointment> appointments;
 
-        public getStudentsAppointment(String studentNumber, String password) {
-
+        public getStudentsAppointment(Context context, String studentNumber, String password) {
+            this.mContext = context;
             this.studentNumber = studentNumber;
             this.password = password;
 
@@ -144,14 +97,13 @@ public class AppointmentManagerActivity extends AppCompatActivity {
             return appointments;
         }
 
-        protected void onPostExecute(Appointment result) {
-            if(result == null) {
-                setAppointmentText(null);
-            }
-            else {
-                currentBookedAppointment = result;
-                setAppointmentText(currentBookedAppointment);
-            }
+        protected void onPostExecute(ArrayList<Appointment> result) {
+
+            adapter = new UsersAppointmentAdapter(mContext,R.layout.booked_appointment_item_row, result);
+
+            usersAppointmentsListView = (ListView)findViewById(R.id.appointmentListView);
+            usersAppointmentsListView.setAdapter(adapter);
+            usersAppointmentsListView.setItemsCanFocus(true);
 
         }
     }

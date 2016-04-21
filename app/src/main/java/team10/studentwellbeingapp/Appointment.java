@@ -1,5 +1,9 @@
 package team10.studentwellbeingapp;
 
+import android.util.Log;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -19,6 +23,13 @@ public class Appointment {
     public String getDatetime(){
         return datetime;
     }
+
+    public String getTime() {
+
+        String time = datetime.split("\\s")[1];
+        return time.substring(0,time.length() - 3);
+    }
+
 
     public String getStudent(){
         return student;
