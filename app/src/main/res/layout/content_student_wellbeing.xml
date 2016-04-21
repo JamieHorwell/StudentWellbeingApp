@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/wellbeing_white">
+
+    <!-- Allows for the following child to be scrolled -->
+    <ScrollView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/wellbeing_dark_purple"
+            android:weightSum="1">
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/wellbeing_dark_purple"
+                android:elevation="@dimen/toolbar_elevation"
+                android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:layout_gravity="center"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                android:contentInsetStart="0dp"
+                android:contentInsetLeft="0dp">
+
+                <ImageButton
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="left"
+                    android:onClick="onStudentWellbeingBackButtonClick"
+                    android:id="@+id/contentStudentWellbeingBackButton"
+                    android:src="@drawable/back_button" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Student Wellbeing"
+                    android:textSize="@dimen/toolbar_text_size"
+                    android:padding="@dimen/toolbar_padding"
+                    android:textColor="@color/wellbeing_white"/>
+            </android.support.v7.widget.Toolbar>
+
+            <LinearLayout android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/full_generic_padding"
+                android:background="@color/wellbeing_white">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subtitle_text_size"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:paddingBottom="@dimen/half_generic_padding"
+
+                    android:text="About"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textColor="#000000"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="The Student Wellbeing centre is located in the King’s Gate building, Level 1. Its aim is to provide information, advice and guidance on a wide range of student support issues. These include financial support, support for international students, support on faith, information on health and services, and mental health support and counselling, disability support and general wellbeing. "/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textColor="#000000"
+                    android:paddingBottom="@dimen/full_generic_padding"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="The Student Wellbeing centre is open from 9am to 5pm on a Monday to Friday except for Wednesday when it opens at 10am. "
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/content_text_size"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:paddingBottom="@dimen/half_generic_padding"
+
+                    android:text="Relevent Links"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:autoLink="web"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="http://www.ncl.ac.uk/students/wellbeing/about/"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:autoLink="web"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="http://www.ncl.ac.uk/students/wellbeing/assets/documents/SWSbrochureSeptember2015final.pdf"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:autoLink="web"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="http://www.ncl.ac.uk/students/wellbeing/contact/index.htm"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:autoLink="web"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="https://youtu.be/qwsMqeZAV0M"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/full_generic_padding"
+                    android:autoLink="web"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+                    android:text="https://my.ncl.ac.uk/students/contact "/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/content_text_size"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:paddingBottom="@dimen/half_generic_padding"
+
+                    android:text="Contact"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="Student Wellbeing, \nStudent Services, \nKing's Gate, \nNewcastle University, \nNewcastle upon Tyne, \nNE1 7RU,"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/full_generic_padding"
+                    android:autoLink="phone"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="0191-208-3333"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/content_text_size"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:paddingBottom="@dimen/half_generic_padding"
+
+                    android:text="Emergency Contacts"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="Emergency Services: "/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:autoLink="phone"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="999"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="Mental Health Matters Helpline: "/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:autoLink="phone"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="0845-601-2457"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="Security: "/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:autoLink="phone"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+                    android:paddingBottom="@dimen/half_generic_padding"
+
+                    android:text="0191-208-6817"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="Out of Hours Help: "/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:autoLink="web"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size"
+                    android:paddingBottom="@dimen/full_generic_padding"
+
+                    android:text="http://www.ncl.ac.uk/students/wellbeing/about/opening/outofhours.htm"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subtitle_text_size"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:paddingBottom="@dimen/half_generic_padding"
+
+                    android:text="Support for students with long-term mental health conditions "/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textColor="#000000"
+                    android:paddingBottom="@dimen/full_generic_padding"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="Students who disclose a long-term mental health condition may be eligible to access input from the Student Wellbeing Mental Health Adviser Team. If you disclose a long-term mental health condition, supported by medical evidence, you can have access to reasonable adjustments and support to help you engage in your studies. This may include arrangement and implementation of Disabled Students’ Allowance (DSAs) for UK students. The Mental Health Adviser Team does not offer specialist treatment for students with long-term mental health conditions as these are provided by specialist mental health services in the NHS."/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subtitle_text_size"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:paddingBottom="@dimen/half_generic_padding"
+
+                    android:text="Counselling and Therapy"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textColor="#000000"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="Coming to university can be emotionally and psychologically challenging, and therefore the Student Wellbeing centre provides a range of therapeutic support. Following an assessment appointment, options will be discussed with you. "/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textColor="#000000"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="Counselling and Therapy is free to all registered students and is part of the positive steps to recovery for your emotional wellbeing. "/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textColor="#000000"
+                    android:paddingBottom="@dimen/full_generic_padding"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="To make an appointment, please use the booking service on this app, or alternatively phone the Wellbeing Centre. Alternatively you can go onto the website and apply for online counselling. "/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/wellbeing_dark_purple"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:textStyle="italic"
+                    android:paddingLeft="@dimen/full_generic_padding"
+                    android:textSize="@dimen/content_text_size"
+
+                    android:text="*Above material is adapted from the Student Wellbeing centre, used with permission."/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

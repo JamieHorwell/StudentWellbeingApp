@@ -23,16 +23,16 @@ public class SymptomCheckerLink extends AppCompatActivity{
         Button button = (Button) v;
         switch (button.getId()) {
             case R.id.symptomLink1:
-                startActivity(new Intent(this, ButtonOneActivity.class));
+                //startActivity(new Intent(this, ButtonOneActivity.class));
                 break;
             case R.id.symptomLink2:
-                startActivity(new Intent(this, ButtonTwoActivity.class));
+                //startActivity(new Intent(this, ButtonTwoActivity.class));
                 break;
             case R.id.symptomLink3:
-                startActivity(new Intent(this, ButtonThreeActivity.class));
+                //startActivity(new Intent(this, ButtonThreeActivity.class));
                 break;
             case R.id.symptomLink4:
-                startActivity(new Intent(this, ButtonThreeActivity.class));
+                //startActivity(new Intent(this, ButtonThreeActivity.class));
                 break;
             case R.id.symptomLinkHome:
                 startActivity(new Intent(this, MainMenuActivity.class));

@@ -51,12 +51,11 @@ public class LoginActivity extends AppCompatActivity {
     public void onButtonClick(View v) {
         Button button = (Button) v;
         if(button.getId() == R.id.loginButton){
-//            Intent i = new Intent(this,BookingAppointmentActivity.class);
-//            i.putExtra("Username",username);
-//            i.putExtra("Password",password);
-//            startActivity(i);
+
+
             String[] logindetails = getLoginDetails();
             new attemptLogin(logindetails[0],logindetails[1],this).execute();
+
         } else if(button.getId() == R.id.registerButton){
             startActivity(new Intent(this, RegistrationActivity.class));
 

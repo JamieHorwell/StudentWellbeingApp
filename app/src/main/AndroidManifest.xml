@@ -31,11 +31,11 @@
         </activity>
         <activity android:name=".MainMenuActivity" />
         <activity
-            android:name=".ButtonOneActivity"
+            android:name=".ContentMenuActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
         <activity
-            android:name=".ButtonTwoActivity"
+            android:name=".MoodDiaryMenuActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
         <activity
@@ -50,6 +50,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenuActivity" />
         </activity>
+
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".MainMenuActivity" >
@@ -65,18 +66,26 @@
             android:name=".AppointmentMenuActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
+
+
         <activity
             android:name=".MapsTestingActivity"
             android:label="@string/title_activity_maps_testing"
+
             android:parentActivityName=".FindSupportActivity" >
+
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenuActivity" />
         </activity>
+
+
         <activity
             android:name=".RegistrationActivity"
             android:parentActivityName=".LoginActivity" >
         </activity>
+
         <activity
             android:name=".AppointmentManagerActivity"
             android:parentActivityName=".BookingAppointmentActivity" >
@@ -93,9 +102,23 @@
             android:name=".SymptomCheckerActivity"
             android:label="@string/title_activity_symptom_checker"
             android:parentActivityName=".MainMenuActivity" >
+            </activity>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="team10.studentwellbeingapp.MainMenuActivity" />
+
+        <activity android:name=".MoodDiaryEntryActivity" >
+        </activity>
+        <activity android:name=".MoodDiaryProgressView" >
+        </activity>
+        <activity android:name=".ContentStudentWellbeingActivity" >
+        </activity>
+        <activity android:name=".ContentMindTheGapActivity" >
+        </activity>
+        <activity android:name=".ContentStudentOfficersActivity" >
+        </activity>
+        <activity android:name=".ContentCommonIssuesActivity" >
+
         </activity>
     </application>
 
