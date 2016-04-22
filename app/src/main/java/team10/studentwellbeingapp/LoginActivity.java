@@ -105,17 +105,20 @@ public class LoginActivity extends AppCompatActivity {
 
         protected void onPostExecute(Boolean result) {
 
-
             if(loginResult.getLoginStatus()) {
                 Intent i = new Intent(mcontext,AppointmentMenuActivity.class);
                 i.putExtra("Username",username);
                 i.putExtra("Password", password);
-
-                SharedPreferences pref = getApplicationContext().getSharedPreferences("appPrefs",0);
-                SharedPreferences.Editor editor = pref.edit();
-                editor.
-
+//                SharedPreferences pref = getApplicationContext().getSharedPreferences("loginPrefs",MODE_PRIVATE);
+//                SharedPreferences.Editor editor = pref.edit();
+//                editor.putBoolean("LoggedIn", true);
+//                editor.putString("Username", username);
+//                editor.putString("Password", password);
+//                editor.apply();
                 startActivity(i);
+
+
+
             }
             else if(loginResult.getLoginText().equals("invalid username/password")) {
                 Alertdialog("Invalid Username/Password combination, please try again.");

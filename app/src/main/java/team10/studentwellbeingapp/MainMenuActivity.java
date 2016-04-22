@@ -27,6 +27,7 @@ Notes:
 
 package team10.studentwellbeingapp;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -57,10 +58,17 @@ public class MainMenuActivity extends AppCompatActivity {
                 //startActivity(new Intent(this, ButtonThreeActivity.class));
                 break;
             case R.id.bookAppointmentButton:
-
+//                SharedPreferences myPrefs;
+//                myPrefs = getSharedPreferences("loginPrefs",MODE_PRIVATE);
+//                Boolean loggedin = myPrefs.getBoolean("LoggedIn", true);
+//                if(loggedin) {
+//                    startActivity(new Intent(this, LoginActivity.class));
+//                }
+//                else {
+//                    startActivity(new Intent(this,AppointmentMenuActivity.class));
+//                }
                 startActivity(new Intent(this, LoginActivity.class));
                 break;
-                //startActivity(new Intent(this, LoginActivity.class));
             case R.id.symptomsCheckerBottom:
                 startActivity(new Intent(this, SymptomCheckerActivity.class));
                 break;

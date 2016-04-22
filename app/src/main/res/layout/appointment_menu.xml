@@ -73,6 +73,7 @@ Notes:
                     android:layout_width="@dimen/menu_button_height"
                     android:layout_height="@dimen/menu_button_height"
                     android:id="@+id/BookAppointmentButton"
+                    android:src="@drawable/bookAppointment"
                     android:onClick="openAppointmentBooker"
                     android:layout_gravity="center_vertical"
                     />
@@ -89,6 +90,7 @@ Notes:
                 android:layout_width="@dimen/menu_button_height"
                 android:layout_height="@dimen/menu_button_height"
                 android:id="@+id/CancelButton"
+                android:src="@drawable/appointment_booker"
                 android:onClick="openAppointmentManager"
                 android:layout_gravity="center_vertical"
                 />

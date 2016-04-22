@@ -63,10 +63,7 @@ public class AppointmentManagerActivity extends AppCompatActivity {
 
     }
 
-    public void setUpListView() {
 
-
-    }
 
 
 
