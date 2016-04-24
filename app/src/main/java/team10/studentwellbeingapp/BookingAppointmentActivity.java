@@ -26,8 +26,8 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     private Calendar currentday;
     private ListView listView1;
     FreeAppointmentAdapter adapter;
-    String student = "150068502";
-
+    String student;
+    private String currentDay;
     String DateToDisplayFrom = "2016-05-05";
 
     TextView headerValue;
@@ -43,15 +43,9 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         student = bundle.get("Username").toString();
 
 
+        currentDay = getDaytoDisplayFrom();
+        new retrieveData(this, currentDay).execute();
 
-        currentday = Calendar.getInstance();
-        currentday.set(2016, 05, 05);
-        try {
-            new retrieveData(this, convertToFormat(currentday)).execute();
-        }
-        catch (java.text.ParseException e) {
-
-        }
     }
 
     @Override
@@ -85,7 +79,7 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     }
 
     public void nextDay(View v) {
-        if(counter < 2) {
+        if(counter < 7) {
             counter++;
             listView1.removeHeaderView(header);
             currentday.add(Calendar.DATE, 1);
@@ -130,8 +124,13 @@ public class BookingAppointmentActivity extends ActionBarActivity {
 
     }
 
-    public Calendar getCurrentday() {
-        return currentday;
+    /* get the current date to display appointments from, a week in advance */
+    public String getDaytoDisplayFrom() {
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.DATE, 7);
+        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-mm-dd");
+        String formattedDate = formatDate.format(c.getTime());
+        return formattedDate;
     }
 
     public void setCurrentday(Date currentday) {

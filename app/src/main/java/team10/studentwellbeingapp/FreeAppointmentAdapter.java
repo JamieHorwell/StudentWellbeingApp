@@ -5,14 +5,11 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -61,7 +58,7 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
         row.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Alertdialog("Are you sure you wish to book this appointment?", day.get(finalpos));
+                bookingAlertdialog("Are you sure you wish to book this appointment?", day.get(finalpos));
             }
         });
 
@@ -79,14 +76,15 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
 
     }
 
-    public void Alertdialog(String message, final Appointment appointment) {
+    public void bookingAlertdialog(String message, final Appointment appointment) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(message);
         builder.setCancelable(true);
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                new bookAppointment(appointment.getaid(), appointment.getStudent()).execute();
+
+                new checkStudentsAppointments(appointment, appointment.getStudent(), "password").execute();
 
             }
         });
@@ -96,8 +94,24 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
 
     }
 
+    public void generalAlertdialog(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage(message);
+        builder.setCancelable(true);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog generalAlert = builder.create();
+        generalAlert.show();
 
 
+    }
+
+
+    /** Books currently selected appointment */
     class bookAppointment extends AsyncTask<String, String, Boolean> {
         AppointmentAccessorNew appointmentAccessor;
         String aid;
@@ -125,5 +139,41 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
 
         }
     }
+
+
+    /** Check user hasn't overbooked appointments, before attempting to book currently selected appointment */
+    class checkStudentsAppointments extends AsyncTask<String, String, ArrayList<Appointment>> {
+
+        AppointmentAccessorNew appointmentAccessor;
+        private Appointment appointment;
+        private String studentNumber;
+        private String password;
+        ArrayList<Appointment> usersAppointments;
+
+        public checkStudentsAppointments(Appointment appointment, String studentNumber, String password) {
+            this.appointment = appointment;
+            this.studentNumber = studentNumber;
+            this.password = password;
+
+        }
+        protected ArrayList<Appointment> doInBackground(String... args) {
+            appointmentAccessor = new AppointmentAccessorNew();
+            usersAppointments = appointmentAccessor.getUserAppointments(studentNumber, "password");
+            return usersAppointments;
+        }
+
+        protected void onPostExecute(ArrayList<Appointment> result) {
+            //user hasn't exceeded booking limit
+            if(result.size() < 2) {
+                new bookAppointment(appointment.getaid(), appointment.getStudent()).execute();
+            } else {
+                generalAlertdialog("You already have the maximum allowed booked appointments.");
+            }
+
+
+        }
+    }
+
+
 
 }
