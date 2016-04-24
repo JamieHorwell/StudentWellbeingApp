@@ -100,12 +100,12 @@ public class LoginActivity extends AppCompatActivity {
         protected Boolean doInBackground(String... args) {
             appointmentAccessor = new AppointmentAccessorNew();
             loginResult = appointmentAccessor.logIn(username, password);
-            return true;
+            return loginResult.getLoginStatus();
         }
 
         protected void onPostExecute(Boolean result) {
 
-            if(loginResult.getLoginStatus()) {
+            if(result) {
                 Intent i = new Intent(mcontext,AppointmentMenuActivity.class);
                 i.putExtra("Username",username);
                 i.putExtra("Password", password);
@@ -125,8 +125,12 @@ public class LoginActivity extends AppCompatActivity {
 
             }
             //login has failed due to too many attempts
-            else {
+            else if(loginResult.getLoginText().equals("too many failed attempts")) {
                 Alertdialog("Too many login attempts!!!!");
+            }
+            else {
+                Alertdialog("Unable to connect, please ensure you have internet." +
+                        "if the problem persists please contact student wellbeing");
             }
 
         }

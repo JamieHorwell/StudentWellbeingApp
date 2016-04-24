@@ -39,7 +39,7 @@ public class RegistrationActivity extends AppCompatActivity {
         if(data != null) {
             if (validateData(data)) {
                 saveData(data);
-                new bookAppointment(data[0],data[1],data[2]);
+                new bookAppointment(data[0],data[2],data[1]).execute();
                 complete = true;
             }
 

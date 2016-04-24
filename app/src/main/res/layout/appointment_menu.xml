@@ -38,7 +38,7 @@ Notes:
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/Symptom_Checker"
+                    android:text="@string/appointment_menu"
                     android:textSize="@dimen/toolbar_text_size"
                     android:padding="@dimen/toolbar_padding"
                     android:textColor="@color/wellbeing_white"/>
@@ -68,15 +68,32 @@ Notes:
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="10dp"
+                android:orientation="vertical">
                 <ImageButton
                     android:layout_width="@dimen/menu_button_height"
                     android:layout_height="@dimen/menu_button_height"
                     android:id="@+id/BookAppointmentButton"
-                    android:src="@drawable/bookAppointment"
+                    android:src="@drawable/book_appointment"
+                    android:scaleType="fitCenter"
                     android:onClick="openAppointmentBooker"
+                    android:background="@drawable/rounded_corners_background"
                     android:layout_gravity="center_vertical"
+                    android:paddingLeft="35dp"
+                    android:paddingRight="10dp"
+
                     />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subtitle_text_size"
+                    android:text="@string/learning_resources"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:gravity="center"
+                    android:fontFamily="@string/condensed_font"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:background="@color/wellbeing_white"/>
 
             </LinearLayout>
 
@@ -85,15 +102,29 @@ Notes:
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
             <ImageButton
                 android:layout_width="@dimen/menu_button_height"
                 android:layout_height="@dimen/menu_button_height"
                 android:id="@+id/CancelButton"
                 android:src="@drawable/appointment_booker"
+                android:scaleType="fitCenter"
                 android:onClick="openAppointmentManager"
+                android:background="@drawable/rounded_corners_background"
                 android:layout_gravity="center_vertical"
+                android:padding="@dimen/full_generic_padding"
                 />
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/subtitle_text_size"
+                    android:text="@string/learning_resources"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:gravity="center"
+                    android:fontFamily="@string/condensed_font"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:background="@color/wellbeing_white"/>
 
 
             </LinearLayout>

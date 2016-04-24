@@ -10,10 +10,10 @@
     <string name="button_five">Book Appointment</string>
     <string name="get_support">Get Support</string>
     <string name="button_seven">Button Seven</string>
-    <string name="appointment_manager_title">Manage your Appointments</string>
+    <string name="appointment_manager_title">Your Appointments</string>
     <string name="title_activity_maps_testing">Map</string>
     <string name="get_support_intro">Button Eight</string>
-
+    <string name="appointment_menu">Appointment Menu</string>
 
     <string name="learning_resources">Learning Resources</string>
     <string name="mood_diary">Mood Diary</string>
@@ -26,8 +26,10 @@
     <string name="standard_font">sans-serif</string>
     <string name="condensed_font">sans-serif-condensed</string>
     <string name="title_activity_symptom_checker_link">SymptomCheckerLink</string>
+    <string name="appointment_booking_label">book an appointment</string>
+    <string name="manage_appointments_label">manage your appointments</string>
 
-    <string name="hello_world">Hello world!</string>
+
     <string name="title_activity_symptom_checker">SymptomCheckerActivity</string>
 
 

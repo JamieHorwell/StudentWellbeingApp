@@ -23,11 +23,11 @@ import org.json.JSONObject;
 
 public class AppointmentAccessorNew {
 
-    private String freeURL = "http://192.168.0.46:80/studentWellbeingNew/freeappt.php";
+    private String freeURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/freeappt.php";
     private String bookURL = "http://192.168.0.46:80/studentWellbeingNew/bookappt.php";
     private String cancelURL = "http://192.168.0.46:80/studentWellbeingNew/cancelappt.php";
-    private String signupURL = "http://192.168.0.46:80/studentWellbeingNew/signup.php";
-    private String loginURL = "http://192.168.0.46:80/studentWellbeingNew/logon.php";
+    private String signupURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/signup.php";
+    private String loginURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/logon.php";
     private String freeUserURL = "http://192.168.0.46:80/studentWellbeingNew/userappt.php";
 
     public AppointmentAccessorNew(){
@@ -80,7 +80,7 @@ public class AppointmentAccessorNew {
 
             while((line = in.readLine()) != null){
                 sb.append(line);
-                //appointments.add(new Appointment(line.substring(0, 10), null, line.substring(11)));
+               Log.w("connectionStatus", line);
             }
 
             JSONObject apps = new JSONObject(sb.toString());
@@ -202,6 +202,7 @@ public class AppointmentAccessorNew {
 
             while((line = in.readLine()) != null){
                 sb.append(line);
+                Log.w("signup", line);
             }
 
             System.out.println(sb);
@@ -256,9 +257,9 @@ public class AppointmentAccessorNew {
         }catch(MalformedURLException e){
 
         }catch(IOException e){
-
+            return new loginResult(false,"exception failure");
         }
-        return new loginResult(false, "exception failiure");
+        return new loginResult(false, "exception failure");
     }
 
     //get list of users appointments

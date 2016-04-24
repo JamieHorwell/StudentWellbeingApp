@@ -11,6 +11,7 @@ Notes:
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="team10.studentwellbeingapp.ButtonThreeActivity"
@@ -32,7 +33,21 @@ Notes:
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 android:id="@+id/buttonThreeToolbar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                android:contentInsetStart="0dp"
+                android:contentInsetLeft="0dp"
                 android:layout_gravity="center">
+
+                <ImageButton
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="start"
+                    android:onClick="onEntryButtonClick"
+                    android:id="@+id/moodEntryBackButton"
+                    android:src="@drawable/previous_button"
+                    android:background="@color/mood_diary_teal"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:layout_width="fill_parent"
