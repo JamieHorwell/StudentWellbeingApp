@@ -119,10 +119,10 @@ Student Wellbeing Website.
                         android:layout_height="@dimen/menu_button_height"
                         android:id="@+id/mindTheGapTwitterButton"
                         android:onClick="onButtonClick"
-                        android:src="@drawable/twiiter_hand_drawn_logo"
+                        android:src="@drawable/twitter_hand_drawn_logo"
                         android:scaleType="fitCenter"
                         android:background="@color/wellbeing_white"
-                        android:padding="@dimen/full_generic_padding"/>
+                        android:padding="@dimen/full_generic_padding" />
 
                     <TextView
                         android:layout_width="fill_parent"

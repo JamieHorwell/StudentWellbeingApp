@@ -13,7 +13,7 @@ Notes:
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="team10.studentwellbeingapp.ButtonThreeActivity"
+    tools:context="team10.studentwellbeingapp.TwitterFeedActivity"
     android:orientation="vertical"
     android:background="@color/wellbeing_white">
 

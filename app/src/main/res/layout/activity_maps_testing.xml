@@ -1,5 +1,56 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:id="@+id/map"
-    tools:context="team10.studentwellbeingapp.MapsTestingActivity"
-    android:name="com.google.android.gms.maps.SupportMapFragment" />
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/wellbeing_white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wellbeing_dark_purple"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/wellbeing_dark_purple"
+            android:elevation="@dimen/toolbar_elevation"
+            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:layout_gravity="center"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp">
+
+            <ImageButton
+                android:id="@+id/findSupportBackButton"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_gravity="left"
+                android:onClick="onFindSupportBackButtonClick"
+                android:src="@drawable/back_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="@dimen/toolbar_padding"
+                android:text="@string/find_support"
+                android:textColor="@color/wellbeing_white"
+                android:textSize="@dimen/toolbar_text_size" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="team10.studentwellbeingapp.MapsTestingActivity" />
+
+    </LinearLayout>
+</RelativeLayout>
+

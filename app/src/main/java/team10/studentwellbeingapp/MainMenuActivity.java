@@ -26,12 +26,15 @@ Notes:
 */
 
 package team10.studentwellbeingapp;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -54,19 +57,36 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MoodDiaryMenuActivity.class));
                 break;
             case R.id.mindTheGapTwitterButton:
-                startActivity(new Intent(this, ButtonThreeActivity.class));
+                if (isNetworkConnected()) {
+                    startActivity(new Intent(this, TwitterFeedActivity.class));
+                } else{
+                    toastUser();
+                }
                 break;
             case R.id.bookAppointmentButton:
-
-                startActivity(new Intent(this, LoginActivity.class));
+                if (isNetworkConnected()){
+                    startActivity(new Intent(this, LoginActivity.class));
+                } else{
+                    toastUser();
+                }
                 break;
                 //startActivity(new Intent(this, LoginActivity.class));
             case R.id.symptomsCheckerBottom:
-                startActivity(new Intent(this, ButtonSevenActivity.class));
+                startActivity(new Intent(this, SymptomsCheckerActivity.class));
                 break;
             case R.id.findSupportButton:
-                startActivity(new Intent(this, MapsTestingActivity.class));
+                if (isNetworkConnected()) {
+                    startActivity(new Intent(this, MapsTestingActivity.class));
+                } else{
+                    toastUser();
+                }
                 break;
         }
     }
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null;
+    }
+
+    private void toastUser(){ Toast.makeText(this, "You must be connected to the Internet!", Toast.LENGTH_SHORT).show(); }
 }

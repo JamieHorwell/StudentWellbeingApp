@@ -10,9 +10,12 @@ Notes:
 
 package team10.studentwellbeingapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.twitter.sdk.android.core.TwitterAuthConfig;
@@ -23,7 +26,7 @@ import com.twitter.sdk.android.tweetui.UserTimeline;
 
 import io.fabric.sdk.android.Fabric;
 
-public class ButtonThreeActivity extends AppCompatActivity {
+public class TwitterFeedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +34,7 @@ public class ButtonThreeActivity extends AppCompatActivity {
 
         TwitterAuthConfig authConfig =  new TwitterAuthConfig("xnhza9YzLRHzkFASRWlceJx8I", "C75gDnXLWlM2P57h7RhUeU9wBM9x5SuDfNJ7qA40axpRIVfIYK");
         Fabric.with(this, new TwitterCore(authConfig), new TweetUi());
-
         setContentView(R.layout.twitter_feed);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonThreeToolbar);
         setSupportActionBar(toolbar);
 
@@ -46,5 +47,10 @@ public class ButtonThreeActivity extends AppCompatActivity {
         ListView listview = (ListView) findViewById(R.id.listView2);
 
         listview.setAdapter(adapter);
+    }
+    public void onTwitterFeedBackButtonClick(View v) {
+        ImageButton b = (ImageButton) v;
+        if (b.getId() == R.id.twitterFeedBackButton)
+            startActivity(new Intent(this, MainMenuActivity.class));
     }
 }

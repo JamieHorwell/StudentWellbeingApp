@@ -1,10 +1,17 @@
 package team10.studentwellbeingapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
+import android.net.ConnectivityManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
+import java.net.InetAddress;
 import java.util.List;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -29,14 +36,14 @@ public class MapsTestingActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps_testing);
-        setUpMapIfNeeded();
-
-        if (mMap != null) {
-            mMap.setMyLocationEnabled(true);
-        }
-        testMarker(testGeocodeMatches());
+            setUpMapIfNeeded();
+            if (mMap != null) {
+                mMap.setMyLocationEnabled(true);
+            }
+            testMarker(testGeocodeMatches());
     }
 
     @Override
@@ -117,5 +124,10 @@ public class MapsTestingActivity extends FragmentActivity {
      */
     private void setUpMap() {
 
+    }
+    public void onFindSupportBackButtonClick(View v) {
+        ImageButton b = (ImageButton) v;
+        if (b.getId() == R.id.findSupportBackButton)
+            startActivity(new Intent(this, MainMenuActivity.class));
     }
 }

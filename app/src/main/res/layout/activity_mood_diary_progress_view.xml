@@ -66,13 +66,11 @@ Notes:
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:lineSpacingMultiplier="1.5"
                     android:textColor="@color/wellbeing_white"
-                    android:padding="@dimen/half_generic_padding"
+                    android:padding="@dimen/quarter_generic_padding"
                     android:background="@color/mood_diary_teal"
                     android:textSize="@dimen/subtitle_text_size"
                     android:id="@+id/mood_diary_progress_view_subtitle"
-
                     android:text="Track your progress!" />
             </LinearLayout>
         </LinearLayout>
@@ -83,16 +81,17 @@ Notes:
         android:layout_above="@+id/deleteButton"
         android:layout_below="@id/progressViewTopChild"
         android:orientation="vertical"
-        android:paddingTop="@dimen/half_generic_padding"
-        android:paddingLeft="@dimen/full_generic_padding"
-        android:paddingRight="@dimen/full_generic_padding">
+        android:paddingTop="@dimen/quarter_generic_padding"
+        android:paddingLeft="@dimen/half_generic_padding"
+        android:paddingRight="@dimen/half_generic_padding">
 
         <ListView
             android:layout_width="fill_parent"
-            android:layout_height="200dp"
+            android:layout_height="135dp"
             android:id="@+id/listView"
             android:background="@color/wellbeing_white"
-            android:layout_marginBottom="@dimen/half_generic_padding"/>
+            android:layout_marginBottom="@dimen/half_generic_padding"
+            android:fadeScrollbars="false"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -104,7 +103,7 @@ Notes:
                 android:textColor="@color/wellbeing_white"
                 android:background="@color/wellbeing_dark_purple"
                 android:textSize="@dimen/content_text_size"
-                android:padding="@dimen/half_generic_padding"
+                android:padding="@dimen/quarter_generic_padding"
                 android:id="@+id/progressMoodValueBox"
                 android:visibility="gone"/>
 
@@ -115,7 +114,7 @@ Notes:
                 android:textColor="@color/wellbeing_white"
                 android:background="@color/wellbeing_dark_purple"
                 android:textSize="@dimen/content_text_size"
-                android:padding="@dimen/half_generic_padding"
+                android:padding="@dimen/quarter_generic_padding"
                 android:id="@+id/progressDateBox"
                 android:visibility="gone"/>
          </RelativeLayout>
@@ -131,16 +130,16 @@ Notes:
             android:textColorHint="@color/wellbeing_white"
             android:textSize="@dimen/content_text_size"
             android:editable="false"
-
             android:hint="Click on a date to view your mood information."/>
     </LinearLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/deleteButton"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="@dimen/full_generic_padding"
-        android:layout_marginRight="@dimen/full_generic_padding"
+        android:layout_marginLeft="@dimen/half_generic_padding"
+        android:layout_marginRight="@dimen/half_generic_padding"
         android:layout_marginTop="@dimen/half_generic_padding"
         android:layout_marginBottom="@dimen/half_generic_padding"
         android:layout_alignParentLeft="true"
@@ -149,6 +148,5 @@ Notes:
         android:onClick="deleteButtonClick"
         android:textSize="@dimen/content_text_size"
         android:padding="@dimen/quarter_generic_padding"
-
         android:text="Delete All"/>
 </RelativeLayout>

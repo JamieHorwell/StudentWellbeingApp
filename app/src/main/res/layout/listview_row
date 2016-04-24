@@ -6,8 +6,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_gravity="left"
             android:layout_marginRight="@dimen/half_generic_padding"
             android:id="@+id/listViewRowImage"
@@ -19,8 +19,8 @@
             android:layout_height="fill_parent"
             android:id="@+id/listViewRowText"
             android:textColor="@color/wellbeing_light_purple"
-            android:textSize="@dimen/subtitle_text_size"
-            android:padding="@dimen/half_generic_padding"
+            android:textSize="@dimen/content_text_size"
+            android:padding="@dimen/quarter_generic_padding"
             android:gravity="center_vertical"
             android:background="@color/wellbeing_white" />
 

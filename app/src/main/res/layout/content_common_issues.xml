@@ -1,428 +1,393 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/wellbeing_white">
 
     <!-- Allows for the following child to be scrolled -->
-    <ScrollView
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
 
-        <LinearLayout
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/wellbeing_dark_purple"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@color/wellbeing_dark_purple"
-            android:weightSum="1">
+            android:contentInsetLeft="0dp"
+            android:contentInsetStart="0dp"
+            android:elevation="@dimen/toolbar_elevation"
+            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp">
 
-            <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
+            <ImageButton
+                android:id="@+id/contentCommonIssuesBackButton"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_gravity="left"
+                android:onClick="onCommonIssuesBackButtonClick"
+                android:src="@drawable/back_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/wellbeing_dark_purple"
-                android:elevation="@dimen/toolbar_elevation"
-                android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 android:layout_gravity="center"
-                app:contentInsetLeft="0dp"
-                app:contentInsetStart="0dp"
-                android:contentInsetStart="0dp"
-                android:contentInsetLeft="0dp">
+                android:padding="@dimen/toolbar_padding"
+                android:text="Common Issues"
+                android:textColor="@color/wellbeing_white"
+                android:textSize="@dimen/toolbar_text_size" />
+        </android.support.v7.widget.Toolbar>
 
-                <ImageButton
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_gravity="left"
-                    android:onClick="onCommonIssuesBackButtonClick"
-                    android:id="@+id/contentCommonIssuesBackButton"
-                    android:src="@drawable/back_button" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Common Issues"
-                    android:textSize="@dimen/toolbar_text_size"
-                    android:padding="@dimen/toolbar_padding"
-                    android:textColor="@color/wellbeing_white"/>
-            </android.support.v7.widget.Toolbar>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_height="match_parent"
                 android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/wellbeing_white"
                 android:orientation="vertical"
-                android:padding="@dimen/full_generic_padding"
-                android:background="@color/wellbeing_white">
+                android:padding="@dimen/full_generic_padding">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/subtitle_text_size"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="Depression"
                     android:textColor="@color/wellbeing_light_purple"
-                    android:paddingBottom="@dimen/half_generic_padding"
-
-                    android:text="Depression"/>
+                    android:textSize="@dimen/subtitle_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.5"
-                    android:textColor="#000000"
                     android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="Major depressive disorder (or clinical depression) is among one of the most common mental illnesses to afflict students. It is often misunderstood as laziness, but depression is genuine and serious health condition."/>
+                    android:text="Major depressive disorder (or clinical depression) is among one of the most common mental illnesses to afflict students. It is often misunderstood as laziness, but depression is genuine and serious health condition."
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.5"
-                    android:textColor="#000000"
                     android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="Symptoms of depression include[1]:"/>
+                    android:text="Symptoms of depression include[1]:"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
+                    android:paddingBottom="@dimen/half_generic_padding"
                     android:paddingLeft="@dimen/half_generic_padding"
-                    android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="\u2022Continuous low mood or sadness, \n\u2022Continuous feelings of hopelessness, \n\u2022Low self-esteem, \n\u2022Tearfulness, \n\u2022Guilt, \n\u2022Feeling irritable or intolerant of others, \n\u2022Lack of motivations, \n\u2022Indecision, \n\u2022Not getting enjoyment out of hobbies, \n\u2022Anxiety, \n\u2022Suicidal thoughts or thoughts of self-harm,\n\u2022Feelings of fatigue,\n\u2022Slow movement or speech,\n\u2022Change in appetite or weight,\n\u2022Constipation,\n\u2022Lack of energy or loss of libido,\n\u2022Changes to your menstrual cycle,\n\u2022Disturbed sleep, insomnia or hypersomnia,\n\u2022Having social problems, work problems, or family problems"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:text="\u2022Continuous low mood or sadness, \n\u2022Continuous feelings of hopelessness, \n\u2022Low self-esteem, \n\u2022Tearfulness, \n\u2022Guilt, \n\u2022Feeling irritable or intolerant of others, \n\u2022Lack of motivations, \n\u2022Indecision, \n\u2022Not getting enjoyment out of hobbies, \n\u2022Anxiety, \n\u2022Suicidal thoughts or thoughts of self-harm,\n\u2022Feelings of fatigue,\n\u2022Slow movement or speech,\n\u2022Change in appetite or weight,\n\u2022Constipation,\n\u2022Lack of energy or loss of libido,\n\u2022Changes to your menstrual cycle,\n\u2022Disturbed sleep, insomnia or hypersomnia,\n\u2022Having social problems, work problems, or family problems"
                     android:textColor="#000000"
-                    android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-                    android:textStyle="bold"
-
-                    android:text="If you are having suicidal or self-harm thoughts, call 999 or visit your local A&amp;E"/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="If you are having suicidal or self-harm thoughts, call 999 or visit your local A&amp;E"
+                    android:textColor="#000000"
                     android:textSize="@dimen/content_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="Links"
                     android:textColor="@color/wellbeing_light_purple"
-                    android:paddingBottom="@dimen/half_generic_padding"
-
-                    android:text="Links"/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
-                    android:paddingBottom="@dimen/half_generic_padding"
                     android:autoLink="web"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="http://www.nhs.uk/Conditions/Depression/Pages/Introduction.aspx "
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="http://www.nhs.uk/Conditions/Depression/Pages/Introduction.aspx "/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:autoLink="web"
                     android:paddingBottom="@dimen/full_generic_padding"
-                    android:autoLink="web"
+                    android:text="https://en.wikipedia.org/wiki/Major_depressive_disorder "
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="https://en.wikipedia.org/wiki/Major_depressive_disorder "/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/subtitle_text_size"
-                    android:textColor="@color/wellbeing_light_purple"
                     android:paddingBottom="@dimen/half_generic_padding"
-
-                    android:text="Anxiety"/>
+                    android:text="Anxiety"
+                    android:textColor="@color/wellbeing_light_purple"
+                    android:textSize="@dimen/subtitle_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.5"
-                    android:textColor="#000000"
                     android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="Anxiety is a common feeling of unease people will experience in their lives. However some people find it hard to control when they are anxious or not, to the point of affecting their daily lives. There are many types of anxiety disorders, the most common of which are generalised anxiety disorder (GAD), social anxiety disorder (SAD), separation anxiety disorder (SepAD), phobic disorders, panic disorder, post-traumatic stress disorder, agoraphobia, situational anxiety, health anxiety and obsessive-compulsive disorder. Anxiety disorders can offer occur if you suffer from other mental health illnesses. The symptoms of anxiety can differ according to which type you have, but the symptoms can be [2]:"/>
+                    android:text="Anxiety is a common feeling of unease people will experience in their lives. However some people find it hard to control when they are anxious or not, to the point of affecting their daily lives. There are many types of anxiety disorders, the most common of which are generalised anxiety disorder (GAD), social anxiety disorder (SAD), separation anxiety disorder (SepAD), phobic disorders, panic disorder, post-traumatic stress disorder, agoraphobia, situational anxiety, health anxiety and obsessive-compulsive disorder. Anxiety disorders can offer occur if you suffer from other mental health illnesses. The symptoms of anxiety can differ according to which type you have, but the symptoms can be [2]:"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
+                    android:paddingBottom="@dimen/half_generic_padding"
                     android:paddingLeft="@dimen/half_generic_padding"
-                    android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="\u2022Restlessness,\n\u2022Constant anxiety,\n\u2022Feeling “on edge”,\n\u2022A sense of dread,\n\u2022Difficulty concentrating,\n\u2022Irritability,\n\u2022Panic or anxiety attacks,\n\u2022Strong, fast or irregular heartbeats,\n\u2022Fatigue,\n\u2022Dizziness,\n\u2022Muscle aches and tension,\n\u2022Shaking,\n\u2022Dry mouth,\n\u2022Excessive sweating,\n\u2022Shortness of breath,\n\u2022Stomach ache,\n\u2022Headache,\n\u2022Pins and needles,\n\u2022Insomnia"/>
+                    android:text="\u2022Restlessness,\n\u2022Constant anxiety,\n\u2022Feeling “on edge”,\n\u2022A sense of dread,\n\u2022Difficulty concentrating,\n\u2022Irritability,\n\u2022Panic or anxiety attacks,\n\u2022Strong, fast or irregular heartbeats,\n\u2022Fatigue,\n\u2022Dizziness,\n\u2022Muscle aches and tension,\n\u2022Shaking,\n\u2022Dry mouth,\n\u2022Excessive sweating,\n\u2022Shortness of breath,\n\u2022Stomach ache,\n\u2022Headache,\n\u2022Pins and needles,\n\u2022Insomnia"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/content_text_size"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="Links"
                     android:textColor="@color/wellbeing_light_purple"
-                    android:paddingBottom="@dimen/half_generic_padding"
-
-                    android:text="Links"/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
-                    android:paddingBottom="@dimen/half_generic_padding"
                     android:autoLink="web"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="http://www.nhs.uk/Conditions/Anxiety/Pages/Introduction.aspx"
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="http://www.nhs.uk/Conditions/Anxiety/Pages/Introduction.aspx"/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:autoLink="web"
                     android:paddingBottom="@dimen/full_generic_padding"
-                    android:autoLink="web"
+                    android:text="https://en.wikipedia.org/wiki/Anxiety_disorder "
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="https://en.wikipedia.org/wiki/Anxiety_disorder "/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/subtitle_text_size"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="Eating Disorder &amp; BDD"
                     android:textColor="@color/wellbeing_light_purple"
-                    android:paddingBottom="@dimen/half_generic_padding"
-
-                    android:text="Eating Disorder &amp; BDD"/>
+                    android:textSize="@dimen/subtitle_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.5"
-                    android:textColor="#000000"
                     android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="There are several eating disorders, which can vary in their symptoms and effects. Common ones include anorexia nervosa, bulimia nervosa and binge eating disorders. Body dysmorphic disorder is another mental disorder which affects how you perceive yourself physically. It is related do self-esteem and self-confidence issues, as well as external pressure from family or the media. "/>
+                    android:text="There are several eating disorders, which can vary in their symptoms and effects. Common ones include anorexia nervosa, bulimia nervosa and binge eating disorders. Body dysmorphic disorder is another mental disorder which affects how you perceive yourself physically. It is related do self-esteem and self-confidence issues, as well as external pressure from family or the media. "
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.5"
-                    android:textColor="#000000"
                     android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="While the symptoms vary depending on the eating disorder, common warning signs are[3]:"/>
+                    android:text="While the symptoms vary depending on the eating disorder, common warning signs are[3]:"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
+                    android:paddingBottom="@dimen/half_generic_padding"
                     android:paddingLeft="@dimen/half_generic_padding"
-                    android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="\u2022Worrying about how much you eat, \n\u2022Recording calories, etc,\n\u2022Binging,\n\u2022Believing you are overweight when not,\n\u2022Missing meals,\n\u2022Lying about eating,\n\u2022Feeling uncomfortable eating in public places."/>
+                    android:text="\u2022Worrying about how much you eat, \n\u2022Recording calories, etc,\n\u2022Binging,\n\u2022Believing you are overweight when not,\n\u2022Missing meals,\n\u2022Lying about eating,\n\u2022Feeling uncomfortable eating in public places."
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.5"
-                    android:textColor="#000000"
                     android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="Warning signs of BDD include[4]:"/>
+                    android:text="Warning signs of BDD include[4]:"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
+                    android:paddingBottom="@dimen/half_generic_padding"
                     android:paddingLeft="@dimen/half_generic_padding"
-                    android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="\u2022Constantly comparing your looks to over people,\n\u2022Spending a long time in front of mirrors but also avoiding them at other times,\n\u2022Becoming commonly distressed by particular areas of your face,\n\u2022Concealing parts of your body you feel are ‘defects’,\n\u2022Being secretive or reluctant to seek help,\n\u2022Excessive diet and exercise."/>
+                    android:text="\u2022Constantly comparing your looks to other people,\n\n\u2022Spending a long time in front of mirrors but also avoiding them at other times,\n\n\u2022Becoming commonly distressed by particular areas of your face,\n\u2022Concealing parts of your body you feel are ‘defects’,\n\u2022Being secretive or reluctant to seek help,\n\u2022Excessive diet and exercise."
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/content_text_size"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="Links"
                     android:textColor="@color/wellbeing_light_purple"
-                    android:paddingBottom="@dimen/half_generic_padding"
-
-                    android:text="Links"/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
-                    android:paddingBottom="@dimen/half_generic_padding"
                     android:autoLink="web"
-                    android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="https://en.wikipedia.org/wiki/Eating_disorder"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/full_generic_padding"
                     android:paddingBottom="@dimen/half_generic_padding"
-                    android:autoLink="web"
+                    android:text="https://en.wikipedia.org/wiki/Eating_disorder"
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="https://en.wikipedia.org/wiki/Body_dysmorphic_disorder"/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:autoLink="web"
                     android:paddingBottom="@dimen/half_generic_padding"
-                    android:autoLink="web"
+                    android:text="https://en.wikipedia.org/wiki/Body_dysmorphic_disorder"
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="http://www.nhs.uk/Conditions/Eating-disorders/Pages/Introduction.aspx"/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:autoLink="web"
                     android:paddingBottom="@dimen/half_generic_padding"
-                    android:autoLink="web"
+                    android:text="http://www.nhs.uk/Conditions/Eating-disorders/Pages/Introduction.aspx"
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="http://www.nhs.uk/conditions/body-dysmorphia/Pages/Introduction.aspx"/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:autoLink="web"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="http://www.nhs.uk/conditions/body-dysmorphia/Pages/Introduction.aspx"
+                    android:textColorLink="@color/wellbeing_dark_purple"
+                    android:textSize="@dimen/content_text_size" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/full_generic_padding"
+                    android:autoLink="web"
                     android:paddingBottom="@dimen/full_generic_padding"
-                    android:autoLink="web"
+                    android:text="https://b-eat.co.uk/"
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="https://b-eat.co.uk/"/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/subtitle_text_size"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="Self-harm and Suicide"
                     android:textColor="@color/wellbeing_light_purple"
-                    android:paddingBottom="@dimen/half_generic_padding"
-
-                    android:text="Self-harm and Suicide"/>
+                    android:textSize="@dimen/subtitle_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.5"
-                    android:textColor="#000000"
                     android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="Self-harm is any action in which someone will intentionally hurt themselves, usually to cope with distress or to ‘punish themselves’, as well as a cry for help. Forms of self-harm can include cutting yourself, poisoning yourself, over- or under-eating, burning yourself, inserting objects into your body, hitting yourself, excessive exercise, overdosing and hair pulling. Some people who self-harm are also suicidal, but not always. Suicidal thoughts are any thoughts about ending one’s life. Some people can have suicidal thoughts for long durations of time without having any intent to actually kill themselves. It is often accompanied by feelings of lack of self-worth or self-preservation. "/>
+                    android:text="Self-harm is any action in which someone will intentionally hurt themselves, usually to cope with distress or to ‘punish themselves’, as well as a cry for help. Forms of self-harm can include cutting yourself, poisoning yourself, over- or under-eating, burning yourself, inserting objects into your body, hitting yourself, excessive exercise, overdosing and hair pulling. Some people who self-harm are also suicidal, but not always. Suicidal thoughts are any thoughts about ending one’s life. Some people can have suicidal thoughts for long durations of time without having any intent to actually kill themselves. It is often accompanied by feelings of lack of self-worth or self-preservation. "
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#000000"
                     android:paddingBottom="@dimen/half_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-                    android:textStyle="bold"
-
-                    android:text="If you are having feelings of self-harm or thoughts of suicide, it is strongly recommended that you should seek medical help!"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingMultiplier="1.5"
+                    android:text="If you are having feelings of self-harm or thoughts of suicide, it is strongly recommended that you should seek medical help!"
                     android:textColor="#000000"
-                    android:paddingBottom="@dimen/half_generic_padding"
                     android:textSize="@dimen/content_text_size"
-
-                    android:text="However, a lot of sufferers feel uncomfortable seeking help, especially due to stigma surrounding mental health as ‘attention seeking’. There are some methods of self-help, however none of these are quick fixes, and the easiest route to recovery often lies with professional help. Some examples of self-help include recognising the patterns of self-harm to help you identify triggers and urges. Then when you feel these urges, use more safe distractions, such as hitting cushions, dancing, tearing up paper, spending time with animals, grounding techniques (close your eyes, take deep breaths and concentrate on your surroundings). "/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lineSpacingMultiplier="1.5"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="However, a lot of sufferers feel uncomfortable seeking help, especially due to stigma surrounding mental health as ‘attention seeking’. There are some methods of self-help, however none of these are quick fixes, and the easiest route to recovery often lies with professional help. Some examples of self-help include recognising the patterns of self-harm to help you identify triggers and urges. Then when you feel these urges, use more safe distractions, such as hitting cushions, dancing, tearing up paper, spending time with animals, grounding techniques (close your eyes, take deep breaths and concentrate on your surroundings). "
                     android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingMultiplier="1.5"
                     android:paddingBottom="@dimen/full_generic_padding"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="Acts like taking cold showers, holding ice cubes, eating or smelling strong tasting/smelling items, or flicking elastic bands against your wrists are also alternatives to injuring yourself.  If possible, build up a support system among friends and family, find people you feel comfortable talking to and venting towards. A lot of times, simply being able to talk about how you are feeling can calm you down."/>
-
-
-
+                    android:text="Acts like taking cold showers, holding ice cubes, eating or smelling strong tasting/smelling items, or flicking elastic bands against your wrists are also alternatives to injuring yourself.  If possible, build up a support system among friends and family, find people you feel comfortable talking to and venting towards. A lot of times, simply being able to talk about how you are feeling can calm you down."
+                    android:textColor="#000000"
+                    android:textSize="@dimen/content_text_size" />
 
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/content_text_size"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="Sources([1],[2],[3],[4]):"
                     android:textColor="@color/wellbeing_light_purple"
-                    android:paddingBottom="@dimen/half_generic_padding"
-
-                    android:text="Sources([1],[2],[3],[4]):"/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
-                    android:paddingBottom="@dimen/half_generic_padding"
                     android:autoLink="web"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="https://en.wikipedia.org/wiki/Major_depressive_disorder "
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="https://en.wikipedia.org/wiki/Major_depressive_disorder "/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
-                    android:paddingBottom="@dimen/half_generic_padding"
                     android:autoLink="web"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="http://www.nhs.uk/Conditions/Anxiety/Pages/Symptoms.aspx "
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="http://www.nhs.uk/Conditions/Anxiety/Pages/Symptoms.aspx "/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
-                    android:paddingBottom="@dimen/half_generic_padding"
                     android:autoLink="web"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="http://www.nhs.uk/Conditions/Eating-disorders/Pages/Introduction.aspx "
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
-
-                    android:text="http://www.nhs.uk/Conditions/Eating-disorders/Pages/Introduction.aspx "/>
+                    android:textSize="@dimen/content_text_size" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/full_generic_padding"
-                    android:paddingBottom="@dimen/half_generic_padding"
                     android:autoLink="web"
+                    android:paddingBottom="@dimen/half_generic_padding"
+                    android:text="http://www.nhs.uk/conditions/body-dysmorphia/Pages/Introduction.aspx "
                     android:textColorLink="@color/wellbeing_dark_purple"
-                    android:textSize="@dimen/content_text_size"
+                    android:textSize="@dimen/content_text_size" />
 
-                    android:text="http://www.nhs.uk/conditions/body-dysmorphia/Pages/Introduction.aspx "/>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </LinearLayout>
+
 </RelativeLayout>
