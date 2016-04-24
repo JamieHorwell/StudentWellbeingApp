@@ -37,7 +37,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainMenuActivity extends AppCompatActivity {
-
+    Toast message;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,5 +88,15 @@ public class MainMenuActivity extends AppCompatActivity {
         return cm.getActiveNetworkInfo() != null;
     }
 
-    private void toastUser(){ Toast.makeText(this, "You must be connected to the Internet!", Toast.LENGTH_SHORT).show(); }
+    private void toastUser(){
+
+        if (message != null) {
+            message.setText("You must be connected to the Internet!");
+            message.show();
+        } else {
+            message = Toast.makeText(this, "You must be connected to the Internet!", Toast.LENGTH_SHORT);
+            message.show();
+        }
+
+    }
 }
