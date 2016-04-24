@@ -14,14 +14,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-public class ButtonFourActivity extends AppCompatActivity {
+public class ButtonTwoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.button_four);
+        setContentView(R.layout.button_two);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.buttonFourToolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.buttonTwoToolbar);
         setSupportActionBar(toolbar);
     }
 }

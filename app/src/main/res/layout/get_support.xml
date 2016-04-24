@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Initial Author: Jason Ian Murray, Date: 26/11/2015
+Notes:
+    -   A simple placeholder class; the intention of this class
+    is to allow others to see the functionality of the GUI as a whole.
+    -   This can be extended or replaced by others. You need only copy
+    and paste your code within the corresponding classes or refactor the
+    name of this class to match yours then replace it with your own work.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="team10.studentwellbeingapp.FindSupportActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/wellbeing_dark_purple"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:id="@+id/buttonSixToolbar"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/get_support"
+                    android:textSize="25dp"
+                    android:padding="5dp"
+                    android:textColor="@color/wellbeing_white"/>
+
+            </android.support.v7.widget.Toolbar>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/full_generic_padding"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                       android:text="Below are some useful contact details that offer various support "
+                        android:textSize="16sp"
+
+
+                      />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingTop="20dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/wellbeing_dark_purple"
+                            android:text="Newcastle Student Wellbeing:"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:text="0191 208 3333"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingTop="20dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/wellbeing_dark_purple"
+                            android:text="Nightline:"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:text="0191 208 2905"/>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingTop="20dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/wellbeing_dark_purple"
+                            android:text="Samaritans:"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:text="0191 232 7272"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingTop="20dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/wellbeing_dark_purple"
+                            android:text="Newcastle Student Wellbeing:"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:text="012345678"/>
+
+                    </LinearLayout>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Find Neabry Support"
+                    android:onClick="openMapTestingActivity"/>
+
+
+
+                </LinearLayout>
+
+                </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

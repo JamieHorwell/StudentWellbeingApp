@@ -50,34 +50,63 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenuActivity" />
         </activity>
-        android:name=".LoginActivity"
+
         <activity
             android:name=".LoginActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
         <activity
-            android:name=".MapTestActivity"
+            android:name=".FindSupportActivity"
             android:parentActivityName=".MainMenuActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenuActivity" />
         </activity>
         <activity
-            android:name=".ButtonSevenActivity"
+            android:name=".AppointmentMenuActivity"
             android:parentActivityName=".MainMenuActivity" >
         </activity>
+
+
         <activity
             android:name=".MapsTestingActivity"
             android:label="@string/title_activity_maps_testing"
-            android:parentActivityName=".MapTestActivity" >
+
+            android:parentActivityName=".FindSupportActivity" >
+
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainMenuActivity" />
         </activity>
+
+
         <activity
             android:name=".RegistrationActivity"
             android:parentActivityName=".LoginActivity" >
         </activity>
+
+        <activity
+            android:name=".AppointmentManagerActivity"
+            android:parentActivityName=".BookingAppointmentActivity" >
+        </activity>
+        <activity
+            android:name=".SymptomCheckerLink"
+            android:label="@string/title_activity_symptom_checker_link"
+            android:parentActivityName=".MainMenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="team10.studentwellbeingapp.MainMenuActivity" />
+        </activity>
+        <activity
+            android:name=".SymptomCheckerActivity"
+            android:label="@string/title_activity_symptom_checker"
+            android:parentActivityName=".MainMenuActivity" >
+            </activity>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="team10.studentwellbeingapp.MainMenuActivity" />
+
         <activity android:name=".MoodDiaryEntryActivity" >
         </activity>
         <activity android:name=".MoodDiaryProgressView" >
@@ -89,6 +118,7 @@
         <activity android:name=".ContentStudentOfficersActivity" >
         </activity>
         <activity android:name=".ContentCommonIssuesActivity" >
+
         </activity>
         <meta-data
             android:name="io.fabric.ApiKey"

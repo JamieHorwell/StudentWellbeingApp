@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Initial Author: Jason Ian Murray, Date: 26/11/2015
+Notes:
+    The page has multiple buttons on it that links to the different issues.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SymptomCheckerActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.Toolbar
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/wellbeing_dark_purple"
+                android:elevation="4dp"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:id="@+id/symptomLinkToolbar"
+                android:layout_gravity="center">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Useful Links"
+                    android:textSize="25dp"
+                    android:padding="25dp"
+                    android:textColor="@color/wellbeing_white"/>
+
+            </android.support.v7.widget.Toolbar>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/wellbeing_light_purple"
+                android:background="@color/wellbeing_white"
+                android:id="@+id/information"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="35dp"
+                android:text="Depression"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/wellbeing_light_purple"
+                android:onClick="onButtonClick"
+                android:background="@color/wellbeing_white"
+                android:id="@+id/symptomLink1"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="35dp"
+                android:text="Issue 2"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/wellbeing_light_purple"
+                android:onClick="onButtonClick"
+                android:background="@color/wellbeing_white"
+                android:id="@+id/symptomLink2"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="35dp"
+                android:text="Issue 3"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/wellbeing_light_purple"
+                android:onClick="onButtonClick"
+                android:background="@color/wellbeing_white"
+                android:id="@+id/symptomLink3"/>
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="35dp"
+                android:text="Issue 4"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/wellbeing_light_purple"
+                android:onClick="onButtonClick"
+                android:background="@color/wellbeing_white"
+                android:id="@+id/symptomLink4"/>
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textSize="35dp"
+                android:text="Main Menu"
+                android:gravity="center"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:textColor="@color/wellbeing_light_purple"
+                android:onClick="onButtonClick"
+                android:background="@color/wellbeing_white"
+                android:id="@+id/symptomLinkHome"/>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

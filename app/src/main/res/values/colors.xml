@@ -6,6 +6,7 @@
 
     <color name="wellbeing_light_purple">#BB2387</color>
     <color name="wellbeing_dark_purple">#9068BE</color>
+    <color name ="wellbeing_base_blue">#6D7AC0</color>
     <color name="wellbeing_white">#FFFFFF</color>
     <color name="content_text_colour">#000000</color>
     <color name="mood_diary_teal">#6ED3CF</color>

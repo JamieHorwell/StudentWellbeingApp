@@ -7,8 +7,11 @@ Notes:
 */
 
 package team10.studentwellbeingapp;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +20,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class RegistrationActivity extends AppCompatActivity {
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +39,10 @@ public class RegistrationActivity extends AppCompatActivity {
         if(data != null) {
             if (validateData(data)) {
                 saveData(data);
+                new bookAppointment(data[0],data[2],data[1]).execute();
                 complete = true;
             }
+
         }
 
         if(complete){
@@ -140,10 +149,68 @@ public class RegistrationActivity extends AppCompatActivity {
         return (!complete) ? null : data;
     }
 
+    public void Alertdialog(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message);
+        builder.setCancelable(true);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog warnNoMoreDays = builder.create();
+        warnNoMoreDays.show();
+
+
+    }
+
+
+
     private void saveData(String [] data){
         SharedPreferences.Editor editor = getSharedPreferences("user_prefs", MODE_PRIVATE).edit();
         editor.putString("student_number", data[0]);
         editor.putString("user_password", data[2]);
         editor.commit();
+
     }
+
+    class bookAppointment extends AsyncTask<String, String, Boolean> {
+        AppointmentAccessorNew appointmentAccessor;
+        String student;
+        String password;
+        String emailAddress;
+        public bookAppointment(String student, String password, String emailAddress) {
+            this.student = student;
+            this.password = password;
+            this.emailAddress = emailAddress;
+
+        }
+        protected Boolean doInBackground(String... args) {
+
+            appointmentAccessor = new AppointmentAccessorNew();
+            return  appointmentAccessor.signUp(student,password,emailAddress);
+
+
+
+        }
+
+        protected void onPostExecute(Boolean result) {
+            if(result) {
+                Alertdialog("Email Sent!");
+                finish();
+            }
+            else {
+                Alertdialog("Invalid Email, please try again.")
+                ;
+            }
+            //add 3rd option if failed due to other error
+
+
+        }
+    }
+
+
+
+
 }

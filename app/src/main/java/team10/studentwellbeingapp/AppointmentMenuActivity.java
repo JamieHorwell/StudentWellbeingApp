@@ -10,18 +10,43 @@ Notes:
 
 package team10.studentwellbeingapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 
-public class ButtonSevenActivity extends AppCompatActivity {
-
+public class AppointmentMenuActivity extends AppCompatActivity {
+    String username;
+    String password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.button_seven);
+        setContentView(R.layout.appointment_menu);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonSevenToolbar);
         setSupportActionBar(toolbar);
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        username = bundle.get("Username").toString();
+
+    }
+
+
+
+
+
+    public void openAppointmentBooker(View v) {
+        Intent i = new Intent(this,BookingAppointmentActivity.class);
+        i.putExtra("Username",username);
+        startActivity(i);
+    }
+
+
+
+    public void openAppointmentManager(View v) {
+        Intent i = new Intent(this,AppointmentManagerActivity.class);
+        i.putExtra("Username",username);
+        startActivity(i);
     }
 }

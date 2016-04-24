@@ -90,7 +90,7 @@ Notes:
 
             <LinearLayout android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_gravity="center_horizontal"
                 android:padding="@dimen/full_generic_padding"
                 android:background="@color/wellbeing_white">
@@ -99,12 +99,13 @@ Notes:
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/wellbeing_white"
-                    android:textColor="@color/wellbeing_light_purple"
+                    android:background="@drawable/button_background"
+                    android:textColor="@color/wellbeing_white"
                     style="?android:attr/borderlessButtonStyle"
                     android:onClick="onButtonClick"
                     android:textSize="@dimen/subtitle_text_size"
                     android:id="@+id/loginButton"
+                    android:layout_marginRight="10dp"
 
                     android:text="Login"/>
 
@@ -112,11 +113,12 @@ Notes:
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:background="@color/wellbeing_white"
-                    android:textColor="@color/wellbeing_light_purple"
+                    android:background="@drawable/button_background"
+                    android:textColor="@color/wellbeing_white"
                     style="?android:attr/borderlessButtonStyle"
                     android:onClick="onButtonClick"
                     android:textSize="@dimen/subtitle_text_size"
+
                     android:id="@+id/registerButton"
                     android:text="Register"/>
 

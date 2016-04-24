@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
@@ -21,25 +20,32 @@ import java.util.Calendar;
 
 public class BookingAppointmentActivity extends ActionBarActivity {
 
-    AppointmentAccessor appointmentAccessor;
-    AppointmentDay[] weeksAppointments;
+    AppointmentAccessorNew appointmentAccessor;
+    AppointmentDay[] daysAppointments;
     int counter = 0;
     private Calendar currentday;
     private ListView listView1;
-    AppointmentAdapter adapter;
+    FreeAppointmentAdapter adapter;
     String student = "150068502";
-    String DateToDisplayFrom = "2015-00-01";
+
+    String DateToDisplayFrom = "2016-05-05";
 
     TextView headerValue;
     View header;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_appointment);
         Intent intent = getIntent();
 
+        Bundle bundle = intent.getExtras();
+        student = bundle.get("Username").toString();
+
+
+
         currentday = Calendar.getInstance();
-        currentday.set(2015, 00, 01);
+        currentday.set(2016, 05, 05);
         try {
             new retrieveData(this, convertToFormat(currentday)).execute();
         }
@@ -132,6 +138,18 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         this.currentday = Calendar.getInstance();
     }
 
+    public void getStudentDetails() {
+            Bundle extras = getIntent().getExtras();
+            if(extras !=null ) {
+                String tempUsername = extras.get("Username").toString();
+                String tempPassword = extras.get("Password").toString();
+                Log.d("Username", tempUsername);
+                Log.d("Password", tempPassword);
+
+            }
+    }
+
+
     //needs code added
     class retrieveData extends AsyncTask<String, String, AppointmentDay> {
 
@@ -144,12 +162,10 @@ public class BookingAppointmentActivity extends ActionBarActivity {
 
 
         protected AppointmentDay doInBackground(String... args) {
-          appointmentAccessor = new AppointmentAccessor();
+          appointmentAccessor = new AppointmentAccessorNew();
 
-         AppointmentDay testDay =   appointmentAccessor.getFreeAppointments(dateToRetrieve);
-            for(int i = 0; i < testDay.size(); i++) {
+         AppointmentDay testDay =   appointmentAccessor.getFreeAppointments(dateToRetrieve,student);
 
-            }
 
 
 
@@ -157,57 +173,26 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         }
         @Override
         protected void onPostExecute(AppointmentDay result) {
-                weeksAppointments = new AppointmentDay[] {result};
+                daysAppointments = new AppointmentDay[] {result};
 
-            adapter = new AppointmentAdapter(mContext,R.layout.appointment_item_row, weeksAppointments[0]);
+            adapter = new FreeAppointmentAdapter(mContext,R.layout.appointment_item_row, daysAppointments[0]);
 
             listView1 = (ListView)findViewById(R.id.appointmentListView);
 
              header = (View)getLayoutInflater().inflate(R.layout.appointment_list_header_row, null);
 
             headerValue = (TextView) header.findViewById(R.id.DateTextView);
-            headerValue.setText(weeksAppointments[0].getDate());
+            headerValue.setText(daysAppointments[0].getDate());
+
             //this is first item in listview
             listView1.addHeaderView(header);
-
             listView1.setAdapter(adapter);
-
-            //will return time of appointment trying to book
-            listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    String appointmentToBook = weeksAppointments[counter].get(position-1).getDatetime();
-                    Alertdialog("Book this slot? " + appointmentToBook);
-                    new bookAppointment(weeksAppointments[counter].get(position-1).getDatetime(), student).execute();
-                }
-            });
+            listView1.setItemsCanFocus(true);
+            adapter.notifyDataSetChanged();
         }
+
     }
 
-    class bookAppointment extends AsyncTask<String, String, Boolean> {
 
-        String dateTime[];
-        String studentNumber;
-        public bookAppointment(String dateTime, String studentNumber) {
-                this.dateTime = dateTime.split("\\s+");;
-                this.studentNumber = studentNumber;
-
-        }
-        protected Boolean doInBackground(String... args) {
-            String date;
-            String time;
-            appointmentAccessor = new AppointmentAccessor();
-            appointmentAccessor.bookAppointment(studentNumber,dateTime[0],dateTime[1],"");
-
-
-            return false;
-        }
-
-        protected void onPostExecute(Boolean result) {
-            Alertdialog("Appointment Booked! ");
-
-
-        }
-    }
 
 }

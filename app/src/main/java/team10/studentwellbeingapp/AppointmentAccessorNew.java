@@ -1,5 +1,8 @@
 package team10.studentwellbeingapp;
 
+/**
+ * Created by Jamie on 17/04/2016.
+ */
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -12,38 +15,37 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class AppointmentAccessor {
+public class AppointmentAccessorNew {
 
+    private String freeURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/freeappt.php";
+    private String bookURL = "http://192.168.0.46:80/studentWellbeingNew/bookappt.php";
+    private String cancelURL = "http://192.168.0.46:80/studentWellbeingNew/cancelappt.php";
+    private String signupURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/signup.php";
+    private String loginURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/logon.php";
+    private String freeUserURL = "http://192.168.0.46:80/studentWellbeingNew/userappt.php";
 
-
-    //these URLS are specific to the machine you run XAMPP server from, change ip address "192.168..." to your machines ip address
-    private String freeURL = "http://192.168.0.46:80/studentWellbeing/freeappt.php";
-    private String bookURL = "http://192.168.0.46:80/studentWellbeing/bookappt.php";
-    private String cancelURL =  "http://192.168.0.46:80/studentWellbeing/cancelappt.php";
-    private String signupURL =  "http://192.168.0.46:80/studentWellbeing/signup.php";
-    private String loginURL = "http://192.168.0.46:80/studentWellbeing/logon.php";
-
-    public AppointmentAccessor(){
+    public AppointmentAccessorNew(){
         //read in URL's from configuration file
-//        try {
-//            BufferedReader in = new BufferedReader(new FileReader("urlconfig.txt"));
-//            this.freeURL = "http://192.168.0.14:80/studentWellbeing/freeappt.php";
-//            this.bookURL = "http://192.168.0.14:80/studentWellbeing/bookappt.php";
-//            this.cancelURL = "http://192.168.0.14:80/studentWellbeing/cancelappt.php";
-//            this.signupURL = "http://192.168.0.14:80/studentWellbeing/signup.php";
-//            this.loginURL = "http://192.168.0.14:80/studentWellbeing/logon.php";
-//            in.close();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
+        try {
+            BufferedReader in = new BufferedReader(new FileReader("urlconfig.txt"));
+            this.freeURL = in.readLine();
+            this.bookURL = in.readLine();
+            this.cancelURL = in.readLine();
+            this.signupURL = in.readLine();
+            this.loginURL = in.readLine();
+            this.freeUserURL = in.readLine();
+            in.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //establishes connection with php script, writes output via POST
@@ -56,10 +58,10 @@ public class AppointmentAccessor {
     }
 
     //returns arraylist of free appt from mysql given a certian date
-    public AppointmentDay getFreeAppointments(String date){
+    public AppointmentDay getFreeAppointments(String date, String student){
 
         URL url;
-        AppointmentDay appointments = new AppointmentDay(date);
+        AppointmentDay appointments = new AppointmentDay(date, student);
 
         try {
 
@@ -78,28 +80,21 @@ public class AppointmentAccessor {
 
             while((line = in.readLine()) != null){
                 sb.append(line);
-                //appointments.add(new Appointment(line.substring(0, 10), null, line.substring(11)));
-
+               Log.w("connectionStatus", line);
             }
 
+            JSONObject apps = new JSONObject(sb.toString());
 
-            try {
-                JSONObject apps = new JSONObject(sb.toString());
+            JSONArray arr = apps.getJSONArray("appointments");
 
-                JSONArray arr = apps.getJSONArray("appointments");
-
-
-                for (int i = 0; i < arr.length(); i++) {
-                    Appointment appointment = new Appointment(arr.getJSONObject(i).getString("datetime"), arr.getJSONObject(i).getString("councillor"));
-                    Log.w("appointment", appointment.getDatetime());
-                    appointments.add(appointment);
-                }
-                //read php response of appointments, add to arraylist
-                in.close();
+            for(int i = 0; i<arr.length(); i++){
+                Appointment appointment = new Appointment(arr.getJSONObject(i).getString("datetime"), arr.getJSONObject(i).getString("councillor"), arr.getJSONObject(i).getString("aid"));
+                appointments.add(appointment);
             }
-            //ERROR HERE
-            catch (JSONException e) {};
-        } catch (MalformedURLException e) {
+            //read php response of appointments, add to arraylist
+            in.close();
+
+        } catch (MalformedURLException | JSONException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -108,9 +103,8 @@ public class AppointmentAccessor {
         return appointments;
     }
 
-
     //books an appointment into the mysql db
-    public void bookAppointment(String student, String date, String time, String password){
+    public void bookAppointment(String student, String password, String aid){
 
         URL url;
 
@@ -120,11 +114,9 @@ public class AppointmentAccessor {
             url = new URL(bookURL);
             URLConnection conn = url.openConnection();
 
-            String datetime = date + " " + time;
-
             String data = URLEncoder.encode("student", "UTF-8") + "=" + URLEncoder.encode(student, "UTF-8");
-            data += "&" + URLEncoder.encode("datetime", "UTF-8") + "=" + URLEncoder.encode(datetime, "UTF-8");
             data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+            data += "&" + URLEncoder.encode("aid", "UTF-8") + "=" + URLEncoder.encode(aid, "UTF-8");
 
             connection(url, data, conn);
             //call php script
@@ -136,10 +128,10 @@ public class AppointmentAccessor {
             String line;
 
             while((line = in.readLine()) != null){
+                Log.w("book result", line);
                 sb.append(line);
-                Log.w("bookingResult,", line);
             }
-            System.out.println(sb);
+            //System.out.println(sb);
             in.close();
             //read echo from php script if there is any
         } catch (MalformedURLException e) {
@@ -149,9 +141,8 @@ public class AppointmentAccessor {
         }
     }
 
-
     //cancels an appointment in the mysql db
-    public void cancelAppointment(String student, String date, String time, String password) throws IllegalArgumentException{
+    public void cancelAppointment(String student, String password, String aid) throws IllegalArgumentException{
         URL url;
 
         try {
@@ -159,11 +150,10 @@ public class AppointmentAccessor {
             url = new URL(cancelURL);
             URLConnection conn = url.openConnection();
 
-            String datetime = date + " " + time;
 
             String data = URLEncoder.encode("student", "UTF-8") + "=" + URLEncoder.encode(student, "UTF-8");
-            data += "&" + URLEncoder.encode("datetime", "UTF-8") + "=" + URLEncoder.encode(datetime, "UTF-8");
             data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+            data += "&" + URLEncoder.encode("aid", "UTF-8") + "=" + URLEncoder.encode(aid, "UTF-8");
 
             connection(url, data, conn);
             //establish url connection
@@ -192,7 +182,7 @@ public class AppointmentAccessor {
     }
 
     //sign up user
-    public void signUp(String student, String password, String email){
+    public boolean signUp(String student, String password, String email){
         URL url;
         try{
             url = new URL(signupURL);
@@ -212,21 +202,20 @@ public class AppointmentAccessor {
 
             while((line = in.readLine()) != null){
                 sb.append(line);
+                Log.w("signup", line);
             }
 
             System.out.println(sb);
+            if(sb.toString().equals("2000")){
+                return false;
+            }
+            return true;
 
-            if(sb.toString().equals("Invalid email")){
-                throw new IllegalArgumentException("Invalid Email Adress");
-            }
-            if(sb.toString().equals("user already exists")){
-                throw new IllegalArgumentException("User Already Exists");
-            }
 
         }catch(MalformedURLException e){
-
+            return false;
         }catch(IOException e){
-
+            return false;
         }
     }
 
@@ -250,23 +239,76 @@ public class AppointmentAccessor {
 
             while((line = in.readLine()) != null){
                 sb.append(line);
+                Log.w("loginResult", line);
             }
 
             System.out.println(sb);
 
-            if(sb.equals("too many failed attempts")){
+            if(sb.equals("1002")){
                 return new loginResult(false, "too many failed attempts");
             }
-            if(sb.equals("invalid username/password")){
+            if(sb.equals("1001")){
                 return new loginResult(false, "invalid username/password");
+            }
+            if(sb.equals("1000")){
+                return new loginResult(false, "query failed");
             }
             return new loginResult(true, "success");
         }catch(MalformedURLException e){
 
         }catch(IOException e){
-
+            return new loginResult(false,"exception failure");
         }
-        return new loginResult(false, "exception failiure");
+        return new loginResult(false, "exception failure");
+    }
+
+    //get list of users appointments
+    public ArrayList<Appointment> getUserAppointments(String student, String password){
+        ArrayList<Appointment> appointments = new ArrayList<Appointment>();
+        URL url;
+
+        try {
+
+            url = new URL(freeUserURL);
+            String data = URLEncoder.encode("student", "UTF-8") + "=" + URLEncoder.encode(student, "UTF-8") + "&";
+            data += URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
+
+            URLConnection conn = url.openConnection();
+
+            connection(url, data, conn);
+            //connect to php script
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+            StringBuilder sb = new StringBuilder();
+
+            String line;
+
+            while((line = in.readLine()) != null){
+                Log.w("user result", line);
+                sb.append(line);
+                //appointments.add(new Appointment(line.substring(0, 10), null, line.substring(11)));
+            }
+
+            JSONObject apps = new JSONObject(sb.toString());
+
+            JSONArray arr = apps.getJSONArray("appointments");
+
+            for(int i = 0; i<arr.length(); i++){
+                Appointment appointment = new Appointment(arr.getJSONObject(i).getString("datetime"), arr.getJSONObject(i).getString("councillor"), arr.getJSONObject(i).getString("aid"));
+                appointments.add(appointment);
+            }
+            //read php response of appointments, add to arraylist
+            in.close();
+
+        } catch (MalformedURLException | JSONException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        appointments.add(new Appointment("01/01/2016 14:00:00", "example councillor", "example aid" ));
+        appointments.add(new Appointment("01/01/2016 15:00:00", "example councillor", "example aid" ));
+        return appointments;
     }
 
 }
