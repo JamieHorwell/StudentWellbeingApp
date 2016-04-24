@@ -41,9 +41,7 @@ Notes:
                     android:layout_gravity="left"
                     android:onClick="onEntryButtonClick"
                     android:id="@+id/moodEntryBackButton"
-                    android:src="@drawable/previous_button"
-                    android:background="@color/mood_diary_teal"
-                    android:scaleType="fitCenter"/>
+                    android:src="@drawable/back_button" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -60,9 +58,7 @@ Notes:
                     android:layout_gravity="right"
                     android:onClick="onEntryButtonClick"
                     android:id="@+id/moodEntryTickButton"
-                    android:background="@color/mood_diary_teal"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/symptom_checker"/>
+                    android:src="@drawable/tick_button"/>
             </android.support.v7.widget.Toolbar>
 
             <LinearLayout android:layout_height="match_parent"
@@ -74,15 +70,12 @@ Notes:
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:lineSpacingMultiplier="1.5"
                     android:textColor="@color/wellbeing_white"
-                    android:padding="@dimen/half_generic_padding"
+                    android:padding="@dimen/quarter_generic_padding"
                     android:background="@color/mood_diary_teal"
                     android:textSize="@dimen/subtitle_text_size"
                     android:id="@+id/mood_diary_subtitle"
-
-                    android:text="How do you feel today?"
-                    />
+                    android:text="How do you feel today?" />
 
                 <RelativeLayout android:layout_height="wrap_content"
                     android:padding="@dimen/half_generic_padding"
@@ -115,6 +108,7 @@ Notes:
                         android:layout_centerVertical="true"
                         android:paddingTop="@dimen/quarter_generic_padding"
                         android:max="100"
+                        android:progress="50"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/seekBar" />
@@ -149,7 +143,7 @@ Notes:
                             android:textColor="@color/wellbeing_white"
                             android:background="@color/wellbeing_dark_purple"
                             android:textSize="@dimen/content_text_size"
-                            android:padding="@dimen/half_generic_padding"
+                            android:padding="@dimen/quarter_generic_padding"
 
                             android:text="Diary Entry"/>
 
@@ -160,20 +154,21 @@ Notes:
                             android:textColor="@color/wellbeing_white"
                             android:background="@color/wellbeing_dark_purple"
                             android:textSize="@dimen/content_text_size"
-                            android:padding="@dimen/half_generic_padding"
+                            android:padding="@dimen/quarter_generic_padding"
                             android:id="@+id/entryDateTime" />
                     </RelativeLayout>
                     <EditText
                         android:padding="@dimen/half_generic_padding"
                         android:layout_width="fill_parent"
-                        android:layout_height="300dp"
+                        android:layout_height="200dp"
                         android:background="@color/mood_diary_teal"
                         android:textSize="@dimen/content_text_size"
                         android:textColor="@color/wellbeing_white"
                         android:textColorHint="@color/wellbeing_white"
+                        android:maxLength="1000"
                         android:gravity="start"
                         android:id="@+id/moodDescription"
-                        android:hint="How would you best describe your mood?"/>
+                        android:hint="How would you best describe your mood? (1000 characters)"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
