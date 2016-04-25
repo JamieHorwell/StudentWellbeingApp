@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
+    //deals with connecting to database and sending login details
     class attemptLogin extends AsyncTask<String, String, Boolean> {
 
         String username;
@@ -119,13 +119,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
             }
-            else if(loginResult.getLoginText().equals("Invalid username/password")) {
+            else if(loginResult.getLoginText().contains("Invalid username/password")) {
                 Toast toast = Toast.makeText(mcontext, loginResult.getLoginText(), Toast.LENGTH_LONG);
                 toast.show();
 
             }
             //login has failed due to too many attempts
-            else if(loginResult.getLoginText().equals("Too many failed attempts")) {
+            else if(loginResult.getLoginText().contains("Too many failed attempts")) {
                 Toast toast = Toast.makeText(mcontext, loginResult.getLoginText(), Toast.LENGTH_LONG);
                 toast.show();
             }

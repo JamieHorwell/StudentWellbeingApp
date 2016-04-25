@@ -254,10 +254,10 @@ public class AppointmentAccessorNew {
 
             System.out.println(sb);
 
-            if(sb.equals("1002") || sb.toString().contains("too many failed attempts")){
+            if(sb.equals("1002") || sb.toString().contains("too many failed attempts") ||  sb.toString().contains("1001")){
                 return new loginResult(false, "too many failed attempts");
             }
-            if(sb.equals("1001") || sb.toString().contains("invalid username/password")){
+            if(sb.equals("1001") || sb.toString().contains("invalid username/password") || sb.toString().contains("1001") ){
                 return new loginResult(false, "invalid username/password");
             }
             if(sb.equals("1000")){
