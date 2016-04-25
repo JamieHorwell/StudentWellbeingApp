@@ -1,7 +1,8 @@
 package team10.studentwellbeingapp;
 
 /**
- * Created by Jamie on 17/04/2016.
+ * Created by Jamie and Leo on 17/04/2016.
+ * class that provides connection methods to query database
  */
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -26,13 +27,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AppointmentAccessorNew {
-   //actual url: http://homepages.cs.ncl.ac.uk/l.rickayzen1
-    private String freeURL = "http://192.168.0.46:80/studentWellbeingNew/freeappt.php";
-    private String bookURL = "http://192.168.0.46:80/studentWellbeingNew/bookappt.php";
-    private String cancelURL = "http://192.168.0.46:80/studentWellbeingNew/cancelappt.php";
+   
+    private String freeURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/freeappt.php";
+    private String bookURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/bookappt.php";
+    private String cancelURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/cancelappt.php";
     private String signupURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/signup.php";
-    private String loginURL = "http://192.168.0.46:80/studentWellbeingNew/logon.php";
-    private String freeUserURL = "http://192.168.0.46:80/studentWellbeingNew/userappt.php";
+    private String loginURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/logon.php";
+    private String freeUserURL = "http://homepages.cs.ncl.ac.uk/l.rickayzen1/userappt.php";
 
     public AppointmentAccessorNew(){
         //read in URL's from configuration file
@@ -105,7 +106,10 @@ public class AppointmentAccessorNew {
 
             e.printStackTrace();
         }
-
+        //if no appointments available
+        if(appointments.isEmpty()) {
+            appointments.add(new Appointment("No Appointments Available", "", ""));
+        }
         return appointments;
     }
 
@@ -314,10 +318,9 @@ public class AppointmentAccessorNew {
 
             e.printStackTrace();
         }
-        appointments.add(new Appointment("01/01/2016 14:00:00", "example councillor", "example aid" ));
-        appointments.add(new Appointment("01/01/2016 15:00:00", "example councillor", "example aid" ));
+        //if user has no appointments booked
         if(appointments.isEmpty()) {
-
+            return null;
         }
         return appointments;
     }

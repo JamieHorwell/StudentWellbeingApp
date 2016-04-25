@@ -15,16 +15,15 @@ import android.widget.TextView;
 import android.view.View;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.Calendar;
-
+/* Activity which shows user available appointments to book, and provides functionallity to book them*/
 public class BookingAppointmentActivity extends ActionBarActivity {
 
     AppointmentAccessorNew appointmentAccessor;
     AppointmentDay[] daysAppointments;
     int counter = 0;
     private Calendar currentDay;
-    private ListView listView1;
+    private ListView freeAppointmentsListView;
     FreeAppointmentAdapter adapter;
     String username;
     String password;
@@ -40,13 +39,12 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         setContentView(R.layout.activity_booking_appointment);
         Intent intent = getIntent();
 
-        Bundle bundle = intent.getExtras();
-        username = bundle.get("Username").toString();
-        password = bundle.get("Password").toString();
+         getStudentDetails();
+
 
         currentDay = getDaytoDisplayFrom();
         try {
-            new retrieveData(this, convertToFormat(currentDay)).execute();
+            new retrieveData(this, convertToFormat(currentDay), username).execute();
         }
         catch (java.text.ParseException e) {
             Alertdialog("Error in getting date, please try again, if problem persists please contact NUIT");
@@ -86,10 +84,10 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     public void nextDay(View v) {
         if(counter < 7) {
             counter++;
-            listView1.removeHeaderView(header);
+            freeAppointmentsListView.removeHeaderView(header);
             currentDay.add(Calendar.DATE, 1);
             try {
-                new retrieveData(this, convertToFormat(currentDay)).execute();
+                new retrieveData(this, convertToFormat(currentDay), username).execute();
             }
             catch (java.text.ParseException e) {}
         }
@@ -102,10 +100,10 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     public void previousDay(View v) {
         if(counter > 0) {
             counter--;
-            listView1.removeHeaderView(header);
+            freeAppointmentsListView.removeHeaderView(header);
             currentDay.add(Calendar.DATE, -1);
             try {
-                new retrieveData(this, convertToFormat(currentDay)).execute();
+                new retrieveData(this, convertToFormat(currentDay), username).execute();
             }
             catch (java.text.ParseException e) {}
         } else {
@@ -138,8 +136,8 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     public void getStudentDetails() {
             Bundle extras = getIntent().getExtras();
             if(extras !=null ) {
-                String username = extras.get("Username").toString();
-                String tempPassword = extras.get("Password").toString();
+                 username = extras.get("Username").toString();
+                    password = extras.get("Password").toString();
             }
     }
 
@@ -153,9 +151,11 @@ public class BookingAppointmentActivity extends ActionBarActivity {
 
         private Context mContext;
         private String dateToRetrieve;
-        public retrieveData(Context context, String dateToRetrieve){
+        private String username;
+        public retrieveData(Context context, String dateToRetrieve, String username){
             mContext = context;
             this.dateToRetrieve = dateToRetrieve;
+            this.username = username;
         }
 
 
@@ -175,7 +175,7 @@ public class BookingAppointmentActivity extends ActionBarActivity {
 
             adapter = new FreeAppointmentAdapter(mContext,R.layout.appointment_item_row, daysAppointments[0]);
 
-            listView1 = (ListView)findViewById(R.id.appointmentListView);
+            freeAppointmentsListView = (ListView)findViewById(R.id.appointmentListView);
 
              header = (View)getLayoutInflater().inflate(R.layout.appointment_list_header_row, null);
 
@@ -183,12 +183,12 @@ public class BookingAppointmentActivity extends ActionBarActivity {
             headerValue.setText(daysAppointments[0].getDate());
 
             //this is first item in listview
-            listView1.addHeaderView(header);
-            listView1.setAdapter(adapter);
-            listView1.setItemsCanFocus(true);
+            freeAppointmentsListView.addHeaderView(header);
+            freeAppointmentsListView.setAdapter(adapter);
+            freeAppointmentsListView.setItemsCanFocus(true);
             adapter.notifyDataSetChanged();
 
-            listView1.setEmptyView(findViewById(R.id.emptyElement));
+            freeAppointmentsListView.setEmptyView(findViewById(R.id.emptyElement));
         }
 
     }

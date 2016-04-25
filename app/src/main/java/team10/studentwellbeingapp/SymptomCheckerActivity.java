@@ -19,6 +19,8 @@ Notes:
 
 package team10.studentwellbeingapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -46,29 +48,47 @@ public class SymptomCheckerActivity extends AppCompatActivity {
         setContentView(R.layout.symptom_checker);
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonSixToolbar);
         setSupportActionBar(toolbar);
+        Alertdialog("Disclaimer: This symptom checker is simply a demo and does ont qualify as a professional diagnosis.");
     }
 
     //submit button has been clicked, sums scores of issues
     public void onSymptomButtonClick(View v){
 
-        RadioGroup radioGroupQ1 = (RadioGroup) findViewById(R.id.question1);
+
 
         //loop through radioGroups, getting the index of radio button checked in each instance
         for(int i = 0; i < NO_OF_QUESTIONS; i++ ) {
             String radioGroupID = "question" + Integer.toString(i);
             int resID = getResources().getIdentifier(radioGroupID, "id", getPackageName());
             RadioGroup questionRadioGroup = (RadioGroup) findViewById(resID);
-            int radioButtonID = radioGroupQ1.getCheckedRadioButtonId();
-            View radioButton = radioGroupQ1.findViewById(radioButtonID);
-            int idx = radioGroupQ1.indexOfChild(radioButton);
+            int radioButtonID = questionRadioGroup.getCheckedRadioButtonId();
+            View radioButton = questionRadioGroup.findViewById(radioButtonID);
+            int idx = questionRadioGroup.indexOfChild(radioButton);
             scores[i] = idx;
         }
         setDepression();
         setAnxiety();
         setBodyImage();
+        Log.w("selected index" , Integer.toString(scores[6]));
+        Intent i = new Intent(this,SymptomCheckerLink.class);
+        i.putExtra("depressionScore", getDepression());
+        i.putExtra("anxietyScore", getAnxiety());
+        i.putExtra("bodyImageScore", getBodyImage());
+        startActivity(i);
+    }
 
-
-        startActivity(new Intent(this, SymptomCheckerLink.class));
+    public void Alertdialog(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message);
+        builder.setCancelable(true);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog warnNoMoreDays = builder.create();
+        warnNoMoreDays.show();
     }
 
     public static int getDepression(){

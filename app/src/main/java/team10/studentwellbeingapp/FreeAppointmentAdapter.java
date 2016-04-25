@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +17,15 @@ import java.util.ArrayList;
 
 /**
  * Created by Jamie on 24/11/2015.
+ * adapter to fetch information on appointments from database and display them in a listview
+ * as well as provide booking implementation for each appointment
  */
 public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
     Context context;
     int layoutResourceId;
     AppointmentDay day  = null;
-
+    String username = "";
+    String password = "";
 
 
     public FreeAppointmentAdapter(Context context, int layoutResourceId, AppointmentDay data) {
@@ -29,6 +34,11 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
         this.layoutResourceId = layoutResourceId;
         this.context = context;
         this.day = data;
+        Bundle extras = ((Activity) context).getIntent().getExtras();
+        if(extras !=null ) {
+            username = extras.get("Username").toString();
+            password = extras.get("Password").toString();
+        }
     }
 
     @Override
@@ -84,7 +94,7 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                new checkStudentsAppointments(appointment, appointment.getStudent(), "password").execute();
+                new checkStudentsAppointments(appointment, username, password).execute();
 
             }
         });
@@ -134,7 +144,7 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
             String time;
             appointmentAccessor = new AppointmentAccessorNew();
 
-            appointmentAccessor.bookAppointment("123","password",aid);
+            appointmentAccessor.bookAppointment(username,password,aid);
 
 
             return false;
@@ -167,7 +177,7 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
         }
         protected ArrayList<Appointment> doInBackground(String... args) {
             appointmentAccessor = new AppointmentAccessorNew();
-            usersAppointments = appointmentAccessor.getUserAppointments(studentNumber, "password");
+            usersAppointments = appointmentAccessor.getUserAppointments(studentNumber, password);
             return usersAppointments;
         }
 

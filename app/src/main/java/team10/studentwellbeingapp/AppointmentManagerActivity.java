@@ -32,18 +32,20 @@ public class AppointmentManagerActivity extends AppCompatActivity {
     Appointment currentBookedAppointment;
     ListView usersAppointmentsListView;
     UsersAppointmentAdapter adapter;
+    String username;
+    String password;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.appointment_manager);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonEightToolbar);
         setSupportActionBar(toolbar);
+        getStudentDetails();
 
-        new getStudentsAppointment(this,"123","password").execute();
+        new getStudentsAppointment(this,username,password).execute();
     }
-
-
 
 
 
@@ -53,6 +55,14 @@ public class AppointmentManagerActivity extends AppCompatActivity {
     }
 
 
+    //retrive username and password
+    public void getStudentDetails() {
+        Bundle extras = getIntent().getExtras();
+        if(extras !=null ) {
+             username = extras.get("Username").toString();
+             password = extras.get("Password").toString();
+        }
+    }
 
     class getStudentsAppointment extends AsyncTask<String, String, ArrayList<Appointment>> {
         AppointmentAccessorNew appointmentAccessor;
@@ -71,7 +81,7 @@ public class AppointmentManagerActivity extends AppCompatActivity {
         protected ArrayList<Appointment> doInBackground(String... args) {
             appointmentAccessor = new AppointmentAccessorNew();
 
-            appointments = appointmentAccessor.getUserAppointments(studentNumber, "password");
+            appointments = appointmentAccessor.getUserAppointments(studentNumber, password);
 
 
 
@@ -81,14 +91,20 @@ public class AppointmentManagerActivity extends AppCompatActivity {
 
 
 
+
         protected void onPostExecute(ArrayList<Appointment> result) {
+            if(result == null) {
+                usersAppointmentsListView = (ListView) findViewById(R.id.appointmentListView);
+                usersAppointmentsListView.setEmptyView(findViewById(R.id.emptyElement));
+            }
+            else {
+                adapter = new UsersAppointmentAdapter(mContext, R.layout.booked_appointment_item_row, result);
 
-            adapter = new UsersAppointmentAdapter(mContext,R.layout.booked_appointment_item_row, result);
-
-            usersAppointmentsListView = (ListView)findViewById(R.id.appointmentListView);
-            usersAppointmentsListView.setAdapter(adapter);
-            usersAppointmentsListView.setItemsCanFocus(true);
-
+                usersAppointmentsListView = (ListView) findViewById(R.id.appointmentListView);
+                usersAppointmentsListView.setAdapter(adapter);
+                usersAppointmentsListView.setItemsCanFocus(true);
+                usersAppointmentsListView.setEmptyView(findViewById(R.id.emptyElement));
+            }
         }
     }
 

@@ -6,7 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
+/* class used to store information about an appointment, along with student details and counselor*/
 public class Appointment {
 
     private String student;

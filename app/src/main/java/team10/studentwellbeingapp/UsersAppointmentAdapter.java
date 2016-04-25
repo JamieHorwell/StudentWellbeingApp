@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +22,8 @@ public class UsersAppointmentAdapter extends ArrayAdapter<Appointment> {
     Context context;
     int layoutResourceId;
     ArrayList<Appointment> usersAppointments  = null;
-
-
+    private String username = "";
+    private String password = "";
 
     public UsersAppointmentAdapter(Context context, int layoutResourceId, ArrayList<Appointment> data) {
 
@@ -30,6 +31,11 @@ public class UsersAppointmentAdapter extends ArrayAdapter<Appointment> {
         this.layoutResourceId = layoutResourceId;
         this.context = context;
         this.usersAppointments = data;
+        Bundle extras = ((Activity) context).getIntent().getExtras();
+        if(extras !=null ) {
+            username = extras.get("Username").toString();
+            password = extras.get("Password").toString();
+        };
     }
 
     @Override
@@ -84,7 +90,7 @@ public class UsersAppointmentAdapter extends ArrayAdapter<Appointment> {
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                new cancelAppointment(appointment.getaid(), appointment.getStudent()).execute();
+                new cancelAppointment(appointment.getaid(),password, appointment.getStudent()).execute();
             }
         });
         builder.setNegativeButton("Cancel",
@@ -107,16 +113,18 @@ public class UsersAppointmentAdapter extends ArrayAdapter<Appointment> {
         AppointmentAccessorNew appointmentAccessor;
         String aid;
         String studentNumber;
-        public cancelAppointment(String aid, String studentNumber) {
+        String password;
+        public cancelAppointment(String aid, String studentNumber, String password) {
             this.aid = aid;
             this.studentNumber = studentNumber;
+            this.password = password;
 
         }
         protected Boolean doInBackground(String... args) {
             String date;
             String time;
             appointmentAccessor = new AppointmentAccessorNew();
-            appointmentAccessor.cancelAppointment(studentNumber, "password", aid);
+            appointmentAccessor.cancelAppointment(studentNumber, password, aid);
 
 
             return false;

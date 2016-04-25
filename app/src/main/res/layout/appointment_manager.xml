@@ -80,6 +80,13 @@ Notes:
 
             </ListView>
 
+            <TextView android:id="@+id/emptyElement"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="No Results"
+                android:textSize="@dimen/toolbar_text_size"
+                android:padding="@dimen/toolbar_padding"
+                android:textColor="@color/wellbeing_dark_purple"/>
         </LinearLayout>
 
 
