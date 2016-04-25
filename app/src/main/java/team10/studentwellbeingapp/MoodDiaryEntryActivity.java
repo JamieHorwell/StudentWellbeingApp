@@ -18,7 +18,7 @@ public class MoodDiaryEntryActivity extends AppCompatActivity implements SeekBar
     SeekBar slider;
     MoodEntry entry;
     SharedPreferences prefs;
-    int sliderValue;
+    int sliderValue = 50;
     String date;
     TextView sliderValueDisplay;
 
@@ -32,7 +32,7 @@ public class MoodDiaryEntryActivity extends AppCompatActivity implements SeekBar
         slider.setOnSeekBarChangeListener(this);
         prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         sliderValueDisplay = (TextView) findViewById(R.id.seekbarValueText);
-        sliderValueDisplay.setText("Mood Rating: 0/100");
+        sliderValueDisplay.setText("Mood Rating: 50/100");
         setupTimeDate();
     }
 
@@ -59,7 +59,11 @@ public class MoodDiaryEntryActivity extends AppCompatActivity implements SeekBar
 
     private void createMoodEntry(){
         String moodDescription = "No mood description entered.";
-        if(moodDesc.getText() != null) moodDescription = moodDesc.getText().toString();
+        if(moodDesc.getText() != null) {
+            if (moodDesc.getText().length() > 0){
+                moodDescription = moodDesc.getText().toString();
+            }
+        }
         entry = new MoodEntry(date, String.valueOf(sliderValue), moodDescription);
     }
 

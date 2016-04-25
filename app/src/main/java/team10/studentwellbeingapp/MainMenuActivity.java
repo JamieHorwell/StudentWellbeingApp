@@ -26,16 +26,19 @@ Notes:
 */
 
 package team10.studentwellbeingapp;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class MainMenuActivity extends AppCompatActivity {
-
+    Toast message;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,9 +58,19 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(this, MoodDiaryMenuActivity.class));
                 break;
             case R.id.mindTheGapTwitterButton:
-                startActivity(new Intent(this, ButtonThreeActivity.class));
+                if (isNetworkConnected()) {
+                    startActivity(new Intent(this, ButtonThreeActivity.class));
+                } else{
+                    toastUser();
+                }
                 break;
             case R.id.bookAppointmentButton:
+                if (isNetworkConnected()){
+                    startActivity(new Intent(this, LoginActivity.class));
+                } else{
+                    toastUser();
+                }
+                break;
 //                SharedPreferences myPrefs;
 //                myPrefs = getSharedPreferences("loginPrefs",MODE_PRIVATE);
 //                Boolean loggedin = myPrefs.getBoolean("LoggedIn", true);
@@ -66,9 +79,6 @@ public class MainMenuActivity extends AppCompatActivity {
 //                }
 //                else {
 //                    startActivity(new Intent(this,AppointmentMenuActivity.class));
-//                }
-                startActivity(new Intent(this, LoginActivity.class));
-                break;
             case R.id.symptomsCheckerBottom:
                 startActivity(new Intent(this, SymptomCheckerActivity.class));
                 break;
@@ -76,5 +86,21 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(this, FindSupportActivity.class));
                 break;
         }
+    }
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        return cm.getActiveNetworkInfo() != null;
+    }
+
+    private void toastUser(){
+
+        if (message != null) {
+            message.setText("You must be connected to the Internet!");
+            message.show();
+        } else {
+            message = Toast.makeText(this, "You must be connected to the Internet!", Toast.LENGTH_SHORT);
+            message.show();
+        }
+
     }
 }

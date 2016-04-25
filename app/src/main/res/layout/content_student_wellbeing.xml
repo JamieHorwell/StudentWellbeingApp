@@ -94,7 +94,7 @@
                     android:textColor="@color/wellbeing_light_purple"
                     android:paddingBottom="@dimen/half_generic_padding"
 
-                    android:text="Relevent Links"/>
+                    android:text="Relevant Links"/>
 
                 <TextView
                     android:layout_width="match_parent"

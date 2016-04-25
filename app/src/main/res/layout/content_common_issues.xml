@@ -254,7 +254,7 @@
                     android:paddingBottom="@dimen/half_generic_padding"
                     android:textSize="@dimen/content_text_size"
 
-                    android:text="\u2022Constantly comparing your looks to over people,\n\u2022Spending a long time in front of mirrors but also avoiding them at other times,\n\u2022Becoming commonly distressed by particular areas of your face,\n\u2022Concealing parts of your body you feel are ‘defects’,\n\u2022Being secretive or reluctant to seek help,\n\u2022Excessive diet and exercise."/>
+                    android:text="\u2022Constantly comparing your looks to other people,\n\u2022Spending a long time in front of mirrors but also avoiding them at other times,\n\u2022Becoming commonly distressed by particular areas of your face,\n\u2022Concealing parts of your body you feel are ‘defects’,\n\u2022Being secretive or reluctant to seek help,\n\u2022Excessive diet and exercise."/>
 
                 <TextView
                     android:layout_width="match_parent"
