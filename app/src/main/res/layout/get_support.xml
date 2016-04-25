@@ -11,6 +11,7 @@ Notes:
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="team10.studentwellbeingapp.FindSupportActivity"
@@ -32,8 +33,23 @@ Notes:
                 android:elevation="4dp"
                 android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                android:contentInsetStart="0dp"
+                android:contentInsetLeft="0dp"
                 android:id="@+id/buttonSixToolbar"
                 android:layout_gravity="center">
+
+                <ImageButton
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="start"
+                    android:padding="5dp"
+                    android:onClick="backButtonClick"
+                    android:id="@+id/backButton"
+                    android:src="@drawable/previous_button"
+                    android:background="@color/mood_diary_teal"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -141,13 +157,13 @@ Notes:
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/wellbeing_dark_purple"
-                            android:text="Newcastle Student Wellbeing:"/>
+                            android:text="Mind:"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingLeft="10dp"
-                            android:text="012345678"/>
+                            android:text="0300 123 3393"/>
 
                     </LinearLayout>
 
@@ -156,6 +172,10 @@ Notes:
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="Find Neabry Support"
+                    android:textColor="@color/wellbeing_white"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/button_background"
                     android:onClick="openMapTestingActivity"/>
 
 

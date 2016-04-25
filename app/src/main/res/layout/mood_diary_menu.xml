@@ -40,9 +40,12 @@ Notes:
                     android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_gravity="left"
+                    android:padding="5dp"
                     android:onClick="moodDiaryMenuBackButtonClick"
                     android:id="@+id/moodDiaryMenuBackButton"
-                    android:src="@drawable/back_button" />
+                    android:scaleType="fitCenter"
+                    android:background="@color/mood_diary_teal"
+                    android:src="@drawable/previous_button" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -93,9 +96,10 @@ Notes:
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:background="@color/wellbeing_white"
-                        android:textColor="@color/wellbeing_light_purple"
-                        style="?android:attr/borderlessButtonStyle"
+                        android:background="@drawable/button_background"
+                        android:textColor="@color/wellbeing_white"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:onClick="onButtonClick"
                         android:textSize="@dimen/subtitle_text_size"
                         android:id="@+id/editMoodButton"
@@ -103,14 +107,16 @@ Notes:
                         android:text="Edit Mood Entry"/>
 
                     <Button
+                        android:layout_marginTop="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:background="@color/wellbeing_white"
-                        android:textColor="@color/wellbeing_light_purple"
-                        style="?android:attr/borderlessButtonStyle"
+                        android:background="@drawable/button_background"
+                        android:textColor="@color/wellbeing_white"
                         android:onClick="onButtonClick"
                         android:textSize="@dimen/subtitle_text_size"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
                         android:id="@+id/viewProgressButton"
                         android:text="View Progress"/>
 

@@ -9,12 +9,12 @@
     <string name="button_four">Button Four</string>
     <string name="button_five">Book Appointment</string>
     <string name="get_support">Get Support</string>
-    <string name="button_seven">Button Seven</string>
     <string name="appointment_manager_title">Your Appointments</string>
+    <string name="appointment_booking_title">Make An Appointment</string>
     <string name="title_activity_maps_testing">Map</string>
     <string name="get_support_intro">Button Eight</string>
     <string name="appointment_menu">Appointment Menu</string>
-
+    <string name="login_title">Login Screen</string>
     <string name="learning_resources">Learning Resources</string>
     <string name="mood_diary">Mood Diary</string>
     <string name="mind_the_gap_twitter">Mind the Gap Twitter</string>

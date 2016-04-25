@@ -58,7 +58,7 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
         row.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bookingAlertdialog("Are you sure you wish to book this appointment?", day.get(finalpos));
+                bookingAlertdialog("Are you sure you wish to book this appointment?", day.get(finalpos), context);
             }
         });
 
@@ -76,7 +76,7 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
 
     }
 
-    public void bookingAlertdialog(String message, final Appointment appointment) {
+    public void bookingAlertdialog(String message, final Appointment appointment, final Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(message);
         builder.setCancelable(true);
@@ -145,6 +145,7 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
     class checkStudentsAppointments extends AsyncTask<String, String, ArrayList<Appointment>> {
 
         AppointmentAccessorNew appointmentAccessor;
+
         private Appointment appointment;
         private String studentNumber;
         private String password;

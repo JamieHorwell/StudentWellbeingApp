@@ -13,6 +13,8 @@ public class AppointmentDate {
     private SimpleDateFormat formattedDate;
     private String[] appointments;
 
+    //used to pass error message from async task back to foreground
+    private String errorMessage;
 
     public AppointmentDate(Calendar day, SimpleDateFormat formattedDate, String[] appointments) {
         this.day = day;

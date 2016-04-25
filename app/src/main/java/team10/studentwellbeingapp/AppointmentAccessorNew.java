@@ -3,6 +3,10 @@ package team10.studentwellbeingapp;
 /**
  * Created by Jamie on 17/04/2016.
  */
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -98,6 +102,7 @@ public class AppointmentAccessorNew {
 
             e.printStackTrace();
         } catch (IOException e) {
+
             e.printStackTrace();
         }
 
@@ -245,7 +250,7 @@ public class AppointmentAccessorNew {
 
             System.out.println(sb);
 
-            if(sb.equals("1002")){
+            if(sb.equals("1002") || sb.toString().contains("too many failed attempts")){
                 return new loginResult(false, "too many failed attempts");
             }
             if(sb.equals("1001") || sb.toString().contains("invalid username/password")){
@@ -256,15 +261,15 @@ public class AppointmentAccessorNew {
             }
             return new loginResult(true, "success");
         }catch(MalformedURLException e){
-
+            return new loginResult(false, "exception failure");
         }catch(IOException e){
             return new loginResult(false,"exception failure");
         }
-        return new loginResult(false, "exception failure");
+
     }
 
     //get list of users appointments
-    public ArrayList<Appointment> getUserAppointments(String student, String password){
+    public ArrayList<Appointment> getUserAppointments(String student, String password) {
         ArrayList<Appointment> appointments = new ArrayList<Appointment>();
         URL url;
 
@@ -303,13 +308,22 @@ public class AppointmentAccessorNew {
             in.close();
 
         } catch (MalformedURLException | JSONException e) {
+
             e.printStackTrace();
         } catch (IOException e) {
+
             e.printStackTrace();
         }
         appointments.add(new Appointment("01/01/2016 14:00:00", "example councillor", "example aid" ));
         appointments.add(new Appointment("01/01/2016 15:00:00", "example councillor", "example aid" ));
+        if(appointments.isEmpty()) {
+
+        }
         return appointments;
     }
+
+
+    /* Dialog that is presented to user if data cannot be retrieved*/
+
 
 }

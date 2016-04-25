@@ -25,11 +25,10 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
+import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -66,6 +65,12 @@ public class LoginActivity extends AppCompatActivity {
         loginDetails[0] = usernameEdit.getText().toString();
         loginDetails[1] = passwordEdit.getText().toString();
         return loginDetails;
+    }
+
+
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, MainMenuActivity.class));
     }
 
     public void Alertdialog(String message) {
@@ -109,28 +114,27 @@ public class LoginActivity extends AppCompatActivity {
                 Intent i = new Intent(mcontext,AppointmentMenuActivity.class);
                 i.putExtra("Username",username);
                 i.putExtra("Password", password);
-//                SharedPreferences pref = getApplicationContext().getSharedPreferences("loginPrefs",MODE_PRIVATE);
-//                SharedPreferences.Editor editor = pref.edit();
-//                editor.putBoolean("LoggedIn", true);
-//                editor.putString("Username", username);
-//                editor.putString("Password", password);
-//                editor.apply();
                 startActivity(i);
 
 
 
             }
-            else if(loginResult.getLoginText().equals("invalid username/password")) {
-                Alertdialog("Invalid Username/Password combination, please try again.");
+            else if(loginResult.getLoginText().equals("Invalid username/password")) {
+                Toast toast = Toast.makeText(mcontext, loginResult.getLoginText(), Toast.LENGTH_LONG);
+                toast.show();
 
             }
             //login has failed due to too many attempts
-            else if(loginResult.getLoginText().equals("too many failed attempts")) {
-                Alertdialog("Too many login attempts!!!!");
+            else if(loginResult.getLoginText().equals("Too many failed attempts")) {
+                Toast toast = Toast.makeText(mcontext, loginResult.getLoginText(), Toast.LENGTH_LONG);
+                toast.show();
             }
             else {
-                Alertdialog("Unable to connect, please ensure you have internet." +
-                        "if the problem persists please contact student wellbeing");
+                String message = ("Unable to connect, please ensure you have internet enabled." +
+                        " If the problem persists please contact NUIT");
+                Toast toast = Toast.makeText(mcontext, message, Toast.LENGTH_LONG);
+                toast.show();
+
             }
 
         }

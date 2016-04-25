@@ -44,10 +44,13 @@ Notes:
                 <ImageButton
                     android:layout_width="55dp"
                     android:layout_height="55dp"
-                    android:layout_gravity="left"
-                    android:onClick="onContentMenuBackButtonClick"
-                    android:id="@+id/contentMenuBackButton"
-                    android:src="@drawable/back_button" />
+                    android:layout_gravity="start"
+                    android:padding="5dp"
+                    android:onClick="backButtonClick"
+                    android:id="@+id/backButton"
+                    android:src="@drawable/previous_button"
+                    android:background="@color/mood_diary_teal"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:layout_width="wrap_content"

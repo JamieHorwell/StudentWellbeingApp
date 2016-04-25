@@ -43,8 +43,9 @@ Notes:
                     android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_gravity="start"
-                    android:onClick="onEntryButtonClick"
-                    android:id="@+id/moodEntryBackButton"
+                    android:padding="5dp"
+                    android:onClick="backButtonClick"
+                    android:id="@+id/backButton"
                     android:src="@drawable/previous_button"
                     android:background="@color/mood_diary_teal"
                     android:scaleType="fitCenter"/>
@@ -52,6 +53,7 @@ Notes:
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:gravity="center"
                     android:text="@string/mind_the_gap_twitter"
                     android:textSize="@dimen/toolbar_text_size"

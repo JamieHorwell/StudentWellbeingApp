@@ -29,16 +29,21 @@ public class AppointmentMenuActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         username = bundle.get("Username").toString();
+        password = bundle.get("Password").toString();
 
     }
 
-
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, MainMenuActivity.class));
+    }
 
 
 
     public void openAppointmentBooker(View v) {
         Intent i = new Intent(this,BookingAppointmentActivity.class);
         i.putExtra("Username",username);
+        i.putExtra("Password",password);
         startActivity(i);
     }
 
@@ -47,6 +52,7 @@ public class AppointmentMenuActivity extends AppCompatActivity {
     public void openAppointmentManager(View v) {
         Intent i = new Intent(this,AppointmentManagerActivity.class);
         i.putExtra("Username",username);
+        i.putExtra("Password",password);
         startActivity(i);
     }
 }
