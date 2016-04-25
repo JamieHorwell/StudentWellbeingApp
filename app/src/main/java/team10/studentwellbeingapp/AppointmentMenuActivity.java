@@ -39,7 +39,7 @@ public class AppointmentMenuActivity extends AppCompatActivity {
     }
 
 
-
+    //
     public void openAppointmentBooker(View v) {
         Intent i = new Intent(this,BookingAppointmentActivity.class);
         i.putExtra("Username",username);

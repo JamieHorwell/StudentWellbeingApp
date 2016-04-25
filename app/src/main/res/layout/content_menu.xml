@@ -95,59 +95,60 @@ Notes:
                     android:background="@color/wellbeing_white">
 
                     <Button
-                        android:layout_width="wrap_content"
+                        android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@color/wellbeing_white"
-                        android:textColor="@color/wellbeing_light_purple"
+                        android:paddingRight="30dp"
+                        android:background="@drawable/button_background"
+                        android:textColor="@color/wellbeing_white"
                         style="?android:attr/borderlessButtonStyle"
                         android:onClick="onContentButtonClick"
                         android:textSize="@dimen/content_text_size"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:id="@+id/studentWellbeingButton"
                         android:textAllCaps="false"
                         android:layout_marginLeft="@dimen/full_generic_padding"
                         android:padding="0dp"
-
+                        android:layout_marginTop="10dp"
                         android:text="Student Wellbeing"/>
 
                     <Button
-                        android:layout_width="wrap_content"
+                        android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@color/wellbeing_white"
-                        android:textColor="@color/wellbeing_light_purple"
+                        android:background="@drawable/button_background"
+                        android:textColor="@color/wellbeing_white"
                         style="?android:attr/borderlessButtonStyle"
                         android:onClick="onContentButtonClick"
                         android:textSize="@dimen/content_text_size"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:id="@+id/mindTheGapButton"
                         android:textAllCaps="false"
                         android:layout_marginLeft="@dimen/full_generic_padding"
                         android:padding="0dp"
-
+                        android:layout_marginTop="10dp"
                         android:text="NUSU Mind the Gap"/>
 
                     <Button
-                        android:layout_width="wrap_content"
+                        android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:background="@color/wellbeing_white"
-                        android:textColor="@color/wellbeing_light_purple"
+                        android:background="@drawable/button_background"
+                        android:textColor="@color/wellbeing_white"
                         style="?android:attr/borderlessButtonStyle"
                         android:onClick="onContentButtonClick"
                         android:textSize="@dimen/content_text_size"
-                        android:gravity="center_vertical"
+                        android:gravity="center"
                         android:id="@+id/studentOfficersButton"
                         android:textAllCaps="false"
                         android:layout_marginLeft="@dimen/full_generic_padding"
                         android:padding="0dp"
-
+                        android:layout_marginTop="10dp"
                         android:text="Student Officers"/>
 
                     <Button
-                        android:layout_width="wrap_content"
+                        android:layout_width="fill_parent"
                         android:layout_height="40dp"
-                        android:gravity="center_vertical"
-                        android:background="@color/wellbeing_white"
-                        android:textColor="@color/wellbeing_light_purple"
+                        android:gravity="center"
+                        android:background="@drawable/button_background"
+                        android:textColor="@color/wellbeing_white"
                         style="?android:attr/borderlessButtonStyle"
                         android:onClick="onContentButtonClick"
                         android:textSize="@dimen/content_text_size"
@@ -155,7 +156,7 @@ Notes:
                         android:textAllCaps="false"
                         android:layout_marginLeft="@dimen/full_generic_padding"
                         android:padding="0dp"
-
+                        android:layout_marginTop="10dp"
                         android:text="Common mental health issues amongst students"/>
                 </LinearLayout>
 

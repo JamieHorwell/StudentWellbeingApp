@@ -13,6 +13,7 @@ package team10.studentwellbeingapp;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,43 +32,37 @@ public class AppointmentManagerActivity extends AppCompatActivity {
     Appointment currentBookedAppointment;
     ListView usersAppointmentsListView;
     UsersAppointmentAdapter adapter;
+    String username;
+    String password;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.appointment_manager);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonEightToolbar);
         setSupportActionBar(toolbar);
+        getStudentDetails();
 
-        new getStudentsAppointment(this,"123","password").execute();
+        new getStudentsAppointment(this,username,password).execute();
     }
 
 
 
-
-
-
-    public void Alertdialog(String message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(message);
-        builder.setCancelable(true);
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        AlertDialog warnNoMoreDays = builder.create();
-        warnNoMoreDays.show();
-
-
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, AppointmentMenuActivity.class));
     }
 
 
-
-
-
-
+    //retrive username and password
+    public void getStudentDetails() {
+        Bundle extras = getIntent().getExtras();
+        if(extras !=null ) {
+             username = extras.get("Username").toString();
+             password = extras.get("Password").toString();
+        }
+    }
 
     class getStudentsAppointment extends AsyncTask<String, String, ArrayList<Appointment>> {
         AppointmentAccessorNew appointmentAccessor;
@@ -86,7 +81,7 @@ public class AppointmentManagerActivity extends AppCompatActivity {
         protected ArrayList<Appointment> doInBackground(String... args) {
             appointmentAccessor = new AppointmentAccessorNew();
 
-            appointments = appointmentAccessor.getUserAppointments(studentNumber, "password");
+            appointments = appointmentAccessor.getUserAppointments(studentNumber, password);
 
 
 
@@ -94,14 +89,22 @@ public class AppointmentManagerActivity extends AppCompatActivity {
             return appointments;
         }
 
+
+
+
         protected void onPostExecute(ArrayList<Appointment> result) {
+            if(result == null) {
+                usersAppointmentsListView = (ListView) findViewById(R.id.appointmentListView);
+                usersAppointmentsListView.setEmptyView(findViewById(R.id.emptyElement));
+            }
+            else {
+                adapter = new UsersAppointmentAdapter(mContext, R.layout.booked_appointment_item_row, result);
 
-            adapter = new UsersAppointmentAdapter(mContext,R.layout.booked_appointment_item_row, result);
-
-            usersAppointmentsListView = (ListView)findViewById(R.id.appointmentListView);
-            usersAppointmentsListView.setAdapter(adapter);
-            usersAppointmentsListView.setItemsCanFocus(true);
-
+                usersAppointmentsListView = (ListView) findViewById(R.id.appointmentListView);
+                usersAppointmentsListView.setAdapter(adapter);
+                usersAppointmentsListView.setItemsCanFocus(true);
+                usersAppointmentsListView.setEmptyView(findViewById(R.id.emptyElement));
+            }
         }
     }
 

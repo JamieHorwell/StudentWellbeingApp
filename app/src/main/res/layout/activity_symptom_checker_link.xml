@@ -38,7 +38,7 @@ Notes:
                     android:gravity="center"
                     android:text="Useful Links"
                     android:textSize="25dp"
-                    android:padding="25dp"
+                    android:padding="5dp"
                     android:textColor="@color/wellbeing_white"/>
 
             </android.support.v7.widget.Toolbar>
@@ -57,64 +57,57 @@ Notes:
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textSize="35dp"
-                android:text="Depression"
+                android:text="Book Appointment"
+                android:textAllCaps="false"
                 android:gravity="center"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
                 android:textColor="@color/wellbeing_light_purple"
                 android:onClick="onButtonClick"
                 android:background="@color/wellbeing_white"
-                android:id="@+id/symptomLink1"/>
+                android:id="@+id/bookingLink"/>
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textSize="35dp"
-                android:text="Issue 2"
+                android:text="Mental Health Issues"
+                android:textAllCaps="false"
                 android:gravity="center"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
                 android:textColor="@color/wellbeing_light_purple"
                 android:onClick="onButtonClick"
                 android:background="@color/wellbeing_white"
-                android:id="@+id/symptomLink2"/>
+                android:id="@+id/resourceLink"/>
 
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textSize="35dp"
-                android:text="Issue 3"
+                android:text="Get Support"
+                android:textAllCaps="false"
                 android:gravity="center"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
                 android:textColor="@color/wellbeing_light_purple"
                 android:onClick="onButtonClick"
                 android:background="@color/wellbeing_white"
-                android:id="@+id/symptomLink3"/>
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textSize="35dp"
-                android:text="Issue 4"
-                android:gravity="center"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
-                android:textColor="@color/wellbeing_light_purple"
-                android:onClick="onButtonClick"
-                android:background="@color/wellbeing_white"
-                android:id="@+id/symptomLink4"/>
+                android:id="@+id/supportLink"/>
+
 
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textSize="35dp"
                 android:text="Main Menu"
+                android:textAllCaps="false"
                 android:gravity="center"
                 android:paddingTop="20dp"
                 android:paddingBottom="20dp"
                 android:textColor="@color/wellbeing_light_purple"
                 android:onClick="onButtonClick"
                 android:background="@color/wellbeing_white"
-                android:id="@+id/symptomLinkHome"/>
+                android:id="@+id/homeLink"/>
         </LinearLayout>
 
     </ScrollView>
