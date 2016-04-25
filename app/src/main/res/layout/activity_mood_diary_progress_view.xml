@@ -32,13 +32,17 @@ Notes:
             android:contentInsetStart="0dp"
             android:contentInsetLeft="0dp">
 
+
             <ImageButton
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:layout_gravity="left"
+                android:padding="5dp"
                 android:onClick="onProgressButtonClick"
                 android:id="@+id/progressViewBackButton"
-                android:src="@drawable/back_button" />
+                android:scaleType="fitCenter"
+                android:background="@color/mood_diary_teal"
+                android:src="@drawable/previous_button" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -143,7 +147,9 @@ Notes:
         android:layout_marginTop="@dimen/half_generic_padding"
         android:layout_marginBottom="@dimen/half_generic_padding"
         android:layout_alignParentLeft="true"
-        android:background="@color/wellbeing_dark_purple"
+        android:background="@drawable/button_background"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:textColor="@color/wellbeing_white"
         android:onClick="deleteButtonClick"
         android:textSize="@dimen/content_text_size"

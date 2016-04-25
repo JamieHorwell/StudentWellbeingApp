@@ -13,7 +13,7 @@
         android:paddingLeft="30dp"
         android:paddingBottom="6dip"
         android:paddingTop="5dip"
-        android:text="addasdasd"
+        android:textColor="@color/wellbeing_white"
         />
 
     <TextView
@@ -24,7 +24,7 @@
         android:textSize="20dp"
         android:paddingLeft="30dp"
         android:paddingBottom="5dp"
-        android:text="addasdasd"/>
+        android:textColor="@color/wellbeing_white"/>
 
 
 

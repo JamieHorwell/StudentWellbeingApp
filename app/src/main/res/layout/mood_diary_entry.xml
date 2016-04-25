@@ -39,9 +39,12 @@ Notes:
                     android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_gravity="left"
+                    android:padding="5dp"
                     android:onClick="onEntryButtonClick"
                     android:id="@+id/moodEntryBackButton"
-                    android:src="@drawable/back_button" />
+                    android:scaleType="fitCenter"
+                    android:background="@color/mood_diary_teal"
+                    android:src="@drawable/previous_button" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -56,9 +59,12 @@ Notes:
                     android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_gravity="right"
+                    android:background="@color/mood_diary_teal"
                     android:onClick="onEntryButtonClick"
                     android:id="@+id/moodEntryTickButton"
-                    android:src="@drawable/tick_button"/>
+                    android:padding="5dp"
+                    android:src="@drawable/symptom_checker"
+                    android:scaleType="fitCenter"/>
             </android.support.v7.widget.Toolbar>
 
             <LinearLayout android:layout_height="match_parent"

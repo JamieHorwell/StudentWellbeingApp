@@ -59,7 +59,7 @@ public class UsersAppointmentAdapter extends ArrayAdapter<Appointment> {
         row.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Alertdialog("Are you sure you wish to cancel this appointment?" , usersAppointments.get(finalpos));
+                Alertdialog("Are you sure you wish to cancel this appointment?", usersAppointments.get(finalpos));
 
             }
         });
@@ -84,9 +84,16 @@ public class UsersAppointmentAdapter extends ArrayAdapter<Appointment> {
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                new cancelAppointment(appointment.getaid(),appointment.getStudent()).execute();
+                new cancelAppointment(appointment.getaid(), appointment.getStudent()).execute();
             }
         });
+        builder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.cancel();
+                    }
+                }
+    );
         AlertDialog warnNoMoreDays = builder.create();
         warnNoMoreDays.show();
 

@@ -58,6 +58,7 @@ Notes:
 
             <RadioGroup
                 xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/question1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -67,25 +68,29 @@ Notes:
                     android:id="@+id/symptom1Never"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Never"/>
+                    android:text="Never"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
 
                 <RadioButton
                     android:id="@+id/symptom1Rarely"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rarely"/>
+                    android:text="Rarely"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
 
                 <RadioButton
                     android:id="@+id/symptom1Sometimes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sometimes"/>
+                    android:text="Sometimes"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
 
                 <RadioButton
                     android:id="@+id/symptom1Often"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Often" />
+                    android:text="Often"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
             </RadioGroup>
 
             <TextView
@@ -101,6 +106,7 @@ Notes:
 
             <RadioGroup
                 xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/question2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -110,26 +116,31 @@ Notes:
                     android:id="@+id/symptom2Never"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Never" />
+                    android:text="Never"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
 
                 <RadioButton
                     android:id="@+id/symptom2Rarely"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rarely" />
+                    android:text="Rarely"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
 
                 <RadioButton
                     android:id="@+id/symptom2Sometimes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sometimes" />
+                    android:text="Sometimes"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
 
                 <RadioButton
                     android:id="@+id/symptom2Often"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Often" />
+                    android:text="Often"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
             </RadioGroup>
+
 
             <TextView
                 android:layout_width="fill_parent"
@@ -143,6 +154,7 @@ Notes:
                 android:text="Sample Question"/>
             <RadioGroup
                 xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/question3"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15dp"
@@ -152,44 +164,42 @@ Notes:
                     android:id="@+id/symptom3Never"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Never" />
+                    android:text="Never"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
 
                 <RadioButton
                     android:id="@+id/symptom3Rarely"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rarely" />
+                    android:text="Rarely"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
 
                 <RadioButton
                     android:id="@+id/symptom3Sometimes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sometimes" />
+                    android:text="Sometimes"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
 
                 <RadioButton
                     android:id="@+id/symptom3Often"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Often" />
+                    android:text="Often"
+                    android:buttonTint="@color/wellbeing_dark_purple"/>
             </RadioGroup>
 
 
 
-            <CheckBox
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Symptom 5"
-                android:textSize="25dp"
-                android:padding="25dp"
-                android:id="@+id/symptom5"/>
             <Button
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:gravity="center"
                 android:text="Submit"
                 android:id="@+id/symptomCheckerSubmit"
-                android:onClick="onSymptomButtonClick"/>
+                android:onClick="onSymptomButtonClick"
+                android:background="@drawable/button_background"
+                android:textColor="@color/wellbeing_white"/>
 
         </LinearLayout>
     </ScrollView>

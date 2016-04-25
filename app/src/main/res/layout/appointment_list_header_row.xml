@@ -13,6 +13,8 @@
             android:layout_alignParentLeft="true"
             android:text="back "
             android:onClick="previousDay"
+            android:textColor="@color/wellbeing_dark_purple"
+            android:background="@drawable/button_background_two"
             />
         <TextView
             android:id="@+id/DateTextView"
@@ -22,6 +24,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
             android:textStyle="bold"
+            android:textColor="@color/wellbeing_dark_purple"
             android:textSize="22dp"
             android:text="DATE HERE"/>
 
@@ -32,6 +35,8 @@
             android:layout_height="wrap_content"
             android:text= "next"
             android:onClick="nextDay"
+            android:textColor="@color/wellbeing_dark_purple"
+            android:background="@drawable/button_background_two"
             />
 
 

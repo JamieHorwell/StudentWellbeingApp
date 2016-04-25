@@ -187,6 +187,8 @@ public class BookingAppointmentActivity extends ActionBarActivity {
             listView1.setAdapter(adapter);
             listView1.setItemsCanFocus(true);
             adapter.notifyDataSetChanged();
+
+            listView1.setEmptyView(findViewById(R.id.emptyElement));
         }
 
     }

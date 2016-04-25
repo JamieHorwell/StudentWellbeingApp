@@ -10,6 +10,11 @@ import android.widget.TextView;
 
 
 public class SymptomCheckerLink extends AppCompatActivity{
+
+    private int depressionScore;
+    private int anxietyScore;
+    private int bodyImageScore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,9 +36,6 @@ public class SymptomCheckerLink extends AppCompatActivity{
             case R.id.symptomLink3:
                 //startActivity(new Intent(this, ButtonThreeActivity.class));
                 break;
-            case R.id.symptomLink4:
-                //startActivity(new Intent(this, ButtonThreeActivity.class));
-                break;
             case R.id.symptomLinkHome:
                 startActivity(new Intent(this, MainMenuActivity.class));
                 break;
@@ -42,39 +44,35 @@ public class SymptomCheckerLink extends AppCompatActivity{
 
     //Checks to see which buttons will be enabled and which won't
     private void checkSymptoms(){
+        String message;
         Boolean issueDiscovered = false;
-        Button depressionLink, issue2Link, issue3Link, issue4Link;
+
+        Button oneIssueFound, twoOrMoreIssuesFound, threeIssuesFound;
         TextView information;
         information = (TextView)findViewById(R.id.information);
-        depressionLink = (Button)findViewById(R.id.symptomLink1);
-        issue2Link = (Button)findViewById(R.id.symptomLink2);
-        issue3Link = (Button)findViewById(R.id.symptomLink3);
-        issue4Link= (Button)findViewById(R.id.symptomLink4);
-        depressionLink.setVisibility(View.GONE);
-        issue2Link.setVisibility(View.GONE);
-        issue3Link.setVisibility(View.GONE);
-        issue4Link.setVisibility(View.GONE);
+        oneIssueFound = (Button)findViewById(R.id.bookingLink);
+        twoOrMoreIssuesFound = (Button)findViewById(R.id.supportLink);
+        oneIssueFound.setVisibility(View.GONE);
+        twoOrMoreIssuesFound.setVisibility(View.GONE);
+
 
         //Checks to see if issues should be visible depending on symptoms checked
-        if (SymptomCheckerActivity.getDepression() >= 8){
-            depressionLink.setVisibility(View.VISIBLE);
+        if (depressionScore >= 3){
+            oneIssueFound.setVisibility(View.VISIBLE);
             issueDiscovered = true;
         }
 
-        if (SymptomCheckerActivity.getIssue2() >= 8){
-            issue2Link.setVisibility(View.VISIBLE);
+        if (anxietyScore >= 5){
+            oneIssueFound.setVisibility(View.VISIBLE);
             issueDiscovered = true;
         }
 
-        if (SymptomCheckerActivity.getIssue3() >= 8){
-            issue3Link.setVisibility(View.VISIBLE);
+        if (bodyImageScore >= 3){
+            oneIssueFound.setVisibility(View.VISIBLE);
             issueDiscovered = true;
         }
 
-        if (SymptomCheckerActivity.getIssue4() >= 8){
-            issue4Link.setVisibility(View.VISIBLE);
-            issueDiscovered = true;
-        }
+
 
         //Changes text depending on the results. Current text was just an example, can be changed
         if (issueDiscovered){

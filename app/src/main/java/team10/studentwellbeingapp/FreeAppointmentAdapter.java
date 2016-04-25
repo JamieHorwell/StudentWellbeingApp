@@ -88,8 +88,15 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
 
             }
         });
-        AlertDialog warnNoMoreDays = builder.create();
-        warnNoMoreDays.show();
+        builder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        dialog.cancel();
+                    }
+                }
+        );
+        AlertDialog bookingDialog = builder.create();
+        bookingDialog.show();
 
 
     }
@@ -104,6 +111,7 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
                 dialog.cancel();
             }
         });
+
         AlertDialog generalAlert = builder.create();
         generalAlert.show();
 

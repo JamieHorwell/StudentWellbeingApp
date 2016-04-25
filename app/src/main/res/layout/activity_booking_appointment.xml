@@ -56,9 +56,17 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:divider="@android:color/transparent"
-        android:dividerHeight="10dp">
+        android:dividerHeight="20dp">
 
     </ListView>
+
+    <TextView android:id="@+id/emptyElement"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="No Results"
+        android:textSize="@dimen/toolbar_text_size"
+        android:padding="@dimen/toolbar_padding"
+        android:textColor="@color/wellbeing_dark_purple"/>
 
 
 

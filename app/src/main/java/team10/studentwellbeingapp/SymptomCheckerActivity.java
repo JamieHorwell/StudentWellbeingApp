@@ -23,19 +23,21 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 
 public class SymptomCheckerActivity extends AppCompatActivity {
     //Give all issues a score. If the score reaches a certain point, the button will activate on the next page
     private static int depression = 0;
-    private static int issue2 = 0;
-    private static int issue3 = 0;
-    private static int issue4 = 0;
-    CheckBox sym5;
-    RadioButton sym1op1, sym1op2, sym1op3, sym1op4, sym2op1, sym2op2, sym2op3, sym2op4, sym3op1, sym3op2, sym3op3, sym3op4;
+    private static int anxiety = 0;
+    private static int bodyImage = 0;
+    private final int NO_OF_QUESTIONS = 7;
+    private int[] scores = new int[NO_OF_QUESTIONS];
+
 
 
     @Override
@@ -46,84 +48,25 @@ public class SymptomCheckerActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
+    //submit button has been clicked, sums scores of issues
     public void onSymptomButtonClick(View v){
-        //resets values each time button is clicked
-        depression = 0;
-        issue2 = 0;
-        issue3 = 0;
-        issue4 = 0;
 
-        sym1op1=(RadioButton)findViewById(R.id.symptom1Never);
-        sym1op2=(RadioButton)findViewById(R.id.symptom1Rarely);
-        sym1op3=(RadioButton)findViewById(R.id.symptom1Sometimes);
-        sym1op4=(RadioButton)findViewById(R.id.symptom1Often);
+        RadioGroup radioGroupQ1 = (RadioGroup) findViewById(R.id.question1);
 
-        sym2op1=(RadioButton)findViewById(R.id.symptom2Never);
-        sym2op2=(RadioButton)findViewById(R.id.symptom2Rarely);
-        sym2op3=(RadioButton)findViewById(R.id.symptom2Sometimes);
-        sym2op4=(RadioButton)findViewById(R.id.symptom2Often);
+        //loop through radioGroups, getting the index of radio button checked in each instance
+        for(int i = 0; i < NO_OF_QUESTIONS; i++ ) {
+            String radioGroupID = "question" + Integer.toString(i);
+            int resID = getResources().getIdentifier(radioGroupID, "id", getPackageName());
+            RadioGroup questionRadioGroup = (RadioGroup) findViewById(resID);
+            int radioButtonID = radioGroupQ1.getCheckedRadioButtonId();
+            View radioButton = radioGroupQ1.findViewById(radioButtonID);
+            int idx = radioGroupQ1.indexOfChild(radioButton);
+            scores[i] = idx;
+        }
+        setDepression();
+        setAnxiety();
+        setBodyImage();
 
-        sym3op1=(RadioButton)findViewById(R.id.symptom3Never);
-        sym3op2=(RadioButton)findViewById(R.id.symptom3Rarely);
-        sym3op3=(RadioButton)findViewById(R.id.symptom3Sometimes);
-        sym3op4=(RadioButton)findViewById(R.id.symptom3Often);
-
-        sym5=(CheckBox)findViewById(R.id.symptom5);
-
-        //Give each checkbox a certain score for each issue. This will add up the score for the checkboxes that are checked.
-        if(sym1op1.isChecked()){
-
-        }
-        else if(sym1op2.isChecked()){
-            depression += 1;
-            issue2 += 1;
-        }
-        else if(sym1op3.isChecked()){
-            depression += 3;
-            issue2 += 2;
-        }
-        else if(sym1op4.isChecked()){
-            depression += 5;
-            issue2 += 3;
-            issue3 += 2;
-        }
-
-        if(sym2op1.isChecked()){
-            depression += 0;
-        }
-        else if(sym2op2.isChecked()){
-            depression += 1;
-        }
-        else if(sym2op3.isChecked()){
-            depression += 3;
-        }
-        else if(sym2op4.isChecked()){
-            depression += 5;
-            issue3 += 5;
-            issue4 += 2;
-        }
-
-        if(sym3op1.isChecked()){
-            issue3 += 3;
-            issue4 += 3;
-            issue2 += 1;
-        }
-        else if(sym3op2.isChecked()){
-            issue3 += 2;
-            issue4 += 2;
-        }
-        else if(sym3op3.isChecked()){
-            issue3 += 1;
-            issue4 += 1;
-        }
-        else if(sym3op4.isChecked()){
-
-        }
-
-        if (sym5.isChecked()) {
-            depression += 5;
-            issue3 += 4;
-        }
 
         startActivity(new Intent(this, SymptomCheckerLink.class));
     }
@@ -131,14 +74,20 @@ public class SymptomCheckerActivity extends AppCompatActivity {
     public static int getDepression(){
         return depression;
     }
-    public static int getIssue2(){
-        return issue2;
+    public static int getAnxiety(){
+        return anxiety;
     }
-    public static int getIssue3(){
-        return issue3;
-    }
-    public static int getIssue4(){
-        return issue4;
-    }
+    public static int getBodyImage(){ return bodyImage; }
 
+
+    //setters used to set scores of each issue relevant from scores array
+    public void setDepression() {
+            depression = scores[0] + scores[1];
+    }
+    public void setAnxiety() {
+            anxiety = scores[2] + scores[3] + scores[4];
+    }
+    public void setBodyImage() {
+            bodyImage = scores[5] + scores[6];
+    }
 }

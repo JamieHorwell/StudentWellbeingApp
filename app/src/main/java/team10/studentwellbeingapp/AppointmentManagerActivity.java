@@ -13,6 +13,7 @@ package team10.studentwellbeingapp;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -46,26 +47,10 @@ public class AppointmentManagerActivity extends AppCompatActivity {
 
 
 
-
-    public void Alertdialog(String message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(message);
-        builder.setCancelable(true);
-        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        AlertDialog warnNoMoreDays = builder.create();
-        warnNoMoreDays.show();
-
-
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, AppointmentMenuActivity.class));
     }
-
-
-
-
 
 
 
@@ -93,6 +78,8 @@ public class AppointmentManagerActivity extends AppCompatActivity {
 
             return appointments;
         }
+
+
 
         protected void onPostExecute(ArrayList<Appointment> result) {
 
