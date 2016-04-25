@@ -69,7 +69,7 @@
 
 
         <activity
-            android:name=".MapsTestingActivity"
+            android:name=".MapsActivity"
             android:label="@string/title_activity_maps_testing"
 
             android:parentActivityName=".FindSupportActivity" >

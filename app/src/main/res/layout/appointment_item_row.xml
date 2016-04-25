@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:textSize="22dp"
         android:textStyle="bold"
+        android:textColor="@color/wellbeing_white"
         android:paddingLeft="30dp"
         android:paddingBottom="10dip"
         android:paddingTop="10dip"
@@ -21,9 +22,10 @@
         android:id = "@+id/councillorText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/wellbeing_white"
         android:layout_below="@+id/appointmentText"
         android:textSize="20dp"
-        android:paddingLeft="40dp"
+        android:paddingLeft="30dp"
         />
 
 

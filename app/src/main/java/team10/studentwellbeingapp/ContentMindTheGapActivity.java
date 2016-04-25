@@ -14,9 +14,9 @@ public class ContentMindTheGapActivity extends AppCompatActivity {
         setContentView(R.layout.content_mind_the_gap);
     }
 
-    public void onMindTheGapBackButtonClick(View v) {
-        ImageButton b = (ImageButton) v;
-        if (b.getId() == R.id.contentMindTheGapBackButton)
-            startActivity(new Intent(this, ContentMenuActivity.class));
+
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, ContentMenuActivity.class));
     }
 }

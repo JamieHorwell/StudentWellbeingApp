@@ -165,6 +165,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, LoginActivity.class));
+    }
 
 
     private void saveData(String [] data){

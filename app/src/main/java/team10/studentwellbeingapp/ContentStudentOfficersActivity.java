@@ -13,9 +13,9 @@ public class ContentStudentOfficersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_student_officers);
     }
-    public void onStudentOfficersBackButtonClick(View v) {
-        ImageButton b = (ImageButton) v;
-        if (b.getId() == R.id.contentStudentOfficersBackButton)
-            startActivity(new Intent(this, ContentMenuActivity.class));
+
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, ContentMenuActivity.class));
     }
 }

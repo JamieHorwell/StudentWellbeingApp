@@ -14,9 +14,10 @@ public class ContentCommonIssuesActivity extends AppCompatActivity {
         setContentView(R.layout.content_common_issues);
     }
 
-    public void onCommonIssuesBackButtonClick(View v) {
-        ImageButton b = (ImageButton) v;
-        if (b.getId() == R.id.contentCommonIssuesBackButton)
-            startActivity(new Intent(this, ContentMenuActivity.class));
+
+
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, ContentMenuActivity.class));
     }
 }

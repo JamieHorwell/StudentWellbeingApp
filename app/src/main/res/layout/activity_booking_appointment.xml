@@ -31,12 +31,13 @@
         <ImageButton
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:layout_gravity="start"
-            android:onClick="onEntryButtonClick"
-            android:id="@+id/moodEntryBackButton"
-            android:src="@drawable/previous_button"
+            android:layout_gravity="left"
+            android:padding="5dp"
+            android:onClick="backButtonClick"
+            android:id="@+id/backButton"
+            android:scaleType="fitCenter"
             android:background="@color/mood_diary_teal"
-            android:scaleType="fitCenter"/>
+            android:src="@drawable/previous_button" />
 
         <TextView
             android:layout_width="wrap_content"

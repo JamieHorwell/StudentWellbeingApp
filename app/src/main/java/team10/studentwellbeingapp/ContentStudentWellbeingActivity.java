@@ -14,9 +14,9 @@ public class ContentStudentWellbeingActivity extends AppCompatActivity {
         setContentView(R.layout.content_student_wellbeing);
     }
 
-    public void onStudentWellbeingBackButtonClick(View v) {
-        ImageButton b = (ImageButton) v;
-        if (b.getId() == R.id.contentStudentWellbeingBackButton)
-            startActivity(new Intent(this, ContentMenuActivity.class));
+
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, ContentMenuActivity.class));
     }
 }

@@ -23,12 +23,13 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     AppointmentAccessorNew appointmentAccessor;
     AppointmentDay[] daysAppointments;
     int counter = 0;
-    private Calendar currentday;
+    private Calendar currentDay;
     private ListView listView1;
     FreeAppointmentAdapter adapter;
-    String student = "150068502";
+    String username;
+    String password;
 
-    String DateToDisplayFrom = "2016-05-05";
+
 
     TextView headerValue;
     View header;
@@ -40,17 +41,15 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         Intent intent = getIntent();
 
         Bundle bundle = intent.getExtras();
-        student = bundle.get("Username").toString();
+        username = bundle.get("Username").toString();
+        password = bundle.get("Password").toString();
 
-
-
-        currentday = Calendar.getInstance();
-        currentday.set(2016, 05, 05);
+        currentDay = getDaytoDisplayFrom();
         try {
-            new retrieveData(this, convertToFormat(currentday)).execute();
+            new retrieveData(this, convertToFormat(currentDay)).execute();
         }
         catch (java.text.ParseException e) {
-
+            Alertdialog("Error in getting date, please try again, if problem persists please contact NUIT");
         }
     }
 
@@ -85,12 +84,12 @@ public class BookingAppointmentActivity extends ActionBarActivity {
     }
 
     public void nextDay(View v) {
-        if(counter < 2) {
+        if(counter < 7) {
             counter++;
             listView1.removeHeaderView(header);
-            currentday.add(Calendar.DATE, 1);
+            currentDay.add(Calendar.DATE, 1);
             try {
-                new retrieveData(this, convertToFormat(currentday)).execute();
+                new retrieveData(this, convertToFormat(currentDay)).execute();
             }
             catch (java.text.ParseException e) {}
         }
@@ -104,9 +103,9 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         if(counter > 0) {
             counter--;
             listView1.removeHeaderView(header);
-            currentday.add(Calendar.DATE, -1);
+            currentDay.add(Calendar.DATE, -1);
             try {
-                new retrieveData(this, convertToFormat(currentday)).execute();
+                new retrieveData(this, convertToFormat(currentDay)).execute();
             }
             catch (java.text.ParseException e) {}
         } else {
@@ -126,29 +125,28 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         });
         AlertDialog warnNoMoreDays = builder.create();
         warnNoMoreDays.show();
-
-
     }
 
-    public Calendar getCurrentday() {
-        return currentday;
+    /* get the current date to display appointments from, a week in advance */
+    public Calendar getDaytoDisplayFrom() {
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.DATE, 7);
+       return c;
     }
 
-    public void setCurrentday(Date currentday) {
-        this.currentday = Calendar.getInstance();
-    }
 
     public void getStudentDetails() {
             Bundle extras = getIntent().getExtras();
             if(extras !=null ) {
-                String tempUsername = extras.get("Username").toString();
+                String username = extras.get("Username").toString();
                 String tempPassword = extras.get("Password").toString();
-                Log.d("Username", tempUsername);
-                Log.d("Password", tempPassword);
-
             }
     }
 
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, AppointmentMenuActivity.class));
+    }
 
     //needs code added
     class retrieveData extends AsyncTask<String, String, AppointmentDay> {
@@ -164,7 +162,7 @@ public class BookingAppointmentActivity extends ActionBarActivity {
         protected AppointmentDay doInBackground(String... args) {
           appointmentAccessor = new AppointmentAccessorNew();
 
-         AppointmentDay testDay =   appointmentAccessor.getFreeAppointments(dateToRetrieve,student);
+         AppointmentDay testDay =   appointmentAccessor.getFreeAppointments(dateToRetrieve,username);
 
 
 

@@ -29,11 +29,15 @@ public class FindSupportActivity extends AppCompatActivity {
 
 
     public void openMapTestingActivity(View v) {
-        startActivity(new Intent(this, MapsTestingActivity.class));
+        startActivity(new Intent(this, MapsActivity.class));
 
 
     }
 
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, MainMenuActivity.class));
+    }
 
 
 }

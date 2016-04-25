@@ -2,8 +2,6 @@ package team10.studentwellbeingapp;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
@@ -15,7 +13,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
@@ -23,28 +20,19 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.common.ConnectionResult;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.util.Log;
 
-
-import java.io.IOException;
-
-public class MapsTestingActivity extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
+public class MapsActivity extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
@@ -60,7 +48,7 @@ public class MapsTestingActivity extends FragmentActivity implements GoogleApiCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps_testing);
+        setContentView(R.layout.activity_maps_);
         mapMarkerIcon = R.drawable.icon1;
         markers = new Marker[MaxMarkers];
 
@@ -122,6 +110,9 @@ public class MapsTestingActivity extends FragmentActivity implements GoogleApiCl
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
                 setUpMap();
+            }
+            else  {
+                Alertdialog("Cannot display maps, ensure location services are enabled and try again.");
             }
         }
     }

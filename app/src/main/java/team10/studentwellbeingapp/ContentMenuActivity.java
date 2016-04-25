@@ -49,9 +49,9 @@ public class ContentMenuActivity extends AppCompatActivity {
         }
     }
 
-    public void onContentMenuBackButtonClick(View v){
-        ImageButton b = (ImageButton) v;
-        if(b.getId() == R.id.contentMenuBackButton)
-            startActivity(new Intent(this, MainMenuActivity.class));
+
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, MainMenuActivity.class));
     }
 }
