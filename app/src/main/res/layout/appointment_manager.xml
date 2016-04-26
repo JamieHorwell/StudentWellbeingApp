@@ -29,7 +29,6 @@ Notes:
                 android:layout_height="wrap_content"
                 android:background="@color/wellbeing_dark_purple"
                 android:elevation="4dp"
-                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
                 android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
                 android:id="@+id/buttonEightToolbar"
                 android:layout_gravity="center"

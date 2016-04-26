@@ -77,6 +77,11 @@ public class SymptomCheckerActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    //go back to previous activity
+    public void backButtonClick(View v){
+        startActivity(new Intent(this, MainMenuActivity.class));
+    }
+
     public void Alertdialog(String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(message);

@@ -143,7 +143,10 @@ public class BookingAppointmentActivity extends ActionBarActivity {
 
     //go back to previous activity
     public void backButtonClick(View v){
-        startActivity(new Intent(this, AppointmentMenuActivity.class));
+        Intent i = new Intent(this,AppointmentMenuActivity.class);
+        i.putExtra("Username",username);
+        i.putExtra("Password",password);
+        startActivity(i);
     }
 
     //needs code added

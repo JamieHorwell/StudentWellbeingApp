@@ -106,11 +106,10 @@ public class AppointmentAccessorNew {
 
             e.printStackTrace();
         }
-        //if no appointments available
-        if(appointments.isEmpty()) {
-            appointments.add(new Appointment("No Appointments Available", "", ""));
-        }
         return appointments;
+        //if no appointments available
+
+
     }
 
     //books an appointment into the mysql db
