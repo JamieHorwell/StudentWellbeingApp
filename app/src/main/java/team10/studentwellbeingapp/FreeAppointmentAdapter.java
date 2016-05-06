@@ -182,10 +182,15 @@ public class FreeAppointmentAdapter extends ArrayAdapter<Appointment> {
         }
 
         protected void onPostExecute(ArrayList<Appointment> result) {
-            //user hasn't exceeded booking limit
-            if(result.size() < 2) {
+            //user hasn't got any bookings
+            if(result == null) {
                 new bookAppointment(appointment.getaid(), appointment.getStudent()).execute();
-            } else {
+                //
+            } else if(result.size() < 1) {
+                new bookAppointment(appointment.getaid(), appointment.getStudent()).execute();
+
+            }
+            else {
                 generalAlertdialog("You already have the maximum allowed booked appointments.");
             }
 

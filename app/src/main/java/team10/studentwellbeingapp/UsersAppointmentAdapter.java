@@ -90,7 +90,7 @@ public class UsersAppointmentAdapter extends ArrayAdapter<Appointment> {
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                new cancelAppointment(appointment.getaid(),password, appointment.getStudent()).execute();
+                new cancelAppointment(appointment.getaid(),username, password).execute();
             }
         });
         builder.setNegativeButton("Cancel",

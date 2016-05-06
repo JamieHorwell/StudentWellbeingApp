@@ -48,7 +48,7 @@ public class SymptomCheckerActivity extends AppCompatActivity {
         setContentView(R.layout.symptom_checker);
         Toolbar toolbar = (Toolbar) findViewById(R.id.buttonSixToolbar);
         setSupportActionBar(toolbar);
-        Alertdialog("Disclaimer: This symptom checker is simply a demo and does ont qualify as a professional diagnosis.");
+        Alertdialog("Disclaimer: This symptom checker is simply a demo and does not qualify as a professional diagnosis.");
     }
 
     //submit button has been clicked, sums scores of issues

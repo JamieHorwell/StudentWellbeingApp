@@ -130,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
                 toast.show();
             }
             else {
-                String message = ("Unable to connect, please ensure you have internet enabled." +
+                String message = ("Unable to connect, please ensure you have internet enabled and have entered the right credentials." +
                         " If the problem persists please contact NUIT");
                 Toast toast = Toast.makeText(mcontext, message, Toast.LENGTH_LONG);
                 toast.show();

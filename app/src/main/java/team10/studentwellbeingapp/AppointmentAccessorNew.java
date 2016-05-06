@@ -93,7 +93,7 @@ public class AppointmentAccessorNew {
             JSONArray arr = apps.getJSONArray("appointments");
 
             for(int i = 0; i<arr.length(); i++){
-                Appointment appointment = new Appointment(arr.getJSONObject(i).getString("datetime"), arr.getJSONObject(i).getString("councillor"), arr.getJSONObject(i).getString("aid"));
+                Appointment appointment = new Appointment(arr.getJSONObject(i).getString("datetime"), "Dr Smith", arr.getJSONObject(i).getString("aid"));
                 appointments.add(appointment);
             }
             //read php response of appointments, add to arraylist
@@ -153,7 +153,9 @@ public class AppointmentAccessorNew {
     //cancels an appointment in the mysql db
     public void cancelAppointment(String student, String password, String aid) throws IllegalArgumentException{
         URL url;
-
+        Log.w("cancel", student);
+        Log.w("cancel", password);
+        Log.w("cancel", aid);
         try {
 
             url = new URL(cancelURL);
@@ -174,6 +176,7 @@ public class AppointmentAccessorNew {
             String line;
 
             while((line = in.readLine()) != null){
+                Log.w("cancel", line);
                 sb.append(line);
             }
             if(sb.toString().equals("invalid user")){
